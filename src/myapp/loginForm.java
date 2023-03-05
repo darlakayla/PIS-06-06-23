@@ -5,6 +5,7 @@ package myapp;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import internalPages.settingsPage;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -56,19 +57,18 @@ public class loginForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        password = new javax.swing.JTextField();
         username1 = new javax.swing.JTextField();
-        login = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
         cancel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
+        login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(925, 463));
 
         jPanel1.setLayout(null);
 
@@ -89,16 +89,6 @@ public class loginForm extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        password.setBackground(new java.awt.Color(255, 204, 204));
-        password.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
-        password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 13))); // NOI18N
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 330, 60));
-
         username1.setBackground(new java.awt.Color(255, 204, 204));
         username1.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
         username1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 13))); // NOI18N
@@ -109,30 +99,14 @@ public class loginForm extends javax.swing.JFrame {
         });
         jPanel3.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 330, 60));
 
-        login.setBackground(new java.awt.Color(255, 102, 102));
-        login.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginMouseExited(evt);
-            }
-        });
-        login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("LOGIN");
-        login.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
-
-        jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 150, 50));
-
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setText("New user? Click here to register!");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 230, 20));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 230, 20));
 
         close.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -156,6 +130,9 @@ public class loginForm extends javax.swing.JFrame {
 
         cancel.setBackground(new java.awt.Color(255, 102, 102));
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cancelMouseEntered(evt);
             }
@@ -165,12 +142,49 @@ public class loginForm extends javax.swing.JFrame {
         });
         cancel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("CANCEL");
+        cancel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
+
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 150, 50));
+
+        password.setBackground(new java.awt.Color(255, 204, 204));
+        password.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
+        password.setText("jPasswordField1");
+        password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 13))); // NOI18N
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordMouseClicked(evt);
+            }
+        });
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 330, 60));
+
+        login.setBackground(new java.awt.Color(255, 102, 102));
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginMouseExited(evt);
+            }
+        });
+        login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CANCEL");
-        cancel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
+        jLabel1.setText("LOGIN");
+        login.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
 
-        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 150, 50));
+        jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 150, 50));
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(370, 0, 560, 470);
@@ -190,12 +204,8 @@ public class loginForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
     private void username1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_username1ActionPerformed
 
     private void cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseEntered
@@ -205,20 +215,6 @@ public class loginForm extends javax.swing.JFrame {
     private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
         buttonDefaultColor(cancel);
     }//GEN-LAST:event_cancelMouseExited
-
-    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
-        buttonBorderAnimation(login);
-    }//GEN-LAST:event_loginMouseEntered
-
-    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
-        buttonDefaultColor(login);
-    }//GEN-LAST:event_loginMouseExited
-
-    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        dashBoard dash = new dashBoard();
-        this.dispose();
-        dash.setVisible(true);
-    }//GEN-LAST:event_loginMouseClicked
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
         setState(ICONIFIED);
@@ -230,6 +226,50 @@ public class loginForm extends javax.swing.JFrame {
         System.exit(0);
         }      
     }//GEN-LAST:event_closeMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        registerForm  rf = new registerForm();
+        rf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        username1.setText(null);
+        password.setText(null);
+    }//GEN-LAST:event_cancelMouseClicked
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+          password.setEchoChar('*');
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
+        password.setText("");
+    }//GEN-LAST:event_passwordMouseClicked
+
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+        String user = username1.getText();
+        String pass = password.getText();
+        if(user.isEmpty() || user.equals("") || pass.isEmpty() || pass.equals("")){
+            username1.setText("Username");
+            password.setText("Password");
+            password.setEchoChar((char)0);
+        }else{
+            dashBoard db = new dashBoard();
+            db.setVisible(true);
+            dashBoard.firstname.setText(""+user);
+            this.setVisible(false);
+            this.setDefaultCloseOperation(this.HIDE_ON_CLOSE);
+            this.dispose();          
+        }     
+    }//GEN-LAST:event_loginMouseClicked
+
+    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
+        buttonBorderAnimation(login);
+    }//GEN-LAST:event_loginMouseEntered
+
+    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
+        buttonDefaultColor(login);
+    }//GEN-LAST:event_loginMouseExited
 
     /**
      * @param args the command line arguments
@@ -279,7 +319,7 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel login;
     private javax.swing.JLabel minimize;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField username1;
     // End of variables declaration//GEN-END:variables
 }
