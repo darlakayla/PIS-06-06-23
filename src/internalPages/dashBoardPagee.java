@@ -10,6 +10,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import myapp.loginForm;
 import myapp.manageHousehold;
 
 /**
@@ -47,14 +48,18 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        bg = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        update = new javax.swing.JPanel();
+        archive = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         manage = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        logout = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -74,6 +79,8 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel3);
         jPanel3.setBounds(490, 0, 170, 170);
+        jPanel1.add(bg);
+        bg.setBounds(0, 0, 750, 140);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(null);
@@ -82,32 +89,32 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ARCHIVE LIST");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(410, 200, 160, 20);
+        jLabel4.setBounds(290, 200, 160, 20);
 
-        update.setBackground(new java.awt.Color(255, 153, 153));
-        update.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        update.setPreferredSize(new java.awt.Dimension(1, 140));
-        update.addMouseListener(new java.awt.event.MouseAdapter() {
+        archive.setBackground(new java.awt.Color(255, 153, 153));
+        archive.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        archive.setPreferredSize(new java.awt.Dimension(1, 140));
+        archive.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                updateMouseEntered(evt);
+                archiveMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                updateMouseExited(evt);
+                archiveMouseExited(evt);
             }
         });
-        update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        archive.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/update & archive.png"))); // NOI18N
-        update.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 140, 128));
+        archive.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 140, 128));
 
-        jPanel2.add(update);
-        update.setBounds(410, 50, 160, 150);
+        jPanel2.add(archive);
+        archive.setBounds(290, 50, 160, 150);
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("MANAGE HOUSEHOLD");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(200, 200, 160, 20);
+        jLabel13.setBounds(60, 200, 160, 20);
 
         manage.setBackground(new java.awt.Color(255, 153, 153));
         manage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -129,13 +136,41 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         manage.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 128));
 
         jPanel2.add(manage);
-        manage.setBounds(200, 50, 160, 150);
+        manage.setBounds(60, 50, 160, 150);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("INFORMATION");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(200, 220, 160, 20);
+        jLabel9.setBounds(60, 220, 160, 20);
+
+        logout.setBackground(new java.awt.Color(255, 153, 153));
+        logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        logout.setPreferredSize(new java.awt.Dimension(1, 140));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutMouseExited(evt);
+            }
+        });
+        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/logout.png"))); // NOI18N
+        logout.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel2.add(logout);
+        logout.setBounds(520, 50, 160, 150);
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("LOGOUT");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(520, 200, 160, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,13 +194,13 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseEntered
-       update.setBackground(navcolor);
-    }//GEN-LAST:event_updateMouseEntered
+    private void archiveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseEntered
+       archive.setBackground(navcolor);
+    }//GEN-LAST:event_archiveMouseEntered
 
-    private void updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseExited
-      update.setBackground(headcolor);
-    }//GEN-LAST:event_updateMouseExited
+    private void archiveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseExited
+      archive.setBackground(headcolor);
+    }//GEN-LAST:event_archiveMouseExited
 
     private void manageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMouseEntered
        manage.setBackground(navcolor);
@@ -181,19 +216,38 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_manageMouseClicked
 
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        JFrame mainFrame =(JFrame)SwingUtilities.getWindowAncestor(this);
+        mainFrame.dispose();
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setBackground(navcolor);
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+        logout.setBackground(headcolor);
+    }//GEN-LAST:event_logoutMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel archive;
+    private javax.swing.JLabel bg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel logout;
     private javax.swing.JPanel manage;
-    private javax.swing.JPanel update;
     // End of variables declaration//GEN-END:variables
 }

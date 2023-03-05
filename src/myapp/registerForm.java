@@ -34,6 +34,7 @@ public class registerForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,7 +49,8 @@ public class registerForm extends javax.swing.JFrame {
         repassword = new javax.swing.JTextField();
         position = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        register = new javax.swing.JButton();
+        signup = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -61,7 +63,7 @@ public class registerForm extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/PUROK (1).png"))); // NOI18N
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(130, 110, 200, 200);
+        jLabel8.setBounds(130, 100, 200, 200);
 
         close.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -85,13 +87,17 @@ public class registerForm extends javax.swing.JFrame {
         jPanel2.add(minimize);
         minimize.setBounds(380, 10, 16, 30);
 
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pexels-photo-1486974 (1).jpg"))); // NOI18N
+        jPanel2.add(bg);
+        bg.setBounds(0, 0, 440, 470);
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(486, 0, 450, 470);
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 33)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel1.setText("SIGN UP HERE");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 40));
 
@@ -158,21 +164,32 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.add(email);
         email.setBounds(180, 260, 220, 30);
 
-        register.setBackground(new java.awt.Color(255, 153, 153));
-        register.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        register.setText("SIGN UP");
-        register.addMouseListener(new java.awt.event.MouseAdapter() {
+        signup.setBackground(new java.awt.Color(255, 153, 153));
+        signup.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        signup.setText("SIGN UP");
+        signup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerMouseClicked(evt);
+                signupMouseClicked(evt);
             }
         });
-        register.addActionListener(new java.awt.event.ActionListener() {
+        signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerActionPerformed(evt);
+                signupActionPerformed(evt);
             }
         });
-        jPanel1.add(register);
-        register.setBounds(180, 350, 220, 30);
+        jPanel1.add(signup);
+        signup.setBounds(300, 350, 130, 30);
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jButton1.setText("CLEAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(160, 350, 130, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,15 +217,30 @@ public class registerForm extends javax.swing.JFrame {
         setState(ICONIFIED);
     }//GEN-LAST:event_minimizeMouseClicked
 
-    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
+         
+            JOptionPane.showMessageDialog(null, "Succesfully Sign up!");
+        
+        
+        
+        
         loginForm lf = new loginForm();
         lf.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_registerActionPerformed
+    }//GEN-LAST:event_signupActionPerformed
 
-    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerMouseClicked
+    private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
+        
+    }//GEN-LAST:event_signupMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        fullname.setText(null);
+        password.setText(null);
+        repassword.setText(null);
+        position.setText(null);
+        email.setText(null);
+        address.setText(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,9 +279,11 @@ public class registerForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
+    private javax.swing.JLabel bg;
     private javax.swing.JLabel close;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fullname;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -264,7 +298,7 @@ public class registerForm extends javax.swing.JFrame {
     private javax.swing.JLabel minimize;
     private javax.swing.JTextField password;
     private javax.swing.JTextField position;
-    private javax.swing.JButton register;
     private javax.swing.JTextField repassword;
+    private javax.swing.JButton signup;
     // End of variables declaration//GEN-END:variables
 }
