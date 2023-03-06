@@ -31,7 +31,6 @@ public class registerForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
@@ -60,10 +59,6 @@ public class registerForm extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 102, 102));
         jPanel2.setLayout(null);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/PUROK (1).png"))); // NOI18N
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(130, 100, 200, 200);
 
         close.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -219,11 +214,8 @@ public class registerForm extends javax.swing.JFrame {
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
          
-            JOptionPane.showMessageDialog(null, "Succesfully Sign up!");
-        
-        
-        
-        
+        JOptionPane.showMessageDialog(null, "Succesfully Sign up!");
+ 
         loginForm lf = new loginForm();
         lf.setVisible(true);
         this.dispose();
@@ -291,7 +283,6 @@ public class registerForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

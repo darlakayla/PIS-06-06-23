@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import myapp.loginForm;
-import myapp.manageHousehold;
+
 
 /**
  *
@@ -45,198 +45,209 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        bg = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        archive = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        manage = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        logout = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(890, 480));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 0, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("PUROK INFORMATION SYSTEM");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 40, 370, 40);
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/userr.png"))); // NOI18N
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(20, 10, 50, 50);
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel5.setText("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 80, 380, 20);
+        jLabel11.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel11.setText("ADMINISTRATOR");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(80, 30, 150, 19);
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(490, 0, 170, 170);
-        jPanel1.add(bg);
-        bg.setBounds(0, 0, 750, 140);
+        jPanel5.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel5.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel2.setText("Status: ");
+        jPanel5.add(jLabel2);
+        jLabel2.setBounds(20, 320, 80, 30);
+
+        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel3.setText("April 18, 2003 ");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel3);
+        jLabel3.setBounds(120, 240, 140, 30);
+
+        jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel4.setText("Gender:");
+        jPanel5.add(jLabel4);
+        jLabel4.setBounds(20, 160, 100, 30);
+
+        jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel5.setText("Civil Status:");
+        jPanel5.add(jLabel5);
+        jLabel5.setBounds(20, 200, 80, 30);
+
+        jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel6.setText("Birthdate:");
+        jPanel5.add(jLabel6);
+        jLabel6.setBounds(20, 240, 80, 30);
+
+        jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel7.setText("Contact:");
+        jPanel5.add(jLabel7);
+        jLabel7.setBounds(20, 280, 80, 30);
+
+        jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel8.setText("Name:");
+        jPanel5.add(jLabel8);
+        jLabel8.setBounds(20, 120, 90, 30);
+
+        jLabel9.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel9.setText("Requinto, Bernadette");
+        jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel9);
+        jLabel9.setBounds(120, 120, 140, 30);
+
+        jLabel12.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel12.setText("Female");
+        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel12);
+        jLabel12.setBounds(120, 160, 140, 30);
+
+        jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel13.setText("Single");
+        jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel13);
+        jLabel13.setBounds(120, 200, 140, 30);
+
+        jLabel14.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel14.setText("Active");
+        jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel14);
+        jLabel14.setBounds(120, 320, 140, 30);
+
+        jLabel15.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel15.setText("09452999759");
+        jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel15);
+        jLabel15.setBounds(120, 280, 140, 30);
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/berna (1).jpg"))); // NOI18N
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(jLabel22);
+        jLabel22.setBounds(100, 20, 90, 80);
+
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(20, 70, 280, 390);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
-        jPanel2.setLayout(null);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ARCHIVE LIST");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(290, 200, 160, 20);
+        jLabel16.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("HOUSEHOLD");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 130, -1));
 
-        archive.setBackground(new java.awt.Color(255, 153, 153));
-        archive.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        archive.setPreferredSize(new java.awt.Dimension(1, 140));
-        archive.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                archiveMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                archiveMouseExited(evt);
-            }
-        });
-        archive.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel17.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("TOTAL");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 130, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/update & archive.png"))); // NOI18N
-        archive.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 140, 128));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/hh (1).png"))); // NOI18N
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 50, 50));
 
-        jPanel2.add(archive);
-        archive.setBounds(290, 50, 160, 150);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(360, 40, 210, 110);
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("MANAGE HOUSEHOLD");
-        jPanel2.add(jLabel13);
-        jLabel13.setBounds(60, 200, 160, 20);
+        jPanel3.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        manage.setBackground(new java.awt.Color(255, 153, 153));
-        manage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        manage.setPreferredSize(new java.awt.Dimension(1, 140));
-        manage.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                manageMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                manageMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                manageMouseExited(evt);
-            }
-        });
-        manage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel19.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("RESIDENT");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 130, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/im1.png"))); // NOI18N
-        manage.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 128));
+        jLabel18.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("TOTAL");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 130, -1));
 
-        jPanel2.add(manage);
-        manage.setBounds(60, 50, 160, 150);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/RES (1).png"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("INFORMATION");
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(60, 220, 160, 20);
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(610, 40, 210, 110);
 
-        logout.setBackground(new java.awt.Color(255, 153, 153));
-        logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        logout.setPreferredSize(new java.awt.Dimension(1, 140));
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutMouseExited(evt);
-            }
-        });
-        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel21.setBackground(new java.awt.Color(255, 102, 102));
+        jLabel21.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("PUROK INFORMATION SYSTEM");
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(440, 410, 290, 30);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/logout.png"))); // NOI18N
-        logout.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jPanel2.add(logout);
-        logout.setBounds(520, 50, 160, 150);
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("LOGOUT");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(520, 200, 160, 20);
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1).png"))); // NOI18N
+        jPanel1.add(jLabel23);
+        jLabel23.setBounds(480, 200, 210, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 231, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 135, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void archiveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseEntered
-       archive.setBackground(navcolor);
-    }//GEN-LAST:event_archiveMouseEntered
-
-    private void archiveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseExited
-      archive.setBackground(headcolor);
-    }//GEN-LAST:event_archiveMouseExited
-
-    private void manageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMouseEntered
-       manage.setBackground(navcolor);
-    }//GEN-LAST:event_manageMouseEntered
-
-    private void manageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMouseExited
-       manage.setBackground(headcolor);
-    }//GEN-LAST:event_manageMouseExited
-
-    private void manageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMouseClicked
-        manageHousehold mh = new manageHousehold();
-        mh.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_manageMouseClicked
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        JFrame mainFrame =(JFrame)SwingUtilities.getWindowAncestor(this);
-        mainFrame.dispose();
-        loginForm lf = new loginForm();
-        lf.setVisible(true);
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(navcolor);
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(headcolor);
-    }//GEN-LAST:event_logoutMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel archive;
-    private javax.swing.JLabel bg;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -247,7 +258,6 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel logout;
-    private javax.swing.JPanel manage;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
