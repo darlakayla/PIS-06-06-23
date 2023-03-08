@@ -6,6 +6,7 @@ package myapp;
  * and open the template in the editor.
  */
 
+import internalPages.dashBoardPagee;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -282,7 +283,7 @@ public class loginForm extends javax.swing.JFrame {
         }else{
             dashBoard db = new dashBoard();
             db.setVisible(true);
-            dashBoard.firstname.setText(""+user);
+            dashBoard.firstname.setText(""+user);         
             this.setVisible(false);
             this.setDefaultCloseOperation(this.HIDE_ON_CLOSE);
             this.dispose();          

@@ -47,20 +47,6 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -87,83 +73,6 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel11);
         jLabel11.setBounds(80, 30, 150, 19);
 
-        jPanel5.setBackground(new java.awt.Color(255, 153, 153));
-        jPanel5.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel2.setText("Status: ");
-        jPanel5.add(jLabel2);
-        jLabel2.setBounds(20, 320, 80, 30);
-
-        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel3.setText("April 18, 2003 ");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.add(jLabel3);
-        jLabel3.setBounds(120, 240, 140, 30);
-
-        jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel4.setText("Gender:");
-        jPanel5.add(jLabel4);
-        jLabel4.setBounds(20, 160, 100, 30);
-
-        jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel5.setText("Civil Status:");
-        jPanel5.add(jLabel5);
-        jLabel5.setBounds(20, 200, 80, 30);
-
-        jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel6.setText("Birthdate:");
-        jPanel5.add(jLabel6);
-        jLabel6.setBounds(20, 240, 80, 30);
-
-        jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel7.setText("Contact:");
-        jPanel5.add(jLabel7);
-        jLabel7.setBounds(20, 280, 80, 30);
-
-        jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel8.setText("Name:");
-        jPanel5.add(jLabel8);
-        jLabel8.setBounds(20, 120, 90, 30);
-
-        jLabel9.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel9.setText("Requinto, Bernadette");
-        jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.add(jLabel9);
-        jLabel9.setBounds(120, 120, 140, 30);
-
-        jLabel12.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel12.setText("Female");
-        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.add(jLabel12);
-        jLabel12.setBounds(120, 160, 140, 30);
-
-        jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel13.setText("Single");
-        jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.add(jLabel13);
-        jLabel13.setBounds(120, 200, 140, 30);
-
-        jLabel14.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel14.setText("Active");
-        jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.add(jLabel14);
-        jLabel14.setBounds(120, 320, 140, 30);
-
-        jLabel15.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel15.setText("09452999759");
-        jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.add(jLabel15);
-        jLabel15.setBounds(120, 280, 140, 30);
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/berna (1).jpg"))); // NOI18N
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel5.add(jLabel22);
-        jLabel22.setBounds(100, 20, 90, 80);
-
-        jPanel1.add(jPanel5);
-        jPanel5.setBounds(20, 70, 280, 390);
-
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -181,7 +90,7 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 50, 50));
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(360, 40, 210, 110);
+        jPanel2.setBounds(80, 120, 210, 110);
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,7 +109,7 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(610, 40, 210, 110);
+        jPanel3.setBounds(80, 280, 210, 110);
 
         jLabel21.setBackground(new java.awt.Color(255, 102, 102));
         jLabel21.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
@@ -208,11 +117,11 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("PUROK INFORMATION SYSTEM");
         jPanel1.add(jLabel21);
-        jLabel21.setBounds(440, 410, 290, 30);
+        jLabel21.setBounds(460, 340, 290, 30);
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1).png"))); // NOI18N
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(480, 200, 210, 200);
+        jLabel23.setBounds(500, 130, 210, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,29 +144,15 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

@@ -220,7 +220,7 @@ public class newResident extends javax.swing.JInternalFrame {
         jTextField16.setBackground(new java.awt.Color(255, 153, 153));
         jTextField16.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(jTextField16);
-        jTextField16.setBounds(570, 320, 230, 30);
+        jTextField16.setBounds(570, 330, 230, 30);
 
         jComboBox1.setBackground(new java.awt.Color(255, 153, 153));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced", "Separated", "Widowed" }));
@@ -270,8 +270,6 @@ public class newResident extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton2);
         jButton2.setBounds(600, 70, 90, 25);
-
-        jDateChooser1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.add(jDateChooser1);
         jDateChooser1.setBounds(170, 390, 230, 30);
 
@@ -279,11 +277,11 @@ public class newResident extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

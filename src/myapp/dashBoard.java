@@ -9,6 +9,7 @@ package myapp;
 import internalPages.dashBoardPagee;
 import internalPages.newResident;
 import internalPages.residentRecords;
+import internalPages.settings;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -54,7 +55,7 @@ public class dashBoard extends javax.swing.JFrame {
         dashboard = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         db1 = new javax.swing.JLabel();
-        logout = new javax.swing.JPanel();
+        settings = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         db3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -173,29 +174,29 @@ public class dashBoard extends javax.swing.JFrame {
 
         navbar.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 50));
 
-        logout.setBackground(new java.awt.Color(255, 102, 102));
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        settings.setBackground(new java.awt.Color(255, 102, 102));
+        settings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
+                settingsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutMouseEntered(evt);
+                settingsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutMouseExited(evt);
+                settingsMouseExited(evt);
             }
         });
-        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        settings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("LOGOUT");
-        logout.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 140, 30));
+        jLabel11.setText("SETTINGS");
+        settings.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
 
-        db3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/logout (1).png"))); // NOI18N
-        logout.add(db3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
+        db3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/settings (1).png"))); // NOI18N
+        settings.add(db3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 60, 50));
 
-        navbar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 200, 50));
+        navbar.add(settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 200, 50));
 
         jLabel10.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -331,19 +332,18 @@ public class dashBoard extends javax.swing.JFrame {
         residentrecords.setBackground(navcolor);
     }//GEN-LAST:event_residentrecordsMouseExited
 
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        loginForm lf = new loginForm();     
-        lf.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logoutMouseClicked
+    private void settingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseClicked
+        settings st = new settings();
+        maindesktop.add(st).setVisible(true);
+    }//GEN-LAST:event_settingsMouseClicked
 
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(bodycolor);
-    }//GEN-LAST:event_logoutMouseEntered
+    private void settingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseEntered
+        settings.setBackground(bodycolor);
+    }//GEN-LAST:event_settingsMouseEntered
 
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(navcolor);
-    }//GEN-LAST:event_logoutMouseExited
+    private void settingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseExited
+        settings.setBackground(navcolor);
+    }//GEN-LAST:event_settingsMouseExited
 
     /**
      * @param args the command line arguments
@@ -403,11 +403,11 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel logout;
     private javax.swing.JDesktopPane maindesktop;
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel newresident;
     private javax.swing.JPanel residentrecords;
+    private javax.swing.JPanel settings;
     // End of variables declaration//GEN-END:variables
 }
