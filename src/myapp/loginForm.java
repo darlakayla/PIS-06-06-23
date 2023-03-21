@@ -159,7 +159,6 @@ public class loginForm extends javax.swing.JFrame {
 
         password.setBackground(new java.awt.Color(255, 204, 204));
         password.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
-        password.setText("jPasswordField1");
         password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 13))); // NOI18N
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -5,6 +5,7 @@
  */
 package internalPages;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -31,6 +32,9 @@ public class settings extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
+    Color navcolor= new Color(255,102,102);
+    Color headcolor= new Color(255,153,153);
+    Color bodycolor = new Color(255,204,204);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,8 +48,6 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -63,6 +65,10 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        browse = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        logout = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -75,27 +81,6 @@ public class settings extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setFont(new java.awt.Font("Baskerville Old Face", 1, 14)); // NOI18N
-        jButton1.setText("LOGOUT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, 110, 30));
-
-        jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("EDIT PROFILE");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 150, 30));
 
         jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel4.setText("First Name");
@@ -125,16 +110,16 @@ public class settings extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 150, 140));
 
-        jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PERSONAL INFORMATION");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 210, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 210, 30));
 
         jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 30));
 
-        jLabel9.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("PROFILE");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -175,6 +160,48 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 220, 30));
 
+        browse.setBackground(new java.awt.Color(255, 204, 204));
+        browse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                browseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                browseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                browseMouseExited(evt);
+            }
+        });
+        browse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("BROWSE");
+        browse.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
+
+        jPanel2.add(browse, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 130, 30));
+
+        logout.setBackground(new java.awt.Color(255, 204, 204));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutMouseExited(evt);
+            }
+        });
+        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("LOGOUT");
+        logout.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
+
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 130, 30));
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 90, 820, 360);
 
@@ -199,34 +226,49 @@ public class settings extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFrame mainFrame = (JFrame)SwingUtilities.getWindowAncestor(this);
-        mainFrame.dispose();
-        loginForm lf = new loginForm();
-        lf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
         JFileChooser browseImageFile = new JFileChooser();
         FileNameExtensionFilter fnaf = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
         browseImageFile.addChoosableFileFilter(fnaf);
         int showOpenDialogue = browseImageFile.showOpenDialog(null);
-        
+
         if (showOpenDialogue == JFileChooser.APPROVE_OPTION);
         File selectedImageFile = browseImageFile.getSelectedFile();
         String selectedImagePath = selectedImageFile.getAbsolutePath();
         JOptionPane.showMessageDialog(null, selectedImagePath);
-        
+
         ImageIcon ii = new ImageIcon(selectedImagePath);
-        
-        Image image = ii.getImage().getScaledInstance(photo.getWidth(),photo.getHeight(), Image.SCALE_SMOOTH);
-        photo.setIcon(new ImageIcon(image));
-    }//GEN-LAST:event_jLabel1MouseClicked
+
+        Image image = ii.getImage().getScaledInstance(jLabel18.getWidth(),jLabel18.getHeight(), Image.SCALE_SMOOTH);
+        jLabel18.setIcon(new ImageIcon(image));
+    }//GEN-LAST:event_browseMouseClicked
+
+    private void browseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseEntered
+        browse.setBackground(navcolor);
+    }//GEN-LAST:event_browseMouseEntered
+
+    private void browseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseExited
+        browse.setBackground(bodycolor);
+    }//GEN-LAST:event_browseMouseExited
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        JFrame mainFrame = (JFrame)SwingUtilities.getWindowAncestor(this);
+        mainFrame.dispose();
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setBackground(navcolor);
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+        logout.setBackground(bodycolor);
+    }//GEN-LAST:event_logoutMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel browse;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -236,7 +278,9 @@ public class settings extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -247,6 +291,7 @@ public class settings extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel logout;
     private javax.swing.JLabel photo;
     // End of variables declaration//GEN-END:variables
 }

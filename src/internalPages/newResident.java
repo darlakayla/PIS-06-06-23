@@ -5,6 +5,7 @@
  */
 package internalPages;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -28,6 +29,9 @@ public class newResident extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
+        Color navcolor= new Color(255,102,102);
+        Color headcolor= new Color(255,153,153);
+        Color bodycolor = new Color(255,204,204);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,9 +75,11 @@ public class newResident extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        save = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        browse = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -248,30 +254,52 @@ public class newResident extends javax.swing.JInternalFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male"}));
         jPanel1.add(jComboBox3);
         jComboBox3.setBounds(170, 190, 230, 30);
-
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton1.setText("SAVE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(760, 440, 110, 30);
-
-        jButton2.setBackground(new java.awt.Color(255, 153, 153));
-        jButton2.setFont(new java.awt.Font("Rockwell", 1, 13)); // NOI18N
-        jButton2.setText("BROWSE");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(600, 70, 90, 25);
         jPanel1.add(jDateChooser1);
         jDateChooser1.setBounds(170, 390, 230, 30);
+
+        save.setBackground(new java.awt.Color(255, 153, 153));
+        save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                saveMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                saveMouseExited(evt);
+            }
+        });
+        save.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("SAVE");
+        save.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
+        jPanel1.add(save);
+        save.setBounds(740, 410, 110, 30);
+
+        browse.setBackground(new java.awt.Color(255, 153, 153));
+        browse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                browseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                browseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                browseMouseExited(evt);
+            }
+        });
+        browse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("BROWSE");
+        browse.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, -1));
+
+        jPanel1.add(browse);
+        browse.setBounds(580, 70, 110, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -291,8 +319,20 @@ public class newResident extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFileChooser browseImageFile = new JFileChooser();
+    private void saveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseEntered
+        save.setBackground(navcolor);
+    }//GEN-LAST:event_saveMouseEntered
+
+    private void saveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseExited
+        save.setBackground(headcolor);
+    }//GEN-LAST:event_saveMouseExited
+
+    private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
+       
+    }//GEN-LAST:event_saveMouseClicked
+
+    private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
+       JFileChooser browseImageFile = new JFileChooser();
         FileNameExtensionFilter fnaf = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
         browseImageFile.addChoosableFileFilter(fnaf);
         int showOpenDialogue = browseImageFile.showOpenDialog(null);
@@ -306,19 +346,19 @@ public class newResident extends javax.swing.JInternalFrame {
         
         Image image = ii.getImage().getScaledInstance(jLabel18.getWidth(),jLabel18.getHeight(), Image.SCALE_SMOOTH);
         jLabel18.setIcon(new ImageIcon(image));
-        
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_browseMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Succesfully SAVE!");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void browseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseEntered
+        browse.setBackground(navcolor);
+    }//GEN-LAST:event_browseMouseEntered
+
+    private void browseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseExited
+        browse.setBackground(headcolor);
+    }//GEN-LAST:event_browseMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel browse;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -331,7 +371,9 @@ public class newResident extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -353,5 +395,6 @@ public class newResident extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JPanel save;
     // End of variables declaration//GEN-END:variables
 }

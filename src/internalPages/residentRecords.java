@@ -30,7 +30,9 @@ public class residentRecords extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-    
+        Color navcolor= new Color(255,102,102);
+        Color headcolor= new Color(255,153,153);
+        Color bodycolor = new Color(255,204,204);
         
 
     /**
@@ -43,12 +45,9 @@ public class residentRecords extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        search = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        search1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_priority = new javax.swing.JTable();
-        search1 = new javax.swing.JButton();
-        update = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         firstname = new javax.swing.JTextField();
@@ -63,29 +62,26 @@ public class residentRecords extends javax.swing.JInternalFrame {
         age = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         voterstatus = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        delete = new javax.swing.JButton();
-        addRow = new javax.swing.JButton();
-        printreport = new javax.swing.JButton();
+        search = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        clear = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        delete = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        update = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        insert = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        print = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        search.setBackground(new java.awt.Color(255, 153, 153));
-        search.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
-        jPanel1.add(search);
-        search.setBounds(20, 10, 240, 30);
-
-        jButton1.setBackground(new java.awt.Color(255, 102, 102));
-        jButton1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton1.setText("CLEAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(130, 50, 90, 30);
+        search1.setBackground(new java.awt.Color(255, 153, 153));
+        search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
+        jPanel1.add(search1);
+        search1.setBounds(20, 10, 240, 30);
 
         tbl_priority.setBackground(new java.awt.Color(255, 153, 153));
         tbl_priority.setModel(new javax.swing.table.DefaultTableModel(
@@ -118,32 +114,10 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(250, 80, 620, 340);
 
-        search1.setBackground(new java.awt.Color(255, 102, 102));
-        search1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        search1.setText("SEARCH");
-        search1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(search1);
-        search1.setBounds(20, 50, 100, 30);
-
-        update.setBackground(new java.awt.Color(255, 102, 102));
-        update.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        update.setText("UPDATE");
-        update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
-            }
-        });
-        jPanel1.add(update);
-        update.setBounds(140, 370, 100, 30);
-
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel3.setText("Resident ID:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 90, 70, 30);
+        jLabel3.setBounds(10, 80, 70, 30);
 
         id.setBackground(new java.awt.Color(255, 153, 153));
         id.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -153,7 +127,7 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(id);
-        id.setBounds(100, 90, 140, 30);
+        id.setBounds(100, 80, 140, 30);
 
         firstname.setBackground(new java.awt.Color(255, 153, 153));
         firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -163,17 +137,17 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(firstname);
-        firstname.setBounds(100, 130, 140, 30);
+        firstname.setBounds(100, 120, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel4.setText("First Name:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 130, 90, 30);
+        jLabel4.setBounds(10, 120, 90, 30);
 
         jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel5.setText("Last Name:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 170, 90, 30);
+        jLabel5.setBounds(10, 160, 90, 30);
 
         lastname.setBackground(new java.awt.Color(255, 153, 153));
         lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -183,7 +157,7 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(lastname);
-        lastname.setBounds(100, 170, 140, 30);
+        lastname.setBounds(100, 160, 140, 30);
 
         status.setBackground(new java.awt.Color(255, 153, 153));
         status.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -193,22 +167,22 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(status);
-        status.setBounds(100, 290, 140, 30);
+        status.setBounds(100, 280, 140, 30);
 
         jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel2.setText("Status:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 290, 90, 30);
+        jLabel2.setBounds(10, 280, 90, 30);
 
         jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel6.setText("Gender:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 210, 90, 30);
+        jLabel6.setBounds(10, 200, 90, 30);
 
         jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel7.setText("Age:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 250, 90, 30);
+        jLabel7.setBounds(10, 240, 90, 30);
 
         gender.setBackground(new java.awt.Color(255, 153, 153));
         gender.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -218,7 +192,7 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(gender);
-        gender.setBounds(100, 210, 140, 30);
+        gender.setBounds(100, 200, 140, 30);
 
         age.setBackground(new java.awt.Color(255, 153, 153));
         age.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -228,12 +202,12 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(age);
-        age.setBounds(100, 250, 140, 30);
+        age.setBounds(100, 240, 140, 30);
 
         jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel8.setText("Voter Status:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(10, 330, 90, 30);
+        jLabel8.setBounds(10, 320, 90, 30);
 
         voterstatus.setBackground(new java.awt.Color(255, 153, 153));
         voterstatus.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -243,51 +217,124 @@ public class residentRecords extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(voterstatus);
-        voterstatus.setBounds(100, 330, 140, 30);
+        voterstatus.setBounds(100, 320, 140, 30);
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 102));
-        jButton2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton2.setText("CLEAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        search.setBackground(new java.awt.Color(255, 153, 153));
+        search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchMouseExited(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(20, 370, 110, 30);
+        search.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        delete.setBackground(new java.awt.Color(255, 102, 102));
-        delete.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        delete.setText("DELETE");
-        delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteActionPerformed(evt);
+        jLabel13.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("SEARCH");
+        search.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
+        jPanel1.add(search);
+        search.setBounds(270, 10, 110, 30);
+
+        clear.setBackground(new java.awt.Color(255, 153, 153));
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clearMouseExited(evt);
             }
         });
+        clear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CLEAR");
+        clear.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
+        jPanel1.add(clear);
+        clear.setBounds(10, 410, 110, 30);
+
+        delete.setBackground(new java.awt.Color(255, 153, 153));
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteMouseExited(evt);
+            }
+        });
+        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("DELETE");
+        delete.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
         jPanel1.add(delete);
-        delete.setBounds(20, 410, 110, 30);
+        delete.setBounds(130, 410, 110, 30);
 
-        addRow.setBackground(new java.awt.Color(255, 102, 102));
-        addRow.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        addRow.setText("ADD");
-        addRow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addRowActionPerformed(evt);
+        update.setBackground(new java.awt.Color(255, 153, 153));
+        update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updateMouseExited(evt);
             }
         });
-        jPanel1.add(addRow);
-        addRow.setBounds(140, 410, 100, 30);
+        update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        printreport.setBackground(new java.awt.Color(255, 102, 102));
-        printreport.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        printreport.setText("PRINT REPORT");
-        printreport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printreportActionPerformed(evt);
+        jLabel11.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("UPDATE");
+        update.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
+        jPanel1.add(update);
+        update.setBounds(10, 370, 110, 30);
+
+        insert.setBackground(new java.awt.Color(255, 153, 153));
+        insert.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                insertMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                insertMouseExited(evt);
             }
         });
-        jPanel1.add(printreport);
-        printreport.setBounds(700, 40, 160, 30);
+        insert.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("INSERT");
+        insert.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
+        jPanel1.add(insert);
+        insert.setBounds(130, 370, 110, 30);
+
+        print.setBackground(new java.awt.Color(255, 153, 153));
+        print.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                printMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                printMouseExited(evt);
+            }
+        });
+        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("PRINT REPORT");
+        print.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 30));
+
+        jPanel1.add(print);
+        print.setBounds(690, 40, 170, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -302,34 +349,6 @@ public class residentRecords extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        search.setText(null);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
-        TableRowSorter<DefaultTableModel> obj  = new TableRowSorter<>(model);
-        tbl_priority.setRowSorter(obj);
-        obj.setRowFilter(RowFilter.regexFilter(search.getText()));    
-    }//GEN-LAST:event_search1ActionPerformed
-
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        int i = tbl_priority.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel)tbl_priority.getModel();
-        if(i >= 0 )
-        {
-            model.setValueAt(id.getText(), i, 0);
-            model.setValueAt(firstname.getText(), i, 1);
-            model.setValueAt(lastname.getText(), i, 2);
-            model.setValueAt(gender.getText(), i, 3);
-            model.setValueAt(age.getText(), i, 4);
-            model.setValueAt(status.getText(), i, 5);
-            model.setValueAt(voterstatus.getText(), i, 6);
-        }else{
-            JOptionPane.showMessageDialog(null, "ERROR!");
-        }
-    }//GEN-LAST:event_updateActionPerformed
 
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // TODO add your handling code here:
@@ -359,45 +378,6 @@ public class residentRecords extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_voterstatusActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        id.setText(null);
-        firstname.setText(null);
-        lastname.setText(null);
-        gender.setText(null);
-        age.setText(null);
-        status.setText(null);
-        voterstatus.setText(null);
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
-        try{
-            int SelectedRowIndex = tbl_priority.getSelectedRow();
-            model.removeRow(SelectedRowIndex);
-        }catch(Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-    }//GEN-LAST:event_deleteActionPerformed
-
-    private void addRowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRowActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
-        model.addRow(new Object[]{id.getText(), firstname.getText(),
-            lastname.getText(), gender.getText(),age.getText(), status.getText(), voterstatus.getText() });
-    }//GEN-LAST:event_addRowActionPerformed
-
-    private void printreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printreportActionPerformed
-        MessageFormat header = new MessageFormat("PUROK INFORMATION SYSTEM");
-        MessageFormat footer = new MessageFormat("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
-        try{
-            tbl_priority.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        }catch(PrinterException e){
-            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
-        }
-
-    }//GEN-LAST:event_printreportActionPerformed
-
     private void tbl_priorityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_priorityMouseClicked
         int selectedRow = tbl_priority.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
@@ -412,16 +392,78 @@ public class residentRecords extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_tbl_priorityMouseClicked
 
+    private void searchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseEntered
+        search.setBackground(navcolor);
+    }//GEN-LAST:event_searchMouseEntered
+
+    private void searchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseExited
+        search.setBackground(headcolor);
+    }//GEN-LAST:event_searchMouseExited
+
+    private void clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseEntered
+        clear.setBackground(navcolor);
+    }//GEN-LAST:event_clearMouseEntered
+
+    private void clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseExited
+        clear.setBackground(headcolor);
+    }//GEN-LAST:event_clearMouseExited
+
+    private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
+        delete.setBackground(navcolor);
+    }//GEN-LAST:event_deleteMouseEntered
+
+    private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
+        delete.setBackground(headcolor);
+    }//GEN-LAST:event_deleteMouseExited
+
+    private void updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseEntered
+        update.setBackground(navcolor);
+    }//GEN-LAST:event_updateMouseEntered
+
+    private void updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseExited
+        update.setBackground(headcolor);
+    }//GEN-LAST:event_updateMouseExited
+
+    private void insertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertMouseEntered
+        insert.setBackground(navcolor);
+    }//GEN-LAST:event_insertMouseEntered
+
+    private void insertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertMouseExited
+        insert.setBackground(headcolor);
+    }//GEN-LAST:event_insertMouseExited
+
+    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
+        print.setBackground(navcolor);
+    }//GEN-LAST:event_printMouseEntered
+
+    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
+        print.setBackground(headcolor);
+    }//GEN-LAST:event_printMouseExited
+
+    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
+        MessageFormat header = new MessageFormat("PUROK INFORMATION SYSTEM");
+        MessageFormat footer = new MessageFormat("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
+        try{
+            tbl_priority.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        }catch(PrinterException e){
+            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
+        }
+    }//GEN-LAST:event_printMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addRow;
     private javax.swing.JTextField age;
-    private javax.swing.JButton delete;
+    private javax.swing.JPanel clear;
+    private javax.swing.JPanel delete;
     private javax.swing.JTextField firstname;
     private javax.swing.JTextField gender;
     private javax.swing.JTextField id;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel insert;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -429,15 +471,16 @@ public class residentRecords extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lastname;
-    private javax.swing.JButton printreport;
-    private javax.swing.JTextField search;
-    private javax.swing.JButton search1;
+    private javax.swing.JPanel print;
+    private javax.swing.JPanel search;
+    private javax.swing.JTextField search1;
     private javax.swing.JTextField status;
     private javax.swing.JTable tbl_priority;
-    private javax.swing.JButton update;
+    private javax.swing.JPanel update;
     private javax.swing.JTextField voterstatus;
     // End of variables declaration//GEN-END:variables
 }
