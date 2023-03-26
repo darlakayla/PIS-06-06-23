@@ -68,10 +68,10 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(20, 10, 50, 50);
 
-        jLabel11.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel11.setText("ADMINISTRATOR");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(80, 30, 150, 19);
+        jLabel11.setBounds(80, 30, 170, 22);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

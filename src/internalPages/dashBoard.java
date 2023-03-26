@@ -1,4 +1,4 @@
-package myapp;
+package internalPages;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -87,7 +87,7 @@ public class dashBoard extends javax.swing.JFrame {
         firstname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         navbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 180, 30));
 
-        jLabel4.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ADMIN");
         navbar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 20));
@@ -109,7 +109,7 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("NEW");
-        newresident.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 20));
+        newresident.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 120, 30));
 
         db2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/newr (1).png"))); // NOI18N
         newresident.add(db2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
@@ -198,7 +198,7 @@ public class dashBoard extends javax.swing.JFrame {
 
         navbar.add(settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 200, 50));
 
-        jLabel10.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("WELCOME!");
         navbar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 200, 20));
@@ -227,9 +227,9 @@ public class dashBoard extends javax.swing.JFrame {
                 minimizeMouseClicked(evt);
             }
         });
-        header.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 30, 20));
+        header.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 30, 40));
 
-        jLabel13.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
         header.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -1, 870, 50));

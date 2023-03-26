@@ -74,7 +74,7 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel2.setText("ACCOUNT SETTINGS");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 20, 210, 40);
@@ -82,7 +82,7 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel4.setText("First Name");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 30));
 
@@ -110,16 +110,16 @@ public class settings extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 150, 140));
 
-        jLabel6.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PERSONAL INFORMATION");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 210, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 270, 30));
 
         jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 30));
 
-        jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("PROFILE");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -128,32 +128,32 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 30));
 
-        jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel7.setText("Username");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 80, 30));
 
-        jLabel11.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel11.setText("Position");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, 30));
 
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 220, 30));
 
-        jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel13.setText("Last Name");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, 30));
 
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 220, 30));
 
-        jLabel15.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel15.setText("Phone No.");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 90, 30));
 
         jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 220, 30));
 
-        jLabel17.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel17.setText("Email");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 90, 30));
 
@@ -205,10 +205,10 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 90, 820, 360);
 
-        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel3.setText("Change your profile and account settings ");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 50, 260, 20);
+        jLabel3.setBounds(40, 50, 290, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
