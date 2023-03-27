@@ -1,6 +1,7 @@
 package internalPages;
 
 
+import config.dbconfiguration;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -23,6 +24,14 @@ public class editForm extends javax.swing.JFrame {
         initComponents();
     }
     
+    public void close(){
+        this.dispose();
+        dashBoard db = new dashBoard();
+        db.setVisible(true);
+        residentRecords rr = new residentRecords();
+        db.maindesktop.add(rr).setVisible(true);
+    }
+    
     
         Color navcolor= new Color(255,102,102);
         Color headcolor= new Color(255,153,153);
@@ -30,6 +39,7 @@ public class editForm extends javax.swing.JFrame {
 
         
         public String gender;
+        public String action;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,8 +70,8 @@ public class editForm extends javax.swing.JFrame {
         status = new javax.swing.JComboBox<>();
         male = new javax.swing.JRadioButton();
         female = new javax.swing.JRadioButton();
-        save = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        add = new javax.swing.JPanel();
+        st_label1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,6 +118,7 @@ public class editForm extends javax.swing.JFrame {
 
         id.setBackground(new java.awt.Color(255, 153, 153));
         id.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        id.setEnabled(false);
         id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idActionPerformed(evt);
@@ -212,24 +223,27 @@ public class editForm extends javax.swing.JFrame {
         jPanel1.add(female);
         female.setBounds(700, 240, 110, 30);
 
-        save.setBackground(new java.awt.Color(255, 153, 153));
-        save.addMouseListener(new java.awt.event.MouseAdapter() {
+        add.setBackground(new java.awt.Color(255, 153, 153));
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                saveMouseEntered(evt);
+                addMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                saveMouseExited(evt);
+                addMouseExited(evt);
             }
         });
-        save.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("SAVE");
-        save.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
+        st_label1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        st_label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        st_label1.setText("Label");
+        add.add(st_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
-        jPanel1.add(save);
-        save.setBounds(710, 360, 100, 30);
+        jPanel1.add(add);
+        add.setBounds(710, 360, 100, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1) (1).png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -268,18 +282,29 @@ public class editForm extends javax.swing.JFrame {
 
     private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
         male.setSelected(false);
+        if(female.isSelected()){
+            gender = "Female";
+        }else{
+            gender = null;
+        }
+        
     }//GEN-LAST:event_femaleActionPerformed
 
-    private void saveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseEntered
-        save.setBackground(navcolor);
-    }//GEN-LAST:event_saveMouseEntered
+    private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
+       add.setBackground(navcolor);
+    }//GEN-LAST:event_addMouseEntered
 
-    private void saveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseExited
-        save.setBackground(headcolor);
-    }//GEN-LAST:event_saveMouseExited
+    private void addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseExited
+       add.setBackground(headcolor);
+    }//GEN-LAST:event_addMouseExited
 
     private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
         female.setSelected(false);
+        if(male.isSelected()){
+            gender = "Male";
+        }else{
+            gender = null;
+        }
     }//GEN-LAST:event_maleActionPerformed
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
@@ -287,12 +312,34 @@ public class editForm extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        int a=JOptionPane.showConfirmDialog(null, "Confirm Exit?");
-        if(a==JOptionPane.YES_OPTION){
-            System.exit(0);
-        }
+        close();
         
     }//GEN-LAST:event_exitMouseClicked
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+        if(action.equals("Add")){
+            dbconfiguration dbc = new dbconfiguration();
+             int result = dbc.insertData("INSERT INTO tbl_residentlist (pis_firstname, pis_lastname, pis_address, pis_status, pis_gender, pis_contact) "
+                + "VALUES ('"+firstname.getText()+"', '"+lastname.getText()+"','"+address.getText()+"','"+status.getSelectedItem()+"','"+gender+"','"+contact.getText()+"')"); 
+         if(result == 1){
+             JOptionPane.showMessageDialog(null, "Succesfully Save!");
+             close();
+         }else{ 
+             System.out.println("Saving Data Failed!");
+         }    
+        }else if(action.equals("Update")){
+            dbconfiguration dbc = new dbconfiguration();
+            dbc.updateData("UPDATE tbl_residentlist "
+                + "SET pis_firstname = '"+firstname.getText()+"', pis_lastname='"+lastname.getText()+"', "
+                        + "pis_address ='"+address.getText()+"', pis_status='"+status.getSelectedItem()+"',pis_gender='"+gender+ "',pis_contact='"+contact.getText()+ "'"
+                                + "WHERE pis_id = '"+id.getText()+"'");
+            close();         
+        }else{
+           JOptionPane.showMessageDialog(null, "No Action Selected!");
+           close();
+        }
+            
+    }//GEN-LAST:event_addMouseClicked
 
     /**
      * @param args the command line arguments
@@ -330,6 +377,7 @@ public class editForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel add;
     public javax.swing.JTextArea address;
     public javax.swing.JTextField contact;
     private javax.swing.JLabel exit;
@@ -337,7 +385,6 @@ public class editForm extends javax.swing.JFrame {
     public javax.swing.JTextField firstname;
     public javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -352,7 +399,7 @@ public class editForm extends javax.swing.JFrame {
     public javax.swing.JTextField lastname;
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
-    private javax.swing.JPanel save;
+    public javax.swing.JLabel st_label1;
     public javax.swing.JComboBox<String> status;
     // End of variables declaration//GEN-END:variables
 }

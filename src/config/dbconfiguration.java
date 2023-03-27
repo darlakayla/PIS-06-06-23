@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 
 public class dbconfiguration {
@@ -26,53 +27,55 @@ public class dbconfiguration {
         return resultSet;
     }   
     
-    public void insertData(String sql){
+    public int insertData(String sql){
+       int result;
        try{
            PreparedStatement pstmt = connection.prepareStatement(sql);
            
            pstmt.executeUpdate();
            System.out.println("Inserted Succesfully!");
-           pstmt.close();                    
+           pstmt.close();
+           result = 1;
        }catch(SQLException e){ 
            System.out.println("Connection Error."+e);
+           result = 0;
        }
+       return result;
     }
-    public void deleteData(int id){
+    
+    public void deleteData(int id, String table){
         try{
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_residentlist WHERE pis_id=?");
             stmt.setInt(1,id);
             int rowsDeleted = stmt.executeUpdate();
             if (rowsDeleted > 0){
-               System.out.println(rowsDeleted +"rows were deleted.");                
+               JOptionPane.showMessageDialog(null, "Deleted Succesfully!");               
             }else{
-                System.out.println("No wos were deleted.");
+                System.out.println("Deletion Failed!");
             }
-            stmt.close();
-            connection.close();         
-        }catch(SQLException e){
-            System.out.println("Error deleting data:" +e.getMessage());
+            stmt.close();                 
+        }catch(SQLException ex){
+            System.out.println("Connection Error:" +ex);
         }
         
     }
-        public int updateData(String sql){
-          int num = 0;
+        public void updateData(String sql){        
           try{
-              String query = sql;
-              PreparedStatement pstmt = connection.prepareStatement(query);
+              
+              PreparedStatement pstmt = connection.prepareStatement(sql);
               int rowsUpdated = pstmt.executeUpdate();
               if(rowsUpdated >0){
-                  System.out.println("DATA UPDATED SUCCESFULLY!");
-                  num = 1;                    
+                  JOptionPane.showMessageDialog(null, "Data Updated Succesfully!");                                 
           }else{
-                  System.out.println("DATA UPDATED FAILED!");
-                  num = 0;
-              }
-
+                  System.out.println("Data Update Failed!");                
+             }
+             pstmt.close();
           }catch (SQLException ex){
-              ex.printStackTrace();
+              System.out.println("Connction Error:"+ex);
+         }
+     
         }
-         return num;
-    }
-    
-    
+        
+        
 }
+        

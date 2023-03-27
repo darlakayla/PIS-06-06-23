@@ -94,13 +94,9 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         contact = new javax.swing.JTextField();
         search = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         clear = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        update = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        insert = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
         print = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         display = new javax.swing.JPanel();
@@ -109,6 +105,8 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         delete = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        add = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -251,10 +249,10 @@ public class residentRecords extends javax.swing.JInternalFrame {
         });
         search.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("SEARCH");
-        search.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+        jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("SEARCH");
+        search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
 
         jPanel1.add(search);
         search.setBounds(270, 10, 110, 30);
@@ -281,50 +279,6 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jPanel1.add(clear);
         clear.setBounds(10, 410, 110, 30);
 
-        update.setBackground(new java.awt.Color(255, 153, 153));
-        update.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                updateMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                updateMouseExited(evt);
-            }
-        });
-        update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("UPDATE");
-        update.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
-
-        jPanel1.add(update);
-        update.setBounds(10, 370, 110, 30);
-
-        insert.setBackground(new java.awt.Color(255, 153, 153));
-        insert.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                insertMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                insertMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                insertMouseExited(evt);
-            }
-        });
-        insert.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("INSERT");
-        insert.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
-
-        jPanel1.add(insert);
-        insert.setBounds(130, 370, 110, 30);
-
         print.setBackground(new java.awt.Color(255, 153, 153));
         print.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -342,10 +296,10 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("PRINT REPORT");
-        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 30));
+        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
 
         jPanel1.add(print);
-        print.setBounds(690, 40, 170, 30);
+        print.setBounds(730, 40, 130, 30);
 
         display.setBackground(new java.awt.Color(255, 153, 153));
         display.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -364,10 +318,10 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("DISPLAY");
-        display.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 30));
+        display.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
         jPanel1.add(display);
-        display.setBounds(540, 40, 140, 30);
+        display.setBounds(620, 40, 100, 30);
 
         edit.setBackground(new java.awt.Color(255, 153, 153));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -386,10 +340,10 @@ public class residentRecords extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("EDIT");
-        edit.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
+        edit.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
 
         jPanel1.add(edit);
-        edit.setBounds(450, 40, 80, 30);
+        edit.setBounds(10, 370, 110, 30);
 
         delete.setBackground(new java.awt.Color(255, 153, 153));
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -412,6 +366,28 @@ public class residentRecords extends javax.swing.JInternalFrame {
 
         jPanel1.add(delete);
         delete.setBounds(130, 410, 110, 30);
+
+        add.setBackground(new java.awt.Color(255, 153, 153));
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addMouseExited(evt);
+            }
+        });
+        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("ADD");
+        add.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+
+        jPanel1.add(add);
+        add.setBounds(130, 370, 110, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -486,22 +462,6 @@ public class residentRecords extends javax.swing.JInternalFrame {
         clear.setBackground(headcolor);
     }//GEN-LAST:event_clearMouseExited
 
-    private void updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseEntered
-        update.setBackground(navcolor);
-    }//GEN-LAST:event_updateMouseEntered
-
-    private void updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseExited
-        update.setBackground(headcolor);
-    }//GEN-LAST:event_updateMouseExited
-
-    private void insertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertMouseEntered
-        insert.setBackground(navcolor);
-    }//GEN-LAST:event_insertMouseEntered
-
-    private void insertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertMouseExited
-        insert.setBackground(headcolor);
-    }//GEN-LAST:event_insertMouseExited
-
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
         print.setBackground(navcolor);
     }//GEN-LAST:event_printMouseEntered
@@ -519,30 +479,6 @@ public class residentRecords extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
         }
     }//GEN-LAST:event_printMouseClicked
-
-    private void insertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertMouseClicked
-        dbconfiguration dbc = new dbconfiguration();
-        dbc.insertData("INSERT INTO tbl_residentlist (pis_firstname, pis_lastname, pis_address, pis_status, pis_gender, pis_contact) "
-                + "VALUES ('"+firstname.getText()+"', '"+lastname.getText()+"','"+address.getText()+"','"+status.getText()+"','"+gender.getText()+"','"+contact.getText()+"')");
-        displayData();
-        reset();
-    }//GEN-LAST:event_insertMouseClicked
-
-    private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
-        dbconfiguration dbc = new dbconfiguration();
-        int num = dbc.updateData("UPDATE tbl_residentlist "
-                + "SET pis_firstname = '"+firstname.getText()+"', pis_lastname='"+lastname.getText()+"', "
-                        + "pis_address ='"+address.getText()+"', pis_status='"+status.getText()+"',pis_gender='"+gender.getText()+ "',pis_contact='"+contact.getText()+ "'"
-                                + "WHERE pis_id = '"+id.getText()+"'");
-       
-        if(num == 0){
-           
-        }else{
-           JOptionPane.showMessageDialog(null, "Updated Successfully!");
-           displayData();
-           reset();
-        }
-    }//GEN-LAST:event_updateMouseClicked
 
     private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
         reset();
@@ -601,6 +537,8 @@ public class residentRecords extends javax.swing.JInternalFrame {
              
              ef.contact.setText(model.getValueAt(rowIndex,6).toString());
              ef.setVisible(true);
+             ef.action = "Update";             
+             ef.st_label1.setText("UPDATE");
              JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
              mainFrame.dispose();
         }
@@ -617,24 +555,45 @@ public class residentRecords extends javax.swing.JInternalFrame {
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         int rowIndex = tbl_priority.getSelectedRow();
        if(rowIndex < 0){
-           JOptionPane.showMessageDialog(null, "Please select a data first");
+           JOptionPane.showMessageDialog(null, "Please select data first from the table!");
        }else{
             TableModel model = tbl_priority.getModel();
             Object value = model.getValueAt(rowIndex, 0);
             String id = value.toString();
-             int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
+             int a=JOptionPane.showConfirmDialog(null,"Are you sure to delete ID"+id);  
                     if(a==JOptionPane.YES_OPTION){  
                             dbconfiguration dbc = new dbconfiguration();
-                            dbc.deleteData(Integer.parseInt(id));
+                            int pis_id=Integer.parseInt(id);
+                            dbc.deleteData(pis_id,"tbl_residentlist");
                             displayData();
-                            reset();
+                            
                     }    
        }
 
     }//GEN-LAST:event_deleteMouseClicked
 
+    private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
+        add.setBackground(navcolor);
+    }//GEN-LAST:event_addMouseEntered
+
+    private void addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseExited
+        add.setBackground(headcolor);
+    }//GEN-LAST:event_addMouseExited
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+        JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        mainFrame.dispose();
+        editForm ef = new editForm();
+        ef.setVisible(true);
+        ef.action = "Add";
+        ef.st_label1.setText("SAVE");
+        
+        
+    }//GEN-LAST:event_addMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel add;
     private javax.swing.JTextField address;
     private javax.swing.JPanel clear;
     private javax.swing.JTextField contact;
@@ -644,14 +603,12 @@ public class residentRecords extends javax.swing.JInternalFrame {
     private javax.swing.JTextField firstname;
     private javax.swing.JTextField gender;
     private javax.swing.JTextField id;
-    private javax.swing.JPanel insert;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -668,6 +625,5 @@ public class residentRecords extends javax.swing.JInternalFrame {
     private javax.swing.JTextField search1;
     private javax.swing.JTextField status;
     private javax.swing.JTable tbl_priority;
-    private javax.swing.JPanel update;
     // End of variables declaration//GEN-END:variables
 }

@@ -403,7 +403,7 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JDesktopPane maindesktop;
+    public javax.swing.JDesktopPane maindesktop;
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel newresident;
