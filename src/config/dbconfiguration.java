@@ -45,7 +45,7 @@ public class dbconfiguration {
     
     public void deleteData(int id, String table){
         try{
-            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_residentlist WHERE pis_id=?");
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_residentrecords WHERE rr_id=?");
             stmt.setInt(1,id);
             int rowsDeleted = stmt.executeUpdate();
             if (rowsDeleted > 0){
@@ -75,6 +75,23 @@ public class dbconfiguration {
          }
      
         }
+        
+     public void deletedata(int id, String table){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_householdrecords  WHERE hh_id=?");
+            stmt.setInt(1,id);
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0){
+               JOptionPane.showMessageDialog(null, "Deleted Succesfully!");               
+            }else{
+                System.out.println("Deletion Failed!");
+            }
+            stmt.close();                 
+        }catch(SQLException ex){
+            System.out.println("Connection Error:" +ex);
+        }
+        
+    }   
         
         
 }

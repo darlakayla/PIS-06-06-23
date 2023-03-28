@@ -7,8 +7,8 @@ package internalPages;
  */
 
 import internalPages.dashBoardPagee;
-import internalPages.newResident;
-import internalPages.residentRecords;
+import internalPages.manageHousehold;
+import internalPages.manageResident;
 import internalPages.settings;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -108,7 +108,7 @@ public class dashBoard extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("NEW");
+        jLabel3.setText("MANAGE");
         newresident.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 120, 30));
 
         db2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/newr (1).png"))); // NOI18N
@@ -116,7 +116,7 @@ public class dashBoard extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("RESIDENT");
+        jLabel12.setText("HOUSEHOLD");
         newresident.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, 30));
 
         navbar.add(newresident, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, 50));
@@ -137,7 +137,7 @@ public class dashBoard extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("HOUSEHOLDS");
+        jLabel5.setText("RESIDENT");
         residentrecords.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 130, -1));
 
         jLabel9.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
@@ -307,7 +307,7 @@ public class dashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void newresidentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newresidentMouseClicked
-       newResident nr = new newResident();
+       manageHousehold nr = new manageHousehold();
        maindesktop.add(nr).setVisible(true);
     }//GEN-LAST:event_newresidentMouseClicked
 
@@ -320,8 +320,8 @@ public class dashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_newresidentMouseExited
 
     private void residentrecordsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentrecordsMouseClicked
-        residentRecords rr = new residentRecords();
-        maindesktop.add(rr).setVisible(true);
+        manageResident hh = new manageResident();
+        maindesktop.add(hh).setVisible(true);
     }//GEN-LAST:event_residentrecordsMouseClicked
 
     private void residentrecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentrecordsMouseEntered
