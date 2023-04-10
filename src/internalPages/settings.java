@@ -17,21 +17,19 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import myapp.loginForm;
 
-/**
- *
- * @author SCC-PC04
- */
+
+
 public class settings extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form settings
-     */
+    
     public settings() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
+    
+    
     Color navcolor= new Color(255,102,102);
     Color headcolor= new Color(255,153,153);
     Color bodycolor = new Color(255,204,204);
@@ -53,22 +51,22 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         photo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        firstname = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        contact = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
         browse = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         logout = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        address = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -82,9 +80,9 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel4.setText("First Name");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 90, 30));
 
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 0, -1, 390));
@@ -116,8 +114,8 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 270, 30));
 
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 30));
+        firstname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 220, 30));
 
         jLabel9.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,40 +123,33 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 30));
-
-        jLabel7.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel7.setText("Username");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 80, 30));
-
-        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel11.setText("Position");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, 30));
+        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel11.setText("Lastname");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 80, 30));
 
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 220, 30));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 220, 30));
 
-        jLabel13.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel13.setText("Last Name");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, 30));
+        jLabel13.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel13.setText("Username");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 80, 30));
 
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 220, 30));
+        username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 220, 30));
 
-        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel15.setText("Phone No.");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 90, 30));
+        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel15.setText("Contact No.");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 90, 30));
 
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 220, 30));
+        contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 220, 30));
 
-        jLabel17.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel17.setText("Email");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 90, 30));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 90, 30));
 
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 220, 30));
+        email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 220, 30));
 
         browse.setBackground(new java.awt.Color(255, 204, 204));
         browse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,10 +193,17 @@ public class settings extends javax.swing.JInternalFrame {
 
         jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 130, 30));
 
+        jLabel14.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel14.setText("Address");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 80, 30));
+
+        address.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 220, 30));
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 90, 820, 360);
 
-        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel3.setText("Change your profile and account settings ");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 50, 290, 20);
@@ -226,6 +224,29 @@ public class settings extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+        logout.setBackground(bodycolor);
+    }//GEN-LAST:event_logoutMouseExited
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setBackground(navcolor);
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        JFrame mainFrame = (JFrame)SwingUtilities.getWindowAncestor(this);
+        mainFrame.dispose();
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void browseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseExited
+        browse.setBackground(bodycolor);
+    }//GEN-LAST:event_browseMouseExited
+
+    private void browseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseEntered
+        browse.setBackground(navcolor);
+    }//GEN-LAST:event_browseMouseEntered
+
     private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
         JFileChooser browseImageFile = new JFileChooser();
         FileNameExtensionFilter fnaf = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
@@ -239,45 +260,23 @@ public class settings extends javax.swing.JInternalFrame {
 
         ImageIcon ii = new ImageIcon(selectedImagePath);
 
-        Image image = ii.getImage().getScaledInstance(jLabel18.getWidth(),jLabel18.getHeight(), Image.SCALE_SMOOTH);
-        jLabel18.setIcon(new ImageIcon(image));
+        Image image = ii.getImage().getScaledInstance(email.getWidth(),email.getHeight(), Image.SCALE_SMOOTH);
+        email.setIcon(new ImageIcon(image));
     }//GEN-LAST:event_browseMouseClicked
-
-    private void browseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseEntered
-        browse.setBackground(navcolor);
-    }//GEN-LAST:event_browseMouseEntered
-
-    private void browseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseExited
-        browse.setBackground(bodycolor);
-    }//GEN-LAST:event_browseMouseExited
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        JFrame mainFrame = (JFrame)SwingUtilities.getWindowAncestor(this);
-        mainFrame.dispose();
-        loginForm lf = new loginForm();
-        lf.setVisible(true);
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(navcolor);
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(bodycolor);
-    }//GEN-LAST:event_logoutMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel address;
     private javax.swing.JPanel browse;
-    private javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel contact;
+    public javax.swing.JLabel email;
+    public javax.swing.JLabel firstname;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -285,13 +284,12 @@ public class settings extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel logout;
     private javax.swing.JLabel photo;
+    public javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }

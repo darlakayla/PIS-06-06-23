@@ -18,13 +18,13 @@ public class dbconfiguration {
             connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/purokinformationsystem", "root", "");
             }catch(SQLException e){
                 System.err.println("Cannot connect to database: " + e.getMessage());
-            }
+            }      
 }
-    
+
     public ResultSet getData(String sql) throws SQLException {
-        Statement statement = (Statement) connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-        return resultSet;
+        Statement stmt = (Statement) connection.createStatement();
+        ResultSet rst = stmt.executeQuery(sql);   
+        return rst;
     }   
     
     public int insertData(String sql){
@@ -91,7 +91,25 @@ public class dbconfiguration {
             System.out.println("Connection Error:" +ex);
         }
         
-    }   
+    }
+     
+     public void deLeteData(int id, String table){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_blotterreports WHERE br_id=?");
+            stmt.setInt(1,id);
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0){
+               JOptionPane.showMessageDialog(null, "Deleted Succesfully!");               
+            }else{
+                System.out.println("Deletion Failed!");
+            }
+            stmt.close();                 
+        }catch(SQLException ex){
+            System.out.println("Connection Error:" +ex);
+        }
+        
+    }
+     
         
         
 }

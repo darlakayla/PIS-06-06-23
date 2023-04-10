@@ -50,17 +50,7 @@ public class manageResident extends javax.swing.JInternalFrame {
         }            
         
     }
-    public void reset(){
-        id.setText("");
-        lastname.setText("");
-        firstname.setText("");
-        address.setText("");
-        status.setText("");
-        gender.setText("");
-        contact.setText("");  
-        email.setText("");  
-        occupation.setText("");  
-    }
+    
     
         
         Color navcolor= new Color(255,102,102);
@@ -78,51 +68,34 @@ public class manageResident extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        search1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_priority = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
-        lastname = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        firstname = new javax.swing.JTextField();
-        gender = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        address = new javax.swing.JTextField();
-        status = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        contact = new javax.swing.JTextField();
         search = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        clear = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         print = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         display = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         delete = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         add = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        occupation = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        db = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        search1 = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        search1.setBackground(new java.awt.Color(255, 153, 153));
-        search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
-        jPanel1.add(search1);
-        search1.setBounds(580, 390, 190, 20);
-
-        tbl_priority.setBackground(new java.awt.Color(255, 153, 153));
         tbl_priority.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_priorityMouseClicked(evt);
@@ -134,112 +107,7 @@ public class manageResident extends javax.swing.JInternalFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 10, 850, 200);
-
-        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel3.setText("Resident ID:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 220, 70, 30);
-
-        id.setBackground(new java.awt.Color(255, 153, 153));
-        id.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
-        jPanel1.add(id);
-        id.setBounds(130, 220, 280, 30);
-
-        lastname.setBackground(new java.awt.Color(255, 153, 153));
-        lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        lastname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastnameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(lastname);
-        lastname.setBounds(130, 260, 280, 30);
-
-        jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel4.setText("Lastname:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 260, 90, 30);
-
-        jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel5.setText("Firstname:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(40, 300, 90, 30);
-
-        firstname.setBackground(new java.awt.Color(255, 153, 153));
-        firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        firstname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstnameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(firstname);
-        firstname.setBounds(130, 300, 280, 30);
-
-        gender.setBackground(new java.awt.Color(255, 153, 153));
-        gender.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genderActionPerformed(evt);
-            }
-        });
-        jPanel1.add(gender);
-        gender.setBounds(550, 220, 270, 30);
-
-        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel2.setText("Gender:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(460, 220, 160, 30);
-
-        jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel6.setText("Address:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(40, 340, 90, 30);
-
-        jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel7.setText("Status:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(40, 380, 90, 30);
-
-        address.setBackground(new java.awt.Color(255, 153, 153));
-        address.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressActionPerformed(evt);
-            }
-        });
-        jPanel1.add(address);
-        address.setBounds(130, 340, 280, 30);
-
-        status.setBackground(new java.awt.Color(255, 153, 153));
-        status.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        status.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusActionPerformed(evt);
-            }
-        });
-        jPanel1.add(status);
-        status.setBounds(130, 380, 280, 30);
-
-        jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel8.setText("Contact No:");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(460, 260, 160, 30);
-
-        contact.setBackground(new java.awt.Color(255, 153, 153));
-        contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        contact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactActionPerformed(evt);
-            }
-        });
-        jPanel1.add(contact);
-        contact.setBounds(550, 260, 270, 30);
+        jScrollPane1.setBounds(10, 170, 860, 300);
 
         search.setBackground(new java.awt.Color(255, 153, 153));
         search.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,32 +126,14 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("SEARCH");
-        search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, -1));
+        search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 80, 40));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/search1 (1).png"))); // NOI18N
+        search.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(search);
-        search.setBounds(780, 390, 80, 20);
-
-        clear.setBackground(new java.awt.Color(255, 153, 153));
-        clear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clearMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                clearMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                clearMouseExited(evt);
-            }
-        });
-        clear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CLEAR");
-        clear.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
-
-        jPanel1.add(clear);
-        clear.setBounds(290, 430, 110, 30);
+        search.setBounds(730, 50, 130, 40);
 
         print.setBackground(new java.awt.Color(255, 153, 153));
         print.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,10 +152,14 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("PRINT REPORT");
-        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
+        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 40));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
+        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(print);
-        print.setBounds(710, 430, 130, 30);
+        print.setBounds(690, 120, 170, 40);
 
         display.setBackground(new java.awt.Color(255, 153, 153));
         display.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,10 +178,14 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("DISPLAY");
-        display.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
+        display.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/display (1).png"))); // NOI18N
+        display.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(display);
-        display.setBounds(600, 430, 100, 30);
+        display.setBounds(400, 120, 120, 40);
 
         edit.setBackground(new java.awt.Color(255, 153, 153));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -346,10 +204,14 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("EDIT");
-        edit.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+        edit.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/edit (1).png"))); // NOI18N
+        edit.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(edit);
-        edit.setBounds(50, 430, 110, 30);
+        edit.setBounds(10, 120, 120, 40);
 
         delete.setBackground(new java.awt.Color(255, 153, 153));
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -368,10 +230,14 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("DELETE");
-        delete.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+        delete.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 40));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/delete (1).png"))); // NOI18N
+        delete.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(delete);
-        delete.setBounds(410, 430, 110, 30);
+        delete.setBounds(270, 120, 120, 40);
 
         add.setBackground(new java.awt.Color(255, 153, 153));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -390,40 +256,33 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("ADD");
-        add.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+        add.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/add (1).png"))); // NOI18N
+        add.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(add);
-        add.setBounds(170, 430, 110, 30);
+        add.setBounds(140, 120, 120, 40);
 
-        jLabel10.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel10.setText("Email:");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(460, 300, 160, 30);
+        jPanel2.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        email.setBackground(new java.awt.Color(255, 153, 153));
-        email.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(email);
-        email.setBounds(550, 300, 270, 30);
+        db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
+        jPanel2.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
-        jLabel11.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        jLabel11.setText("Occupation:");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(460, 340, 160, 30);
+        jLabel24.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("MANAGE RESIDENT");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 180, 50));
 
-        occupation.setBackground(new java.awt.Color(255, 153, 153));
-        occupation.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        occupation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                occupationActionPerformed(evt);
-            }
-        });
-        jPanel1.add(occupation);
-        occupation.setBounds(550, 340, 270, 30);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(10, 20, 240, 50);
+
+        search1.setBackground(new java.awt.Color(255, 204, 204));
+        search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
+        jPanel1.add(search1);
+        search1.setBounds(490, 50, 230, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -433,55 +292,16 @@ public class manageResident extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
-    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastnameActionPerformed
-
-    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstnameActionPerformed
-
-    private void genderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_genderActionPerformed
-
-    private void addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressActionPerformed
-
-    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statusActionPerformed
-
-    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactActionPerformed
-
     private void tbl_priorityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_priorityMouseClicked
-        int rowIndex = tbl_priority.getSelectedRow();
-        if(rowIndex < 0){          
-        }else{
-            TableModel model = tbl_priority.getModel();
-            id.setText(""+model.getValueAt(rowIndex,0));
-            lastname.setText(""+model.getValueAt(rowIndex,1));
-            firstname.setText(""+model.getValueAt(rowIndex,2));
-            address.setText(""+model.getValueAt(rowIndex,3));
-            status.setText(""+model.getValueAt(rowIndex,4));
-            gender.setText(""+model.getValueAt(rowIndex,5));
-            contact.setText(""+model.getValueAt(rowIndex,6));    
-            email.setText(""+model.getValueAt(rowIndex,7));    
-            occupation.setText(""+model.getValueAt(rowIndex,8));    
-        }           
+        
     }//GEN-LAST:event_tbl_priorityMouseClicked
 
     private void searchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseEntered
@@ -491,14 +311,6 @@ public class manageResident extends javax.swing.JInternalFrame {
     private void searchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseExited
         search.setBackground(headcolor);
     }//GEN-LAST:event_searchMouseExited
-
-    private void clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseEntered
-        clear.setBackground(navcolor);
-    }//GEN-LAST:event_clearMouseEntered
-
-    private void clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseExited
-        clear.setBackground(headcolor);
-    }//GEN-LAST:event_clearMouseExited
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
         print.setBackground(navcolor);
@@ -517,10 +329,6 @@ public class manageResident extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
         }
     }//GEN-LAST:event_printMouseClicked
-
-    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
-        reset();
-    }//GEN-LAST:event_clearMouseClicked
 
     private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
         DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
@@ -578,7 +386,7 @@ public class manageResident extends javax.swing.JInternalFrame {
              ef.occupation.setText(""+model.getValueAt(rowIndex,8));
              ef.setVisible(true);
              ef.action = "Update";             
-             ef.st_label1.setText("UPDATE");
+             ef.st_label.setText("UPDATE");
              JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
              editManageResident mr = new editManageResident();
              mainFrame.dispose();
@@ -627,56 +435,37 @@ public class manageResident extends javax.swing.JInternalFrame {
         editManageResident ef = new editManageResident();
         ef.setVisible(true);
         ef.action = "Add";
-        ef.st_label1.setText("SAVE");
+        ef.st_label.setText("SAVE");
         
         
     }//GEN-LAST:event_addMouseClicked
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
-    private void occupationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_occupationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_occupationActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
-    private javax.swing.JTextField address;
-    private javax.swing.JPanel clear;
-    private javax.swing.JTextField contact;
+    private javax.swing.JLabel db;
     private javax.swing.JPanel delete;
     private javax.swing.JPanel display;
     private javax.swing.JPanel edit;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField firstname;
-    private javax.swing.JTextField gender;
-    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField lastname;
-    private javax.swing.JTextField occupation;
     private javax.swing.JPanel print;
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
-    private javax.swing.JTextField status;
     private javax.swing.JTable tbl_priority;
     // End of variables declaration//GEN-END:variables
 }

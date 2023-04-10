@@ -17,8 +17,8 @@ public class editNewHousehold extends javax.swing.JFrame {
     /**
      * Creates new form editNewResidentForm
      */
-    public editNewHousehold() {
-        initComponents();
+    public editNewHousehold() {              
+          initComponents();
         
     }
     public void close(){
@@ -104,7 +104,7 @@ public class editNewHousehold extends javax.swing.JFrame {
                 exitMouseClicked(evt);
             }
         });
-        jPanel2.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 40, 30));
+        jPanel2.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 40, 30));
 
         minimize.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,10 +114,10 @@ public class editNewHousehold extends javax.swing.JFrame {
                 minimizeMouseClicked(evt);
             }
         });
-        jPanel2.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 40, 40));
+        jPanel2.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 40, 40));
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(-10, 0, 910, 50);
+        jPanel2.setBounds(-10, 0, 1090, 50);
 
         female.setBackground(new java.awt.Color(255, 153, 153));
         female.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -128,7 +128,7 @@ public class editNewHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(female);
-        female.setBounds(300, 230, 120, 30);
+        female.setBounds(300, 250, 190, 30);
 
         add.setBackground(new java.awt.Color(255, 153, 153));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,16 +150,16 @@ public class editNewHousehold extends javax.swing.JFrame {
         add.add(st_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
         jPanel1.add(add);
-        add.setBounds(730, 410, 100, 30);
+        add.setBounds(900, 400, 100, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1) (1).png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(750, 70, 90, 90);
+        jLabel1.setBounds(960, 60, 90, 90);
 
         jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel13.setText("Gender");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(20, 230, 130, 30);
+        jLabel13.setBounds(20, 250, 130, 30);
 
         fullname.setBackground(new java.awt.Color(255, 153, 153));
         fullname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -169,17 +169,17 @@ public class editNewHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fullname);
-        fullname.setBounds(150, 150, 270, 30);
+        fullname.setBounds(150, 170, 340, 30);
 
         jLabel15.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel15.setText("Fullname: (HEAD)");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(20, 150, 130, 30);
+        jLabel15.setBounds(20, 170, 130, 30);
 
         jLabel16.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel16.setText("Spouse Name:");
         jPanel1.add(jLabel16);
-        jLabel16.setBounds(20, 190, 130, 30);
+        jLabel16.setBounds(20, 210, 130, 30);
 
         spouse.setBackground(new java.awt.Color(255, 153, 153));
         spouse.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -189,12 +189,12 @@ public class editNewHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(spouse);
-        spouse.setBounds(150, 190, 270, 30);
+        spouse.setBounds(150, 210, 340, 30);
 
         jLabel17.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel17.setText("Household ID:");
         jPanel1.add(jLabel17);
-        jLabel17.setBounds(20, 110, 130, 30);
+        jLabel17.setBounds(20, 130, 130, 30);
 
         id.setEditable(false);
         id.setBackground(new java.awt.Color(255, 153, 153));
@@ -205,7 +205,7 @@ public class editNewHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(id);
-        id.setBounds(150, 110, 270, 30);
+        id.setBounds(150, 130, 340, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
         male.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -216,92 +216,97 @@ public class editNewHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(male);
-        male.setBounds(150, 230, 120, 30);
+        male.setBounds(150, 250, 190, 30);
 
         status.setBackground(new java.awt.Color(255, 153, 153));
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced", "Separated", "Widowed" }));
         jPanel1.add(status);
-        status.setBounds(150, 270, 270, 30);
+        status.setBounds(150, 290, 340, 30);
 
         jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Status:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 270, 130, 30);
+        jLabel6.setBounds(20, 290, 130, 30);
 
         jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Birthdate:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 310, 130, 30);
+        jLabel7.setBounds(20, 330, 130, 30);
 
         birthdate.setBackground(new java.awt.Color(255, 153, 153));
         birthdate.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(birthdate);
-        birthdate.setBounds(150, 310, 270, 30);
+        birthdate.setBounds(150, 330, 340, 30);
 
         occupation.setBackground(new java.awt.Color(255, 153, 153));
         occupation.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(occupation);
-        occupation.setBounds(590, 190, 260, 30);
+        occupation.setBounds(680, 210, 310, 30);
 
         numbers.setBackground(new java.awt.Color(255, 153, 153));
         numbers.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(numbers);
-        numbers.setBounds(590, 270, 260, 30);
+        numbers.setBounds(680, 290, 310, 30);
 
         jLabel14.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel14.setText("No. of Children (ALL)");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(450, 270, 140, 30);
+        jLabel14.setBounds(540, 290, 140, 30);
 
         jLabel18.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel18.setText("Contact:");
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(450, 230, 140, 30);
+        jLabel18.setBounds(540, 250, 140, 30);
 
         jLabel19.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel19.setText("Occupation:");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(450, 190, 140, 30);
+        jLabel19.setBounds(540, 210, 140, 30);
 
         address.setBackground(new java.awt.Color(255, 153, 153));
         address.setColumns(20);
+        address.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         address.setRows(5);
         jScrollPane1.setViewportView(address);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(150, 350, 270, 100);
+        jScrollPane1.setBounds(150, 370, 340, 100);
 
         jLabel10.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel10.setText("Address:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(20, 350, 130, 30);
+        jLabel10.setBounds(20, 370, 130, 30);
 
         ages.setBackground(new java.awt.Color(255, 153, 153));
         ages.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(ages);
-        ages.setBounds(590, 310, 260, 30);
+        ages.setBounds(680, 330, 310, 30);
 
         jLabel20.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jLabel20.setText("Their ages:");
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(450, 310, 140, 30);
+        jLabel20.setBounds(540, 330, 140, 30);
 
         contact.setBackground(new java.awt.Color(255, 153, 153));
         contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(contact);
-        contact.setBounds(590, 230, 260, 30);
+        contact.setBounds(680, 250, 310, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 896, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1074, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -328,13 +333,61 @@ public class editNewHousehold extends javax.swing.JFrame {
     }//GEN-LAST:event_femaleActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+        
+        if (fullname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Fullname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(spouse.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Spouse Name!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (birthdate.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Birthdate!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(address.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Address!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(occupation.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Occupation!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(contact.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(numbers.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the No. of Children!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(ages.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type their ages!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Validate JRadioButtons
+        if (!male.isSelected() && !female.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Please select your gender!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Validate JComboBox
+        if (status.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select your Status!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else{
+            JOptionPane.showMessageDialog(this, "Succesfully Save!");     
+        } 
+
+        
         if(action.equals("Add")){
             dbconfiguration dbc = new dbconfiguration();
             int result = dbc.insertData("INSERT INTO tbl_householdrecords (rr_fullname, rr_spouse, rr_gender, rr_status, rr_birthdate, rr_address, rr_occupation, rr_contact, rr_children, rr_ages) "
                 + "VALUES ('"+fullname.getText()+"', '"+spouse.getText()+"','"+gender+"','"+status.getSelectedItem()+"','"+birthdate.getText()+"','"+address.getText()+"','"+occupation.getText()+"','"+contact.getText()+"','"+numbers.getText()+"','"+ages.getText()+"')");
-            if(result == 1){
-                JOptionPane.showMessageDialog(null, "Succesfully Save!");
-                close();
+            if(result == 1){  
+                
+                close(); 
+                
+                dashBoard db = new dashBoard();               
+                manageHousehold mh = new manageHousehold();
+                db.maindesktop.add(mh).setVisible(true);
+                this.dispose();       
+                
             }else{
                 System.out.println("Saving Data Failed!");
             }
@@ -345,6 +398,9 @@ public class editNewHousehold extends javax.swing.JFrame {
                 + "rr_gender ='"+gender+"', rr_status='"+status.getSelectedItem()+"',rr_birthdate='"+birthdate.getText()+ "',rr_address='"+address.getText()+ "',rr_occupation='"+occupation.getText()+ "',rr_contact='"+contact.getText()+ "',rr_children='"+numbers.getText()+ "',rr_ages='"+ages.getText()+ "'"
                 + "WHERE hh_id = '"+id.getText()+"'");
             close();
+                dashBoard db = new dashBoard();              
+                manageHousehold mh = new manageHousehold();
+                db.maindesktop.add(mh).setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "No Action Selected!");
             close();

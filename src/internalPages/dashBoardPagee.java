@@ -45,8 +45,6 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -62,16 +60,6 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/userr.png"))); // NOI18N
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(20, 10, 50, 50);
-
-        jLabel11.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel11.setText("ADMINISTRATOR");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(80, 30, 170, 22);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,8 +130,6 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
