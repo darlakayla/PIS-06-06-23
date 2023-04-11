@@ -91,9 +91,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         db2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        print = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         search = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -230,32 +227,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(10, 20, 240, 50);
 
-        print.setBackground(new java.awt.Color(255, 153, 153));
-        print.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                printMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                printMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                printMouseExited(evt);
-            }
-        });
-        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel14.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("PRINT REPORT");
-        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 40));
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
-        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(print);
-        print.setBounds(690, 120, 170, 40);
-
         search.setBackground(new java.awt.Color(255, 153, 153));
         search.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -285,7 +256,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         search1.setBackground(new java.awt.Color(255, 204, 204));
         search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
         jPanel1.add(search1);
-        search1.setBounds(510, 50, 220, 40);
+        search1.setBounds(520, 50, 210, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -339,7 +310,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Please select an Item!");           
         }else{ 
             TableModel model = tbl_household.getModel();
-             editNewHousehold nh = new editNewHousehold();
+             editManageHousehold nh = new editManageHousehold();
              nh.id.setText(""+model.getValueAt(rowIndex,0));
              nh.fullname.setText(""+model.getValueAt(rowIndex,1));
              nh.spouse.setText(""+model.getValueAt(rowIndex,2));       
@@ -363,7 +334,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
              nh.action = "Update";             
              nh.st_label1.setText("UPDATE");
              JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-             editNewHousehold en = new editNewHousehold();
+             editManageHousehold en = new editManageHousehold();
              mainFrame.dispose();
         }
     }//GEN-LAST:event_editMouseClicked
@@ -371,7 +342,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         mainFrame.dispose();
-        editNewHousehold nh = new editNewHousehold();
+        editManageHousehold nh = new editManageHousehold();
         nh.setVisible(true);
         nh.action = "Add";
         nh.st_label1.setText("SAVE");
@@ -405,24 +376,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_tbl_householdMouseClicked
 
-    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        MessageFormat header = new MessageFormat("PUROK INFORMATION SYSTEM");
-        MessageFormat footer = new MessageFormat("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
-        try{
-            tbl_household.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        }catch(PrinterException e){
-            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
-        }
-    }//GEN-LAST:event_printMouseClicked
-
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(navcolor);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        print.setBackground(headcolor);
-    }//GEN-LAST:event_printMouseExited
-
     private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
         DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
         TableRowSorter<DefaultTableModel> obj  = new TableRowSorter<>(model);
@@ -446,10 +399,8 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private javax.swing.JPanel display;
     private javax.swing.JPanel edit;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -461,7 +412,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel print;
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
     private javax.swing.JTable tbl_household;

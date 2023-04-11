@@ -56,7 +56,7 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        username = new javax.swing.JLabel();
+        user_name = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         contact = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -134,8 +134,8 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel13.setText("Username");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 80, 30));
 
-        username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 220, 30));
+        user_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(user_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 220, 30));
 
         jLabel15.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel15.setText("Contact No.");
@@ -290,6 +290,6 @@ public class settings extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel logout;
     private javax.swing.JLabel photo;
-    public javax.swing.JLabel username;
+    public static javax.swing.JLabel user_name;
     // End of variables declaration//GEN-END:variables
 }

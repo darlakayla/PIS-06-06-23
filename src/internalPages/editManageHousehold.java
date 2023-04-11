@@ -12,12 +12,12 @@ import java.awt.Color;
  *
  * @author HP
  */
-public class editNewHousehold extends javax.swing.JFrame {
+public class editManageHousehold extends javax.swing.JFrame {
 
     /**
      * Creates new form editNewResidentForm
      */
-    public editNewHousehold() {              
+    public editManageHousehold() {              
           initComponents();
         
     }
@@ -25,8 +25,8 @@ public class editNewHousehold extends javax.swing.JFrame {
         this.dispose();
         dashBoard db = new dashBoard();
         db.setVisible(true);
-        manageResident rr = new manageResident();
-        db.maindesktop.add(rr).setVisible(true);
+        manageHousehold mh = new manageHousehold();
+        db.maindesktop.add(mh).setVisible(true);
     }
     
         Color navcolor= new Color(255,102,102);
@@ -377,7 +377,7 @@ public class editNewHousehold extends javax.swing.JFrame {
         
         if(action.equals("Add")){
             dbconfiguration dbc = new dbconfiguration();
-            int result = dbc.insertData("INSERT INTO tbl_householdrecords (rr_fullname, rr_spouse, rr_gender, rr_status, rr_birthdate, rr_address, rr_occupation, rr_contact, rr_children, rr_ages) "
+            int result = dbc.insertData("INSERT INTO tbl_householdrecords (hh_fullname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages) "
                 + "VALUES ('"+fullname.getText()+"', '"+spouse.getText()+"','"+gender+"','"+status.getSelectedItem()+"','"+birthdate.getText()+"','"+address.getText()+"','"+occupation.getText()+"','"+contact.getText()+"','"+numbers.getText()+"','"+ages.getText()+"')");
             if(result == 1){  
                 
@@ -394,8 +394,8 @@ public class editNewHousehold extends javax.swing.JFrame {
         }else if(action.equals("Update")){
             dbconfiguration dbc = new dbconfiguration();
             dbc.updateData("UPDATE tbl_householdrecords "
-                + "SET rr_fullname = '"+fullname.getText()+"', rr_spouse='"+spouse.getText()+"', "
-                + "rr_gender ='"+gender+"', rr_status='"+status.getSelectedItem()+"',rr_birthdate='"+birthdate.getText()+ "',rr_address='"+address.getText()+ "',rr_occupation='"+occupation.getText()+ "',rr_contact='"+contact.getText()+ "',rr_children='"+numbers.getText()+ "',rr_ages='"+ages.getText()+ "'"
+                + "SET hh_fullname = '"+fullname.getText()+"', hh_spouse='"+spouse.getText()+"', "
+                + "hh_gender ='"+gender+"', hh_status='"+status.getSelectedItem()+"',hh_birthdate='"+birthdate.getText()+ "',hh_address='"+address.getText()+ "',hh_occupation='"+occupation.getText()+ "',hh_contact='"+contact.getText()+ "',hh_children='"+numbers.getText()+ "',hh_ages='"+ages.getText()+ "'"
                 + "WHERE hh_id = '"+id.getText()+"'");
             close();
                 dashBoard db = new dashBoard();              
@@ -454,14 +454,22 @@ public class editNewHousehold extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(editNewHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(editNewHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(editNewHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(editNewHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -474,7 +482,7 @@ public class editNewHousehold extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new editNewHousehold().setVisible(true);
+                new editManageHousehold().setVisible(true);
             }
         });
     }

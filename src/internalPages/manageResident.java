@@ -73,9 +73,6 @@ public class manageResident extends javax.swing.JInternalFrame {
         search = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        print = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         display = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -134,32 +131,6 @@ public class manageResident extends javax.swing.JInternalFrame {
 
         jPanel1.add(search);
         search.setBounds(730, 50, 130, 40);
-
-        print.setBackground(new java.awt.Color(255, 153, 153));
-        print.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                printMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                printMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                printMouseExited(evt);
-            }
-        });
-        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel14.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("PRINT REPORT");
-        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 40));
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
-        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(print);
-        print.setBounds(690, 120, 170, 40);
 
         display.setBackground(new java.awt.Color(255, 153, 153));
         display.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,24 +283,6 @@ public class manageResident extends javax.swing.JInternalFrame {
         search.setBackground(headcolor);
     }//GEN-LAST:event_searchMouseExited
 
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(navcolor);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        print.setBackground(headcolor);
-    }//GEN-LAST:event_printMouseExited
-
-    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        MessageFormat header = new MessageFormat("PUROK INFORMATION SYSTEM");
-        MessageFormat footer = new MessageFormat("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
-        try{
-            tbl_priority.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        }catch(PrinterException e){
-            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
-        }
-    }//GEN-LAST:event_printMouseClicked
-
     private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
         DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
         TableRowSorter<DefaultTableModel> obj  = new TableRowSorter<>(model);
@@ -450,10 +403,8 @@ public class manageResident extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -463,7 +414,6 @@ public class manageResident extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel print;
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
     private javax.swing.JTable tbl_priority;

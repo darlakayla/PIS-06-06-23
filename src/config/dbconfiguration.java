@@ -25,7 +25,18 @@ public class dbconfiguration {
         Statement stmt = (Statement) connection.createStatement();
         ResultSet rst = stmt.executeQuery(sql);   
         return rst;
-    }   
+    }
+    
+    public void filltable()throws SQLException{
+        dbconfiguration dc = new dbconfiguration ();
+    ResultSet rs = dc.getData("SELECT * FROM tbl_householdrecords");
+    }
+    public void filltables()throws SQLException{
+        dbconfiguration dc = new dbconfiguration ();
+    ResultSet rs = dc.getData("SELECT * FROM tbl_residentrecords,tbl_householdrecords");
+    }
+    
+    
     
     public int insertData(String sql){
        int result;

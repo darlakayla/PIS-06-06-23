@@ -4,12 +4,16 @@
  * and open the template in the editor.
  */
 package myapp;
-import com.sun.istack.internal.logging.Logger;
+
+
+import config.login_db;
 import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 import javax.swing.JOptionPane;
 
@@ -53,14 +57,14 @@ public class registerForm extends javax.swing.JFrame {
         minimize1 = new javax.swing.JLabel();
         clear = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        contact = new javax.swing.JTextField();
-        firstname = new javax.swing.JTextField();
-        lastname = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        username = new javax.swing.JTextField();
+        txtcontact = new javax.swing.JTextField();
+        txtfirstname = new javax.swing.JTextField();
+        txtlastname = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
+        txtusername = new javax.swing.JTextField();
         register = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
+        txtpassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -140,60 +144,60 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.add(clear);
         clear.setBounds(100, 430, 110, 40);
 
-        contact.setBackground(new java.awt.Color(255, 204, 204));
-        contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        contact.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Contact No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
-        contact.addActionListener(new java.awt.event.ActionListener() {
+        txtcontact.setBackground(new java.awt.Color(255, 204, 204));
+        txtcontact.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        txtcontact.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Contact No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
+        txtcontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactActionPerformed(evt);
+                txtcontactActionPerformed(evt);
             }
         });
-        jPanel1.add(contact);
-        contact.setBounds(60, 250, 330, 50);
+        jPanel1.add(txtcontact);
+        txtcontact.setBounds(60, 250, 330, 50);
 
-        firstname.setBackground(new java.awt.Color(255, 204, 204));
-        firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        firstname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Firstname", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
-        firstname.addActionListener(new java.awt.event.ActionListener() {
+        txtfirstname.setBackground(new java.awt.Color(255, 204, 204));
+        txtfirstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        txtfirstname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Firstname", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
+        txtfirstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstnameActionPerformed(evt);
+                txtfirstnameActionPerformed(evt);
             }
         });
-        jPanel1.add(firstname);
-        firstname.setBounds(60, 70, 330, 50);
+        jPanel1.add(txtfirstname);
+        txtfirstname.setBounds(60, 70, 330, 50);
 
-        lastname.setBackground(new java.awt.Color(255, 204, 204));
-        lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        lastname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Lastname", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
-        lastname.addActionListener(new java.awt.event.ActionListener() {
+        txtlastname.setBackground(new java.awt.Color(255, 204, 204));
+        txtlastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        txtlastname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Lastname", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
+        txtlastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastnameActionPerformed(evt);
+                txtlastnameActionPerformed(evt);
             }
         });
-        jPanel1.add(lastname);
-        lastname.setBounds(60, 130, 330, 50);
+        jPanel1.add(txtlastname);
+        txtlastname.setBounds(60, 130, 330, 50);
 
-        email.setBackground(new java.awt.Color(255, 204, 204));
-        email.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        email.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
-        email.addActionListener(new java.awt.event.ActionListener() {
+        txtemail.setBackground(new java.awt.Color(255, 204, 204));
+        txtemail.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        txtemail.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                txtemailActionPerformed(evt);
             }
         });
-        jPanel1.add(email);
-        email.setBounds(60, 310, 330, 50);
+        jPanel1.add(txtemail);
+        txtemail.setBounds(60, 310, 330, 50);
 
-        username.setBackground(new java.awt.Color(255, 204, 204));
-        username.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        username.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
-        username.addActionListener(new java.awt.event.ActionListener() {
+        txtusername.setBackground(new java.awt.Color(255, 204, 204));
+        txtusername.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        txtusername.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
+        txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
+                txtusernameActionPerformed(evt);
             }
         });
-        jPanel1.add(username);
-        username.setBounds(60, 190, 330, 50);
+        jPanel1.add(txtusername);
+        txtusername.setBounds(60, 190, 330, 50);
 
         register.setBackground(new java.awt.Color(255, 153, 153));
         register.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,11 +221,11 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.add(register);
         register.setBounds(230, 430, 110, 40);
 
-        password.setBackground(new java.awt.Color(255, 204, 204));
-        password.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
-        password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
-        jPanel1.add(password);
-        password.setBounds(60, 370, 330, 50);
+        txtpassword.setBackground(new java.awt.Color(255, 204, 204));
+        txtpassword.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
+        txtpassword.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Baskerville Old Face", 0, 15))); // NOI18N
+        jPanel1.add(txtpassword);
+        txtpassword.setBounds(60, 370, 330, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,11 +245,11 @@ public class registerForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
-        firstname.setText(null);
-        lastname.setText(null);
-        email.setText(null);      
-        username.setText(null);
-        contact.setText(null);
+        txtfirstname.setText(null);
+        txtlastname.setText(null);
+        txtemail.setText(null);      
+        txtusername.setText(null);
+        txtcontact.setText(null);
     }//GEN-LAST:event_clearMouseClicked
 
     private void clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseEntered
@@ -256,25 +260,25 @@ public class registerForm extends javax.swing.JFrame {
         clear.setBackground(headcolor);
     }//GEN-LAST:event_clearMouseExited
 
-    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
+    private void txtcontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontactActionPerformed
 
-    }//GEN-LAST:event_contactActionPerformed
+    }//GEN-LAST:event_txtcontactActionPerformed
 
-    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
+    private void txtfirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfirstnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstnameActionPerformed
+    }//GEN-LAST:event_txtfirstnameActionPerformed
 
-    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
+    private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lastnameActionPerformed
+    }//GEN-LAST:event_txtlastnameActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_txtemailActionPerformed
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+    private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameActionPerformed
+    }//GEN-LAST:event_txtusernameActionPerformed
 
     private void registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseEntered
        register.setBackground(navcolor);
@@ -285,8 +289,60 @@ public class registerForm extends javax.swing.JFrame {
     }//GEN-LAST:event_registerMouseExited
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
-               
+         
+        if (txtfirstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(txtlastname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (txtusername.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Username!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(txtcontact.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(txtemail.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Email!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(txtpassword.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }      
         
+        String fname = txtfirstname.getText();
+        String lname = txtlastname.getText();
+        String uname = txtusername.getText();
+        String cont = txtcontact.getText();
+        String ema = txtemail.getText();
+        String pass = String.valueOf(txtpassword.getPassword());        
+         
+        PreparedStatement ps;
+        ResultSet rs;
+        String registerUserQuery = "INSERT INTO `user_db`(`u_firstname`, `u_lastname`, `u_username`, `u_contact`, `u_email`, `u_password`) VALUES (?,?,?,?,?,?)";
+                 
+                 try {
+                     
+                     ps = login_db.getConnection().prepareStatement(registerUserQuery);
+                     ps.setString(1, fname);
+                     ps.setString(2, lname);
+                     ps.setString(3, uname);
+                     ps.setString(4, cont);
+                     ps.setString(5, ema);
+                     ps.setString(6, pass);
+                           if(ps.executeUpdate() != 0){
+                             JOptionPane.showMessageDialog(null, "Your Account Has Been Created");
+                         }else{
+                             JOptionPane.showMessageDialog(null, "Error: Check Your Information");
+                         }
+                 } catch (SQLException ex) {
+                     Logger.getLogger(registerForm.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 
+           loginForm lo = new loginForm();
+           lo.setVisible(true);
+           this.dispose();        
+
     }//GEN-LAST:event_registerMouseClicked
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
@@ -350,19 +406,19 @@ public class registerForm extends javax.swing.JFrame {
     private javax.swing.JPanel clear;
     private javax.swing.JLabel close;
     private javax.swing.JLabel close1;
-    public javax.swing.JTextField contact;
-    public javax.swing.JTextField email;
-    public javax.swing.JTextField firstname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    public javax.swing.JTextField lastname;
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel minimize1;
-    private javax.swing.JPasswordField password;
     private javax.swing.JPanel register;
-    public javax.swing.JTextField username;
+    public javax.swing.JTextField txtcontact;
+    public javax.swing.JTextField txtemail;
+    public javax.swing.JTextField txtfirstname;
+    public javax.swing.JTextField txtlastname;
+    private javax.swing.JPasswordField txtpassword;
+    public javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }
