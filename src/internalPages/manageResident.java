@@ -74,14 +74,11 @@ public class manageResident extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         display = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        delete = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         add = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -89,6 +86,9 @@ public class manageResident extends javax.swing.JInternalFrame {
         db = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         search1 = new javax.swing.JTextField();
+        delete = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -146,14 +146,14 @@ public class manageResident extends javax.swing.JInternalFrame {
         });
         display.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel15.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("DISPLAY");
-        display.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
-
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/display (1).png"))); // NOI18N
         display.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
+        jLabel16.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("DISPLAY");
+        display.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
 
         jPanel1.add(display);
         display.setBounds(400, 120, 120, 40);
@@ -183,32 +183,6 @@ public class manageResident extends javax.swing.JInternalFrame {
 
         jPanel1.add(edit);
         edit.setBounds(10, 120, 120, 40);
-
-        delete.setBackground(new java.awt.Color(255, 153, 153));
-        delete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                deleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                deleteMouseExited(evt);
-            }
-        });
-        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("DELETE");
-        delete.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 40));
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/delete (1).png"))); // NOI18N
-        delete.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(delete);
-        delete.setBounds(270, 120, 120, 40);
 
         add.setBackground(new java.awt.Color(255, 153, 153));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -254,6 +228,32 @@ public class manageResident extends javax.swing.JInternalFrame {
         search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
         jPanel1.add(search1);
         search1.setBounds(490, 50, 230, 40);
+
+        delete.setBackground(new java.awt.Color(255, 153, 153));
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteMouseExited(evt);
+            }
+        });
+        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("DELETE");
+        delete.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/delete (1).png"))); // NOI18N
+        delete.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
+        jPanel1.add(delete);
+        delete.setBounds(270, 120, 120, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -346,34 +346,6 @@ public class manageResident extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_editMouseClicked
 
-    private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
-        delete.setBackground(navcolor);
-    }//GEN-LAST:event_deleteMouseEntered
-
-    private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
-        delete.setBackground(headcolor);
-    }//GEN-LAST:event_deleteMouseExited
-
-    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        int rowIndex = tbl_priority.getSelectedRow();
-       if(rowIndex < 0){
-           JOptionPane.showMessageDialog(null, "Please select data first from the table!");
-       }else{
-            TableModel model = tbl_priority.getModel();
-            Object value = model.getValueAt(rowIndex, 0);
-            String id = value.toString();
-             int a=JOptionPane.showConfirmDialog(null,"Are you sure to delete ID "+id);  
-                    if(a==JOptionPane.YES_OPTION){  
-                            dbconfiguration dbc = new dbconfiguration();
-                            int pis_id=Integer.parseInt(id);
-                            dbc.deleteData(pis_id,"tbl_residentrecords");
-                            displayData();
-                            
-                    }    
-       }
-
-    }//GEN-LAST:event_deleteMouseClicked
-
     private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
         add.setBackground(navcolor);
     }//GEN-LAST:event_addMouseEntered
@@ -393,6 +365,33 @@ public class manageResident extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_addMouseClicked
 
+    private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
+       delete.setBackground(navcolor);
+    }//GEN-LAST:event_deleteMouseEntered
+
+    private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
+        delete.setBackground(headcolor);
+    }//GEN-LAST:event_deleteMouseExited
+
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
+        int rowIndex = tbl_priority.getSelectedRow();
+       if(rowIndex < 0){
+           JOptionPane.showMessageDialog(null, "Please select data first from the table!");
+       }else{
+            TableModel model = tbl_priority.getModel();
+            Object value = model.getValueAt(rowIndex, 0);
+            String id = value.toString();
+             int a=JOptionPane.showConfirmDialog(null,"Are you sure to delete ID "+id);  
+                    if(a==JOptionPane.YES_OPTION){  
+                            dbconfiguration dbc = new dbconfiguration();
+                            int rr_id=Integer.parseInt(id);
+                            dbc.deleteData(rr_id,"tbl_residentrecords");
+                            displayData();
+                            
+                    }    
+       }
+    }//GEN-LAST:event_deleteMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
@@ -401,9 +400,9 @@ public class manageResident extends javax.swing.JInternalFrame {
     private javax.swing.JPanel display;
     private javax.swing.JPanel edit;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;

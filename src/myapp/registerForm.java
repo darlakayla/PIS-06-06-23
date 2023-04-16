@@ -65,6 +65,7 @@ public class registerForm extends javax.swing.JFrame {
         register = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JPasswordField();
+        back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -227,6 +228,15 @@ public class registerForm extends javax.swing.JFrame {
         jPanel1.add(txtpassword);
         txtpassword.setBounds(60, 370, 330, 50);
 
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/left-arrow-in-circular-button-bl.png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel1.add(back);
+        back.setBounds(20, 430, 30, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -367,6 +377,12 @@ public class registerForm extends javax.swing.JFrame {
         setState(ICONIFIED);
     }//GEN-LAST:event_minimize1MouseClicked
 
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        loginForm lo = new loginForm();
+        lo.setVisible(true);       
+        this.dispose();
+    }//GEN-LAST:event_backMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -403,6 +419,7 @@ public class registerForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JPanel clear;
     private javax.swing.JLabel close;
     private javax.swing.JLabel close1;

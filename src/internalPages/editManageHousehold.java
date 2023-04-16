@@ -81,6 +81,8 @@ public class editManageHousehold extends javax.swing.JFrame {
         ages = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         contact = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        purokname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -194,7 +196,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
         jLabel17.setText("Household ID:");
         jPanel1.add(jLabel17);
-        jLabel17.setBounds(20, 130, 130, 30);
+        jLabel17.setBounds(20, 90, 130, 30);
 
         id.setEditable(false);
         id.setBackground(new java.awt.Color(255, 153, 153));
@@ -205,7 +207,7 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(id);
-        id.setBounds(150, 130, 340, 30);
+        id.setBounds(150, 90, 340, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
         male.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -294,6 +296,21 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(contact);
         contact.setBounds(680, 250, 310, 30);
 
+        jLabel21.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel21.setText("Purok Name:");
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(20, 130, 130, 30);
+
+        purokname.setBackground(new java.awt.Color(255, 153, 153));
+        purokname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        purokname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puroknameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(purokname);
+        purokname.setBounds(150, 130, 340, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -334,9 +351,12 @@ public class editManageHousehold extends javax.swing.JFrame {
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         
-        if (fullname.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please type your Fullname!", "Error", JOptionPane.ERROR_MESSAGE);
+        if (purokname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Purok Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
+        }else if(fullname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Fullname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;            
         }else if(spouse.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Spouse Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -377,8 +397,8 @@ public class editManageHousehold extends javax.swing.JFrame {
         
         if(action.equals("Add")){
             dbconfiguration dbc = new dbconfiguration();
-            int result = dbc.insertData("INSERT INTO tbl_householdrecords (hh_fullname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages) "
-                + "VALUES ('"+fullname.getText()+"', '"+spouse.getText()+"','"+gender+"','"+status.getSelectedItem()+"','"+birthdate.getText()+"','"+address.getText()+"','"+occupation.getText()+"','"+contact.getText()+"','"+numbers.getText()+"','"+ages.getText()+"')");
+            int result = dbc.insertData("INSERT INTO tbl_householdrecords (hh_purokname,hh_fullname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages) "
+                + "VALUES ('"+purokname.getText()+"','"+fullname.getText()+"', '"+spouse.getText()+"','"+gender+"','"+status.getSelectedItem()+"','"+birthdate.getText()+"','"+address.getText()+"','"+occupation.getText()+"','"+contact.getText()+"','"+numbers.getText()+"','"+ages.getText()+"')");
             if(result == 1){  
                 
                 close(); 
@@ -394,7 +414,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         }else if(action.equals("Update")){
             dbconfiguration dbc = new dbconfiguration();
             dbc.updateData("UPDATE tbl_householdrecords "
-                + "SET hh_fullname = '"+fullname.getText()+"', hh_spouse='"+spouse.getText()+"', "
+                + "SET hh_purokname = '"+purokname.getText()+"', hh_fullname='"+fullname.getText()+"',, hh_spouse='"+spouse.getText()+"', "
                 + "hh_gender ='"+gender+"', hh_status='"+status.getSelectedItem()+"',hh_birthdate='"+birthdate.getText()+ "',hh_address='"+address.getText()+ "',hh_occupation='"+occupation.getText()+ "',hh_contact='"+contact.getText()+ "',hh_children='"+numbers.getText()+ "',hh_ages='"+ages.getText()+ "'"
                 + "WHERE hh_id = '"+id.getText()+"'");
             close();
@@ -436,6 +456,10 @@ public class editManageHousehold extends javax.swing.JFrame {
             gender = null;
         }
     }//GEN-LAST:event_maleActionPerformed
+
+    private void puroknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puroknameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_puroknameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,6 +531,7 @@ public class editManageHousehold extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
@@ -517,6 +542,7 @@ public class editManageHousehold extends javax.swing.JFrame {
     private javax.swing.JLabel minimize;
     public javax.swing.JTextField numbers;
     public javax.swing.JTextField occupation;
+    public javax.swing.JTextField purokname;
     public javax.swing.JTextField spouse;
     public javax.swing.JLabel st_label1;
     public javax.swing.JComboBox<String> status;
