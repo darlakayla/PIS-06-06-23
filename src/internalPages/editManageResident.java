@@ -432,7 +432,7 @@ public class editManageResident extends javax.swing.JFrame {
         }else if(action.equals("Update")){
             dbconfiguration dbc = new dbconfiguration();
             dbc.updateData("UPDATE tbl_residentrecords "
-                + "SET rr_residentname = '"+resname.getText()+"', rr_lastname='"+lastname.getText()+"',, rr_firstname='"+firstname.getText()+"', "
+                + "SET rr_residentname = '"+resname.getText()+"', rr_lastname='"+lastname.getText()+"', rr_firstname='"+firstname.getText()+"', "
                         + "rr_address ='"+address.getText()+"', rr_status='"+status.getSelectedItem()+"',rr_gender='"+gender+ "',rr_contact='"+contact.getText()+ "',rr_email='"+email.getText()+ "',rr_occupation='"+occupation.getText()+ "'"
                                 + "WHERE rr_id = '"+id.getText()+"'");
             close();

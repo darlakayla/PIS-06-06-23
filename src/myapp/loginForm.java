@@ -8,6 +8,7 @@ package myapp;
 
 
 
+import config.dbconfiguration;
 import config.login_db;
 import internalPages.dashBoard;
 import internalPages.dashBoardPagee;
@@ -16,9 +17,12 @@ import internalPages.settings;
 import static internalPages.settings.user_name;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -285,56 +289,58 @@ public class loginForm extends javax.swing.JFrame {
         String pass = String.valueOf(password.getPassword());
         
         //create a select query to check if the username and the password exist in the database
-        String query = "SELECT * FROM `user_db` WHERE `u_username` = ? AND `u_password` = ?";
+        String query = "SELECT * FROM `user_db` WHERE `u_username` = ? ";
         
-        // show a message if the username or the password fields are empty
-       
-        if(pass.trim().equals("user"))
+        // show a message if the username or the password fields are empty     
+        if(user.trim().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Enter Your Username", "Empty Username", 2);
         }
-        else if(user.trim().equals("pass"))
+        else if(pass.trim().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Enter Your Password", "Empty Password", 2);
-        }else
-            
+        }
+        else         
         {
             
             try {
-            st = login_db.getConnection().prepareStatement(query);
+                MessageDigest md = MessageDigest.getInstance("SHA-256");
+                md.update(pass.getBytes());
+                    byte [] hash = md.digest();
+                    String hashedPass = Base64.getEncoder().encodeToString(hash); 
             
-            st.setString(1, user);
-            st.setString(2, pass);
-            rs = st.executeQuery();
+                
+                st = login_db.getConnection().prepareStatement(query);          
+                st.setString(1, user);           
+                rs = st.executeQuery();
             
             if(rs.next())
             {
-                // show a new form
-                dashBoard db = new dashBoard();
-                db.setVisible(true);
-                db.pack();
-                if(rs.next()){
-                    
-               user =rs.getString("user");
-               
-               dashBoard da = new dashBoard();
-               da.setVisible(true);
-               settings set = new settings();
-               da.maindesktop.add(set).setVisible(true);                 
-               set.getContentPane().add(user_name);
-               set.pack();
-               set.setVisible(true);
-                }
-                db.setLocationRelativeTo(null);
-                // close the current form(login form)
-                this.dispose();           
+                int user_id = rs.getInt(1);
                 
-            }else{
+                
+                if (rs.getString("u_password").equals(hashedPass)){
+                    dashBoard db = new dashBoard();
+                    db.setVisible(true);
+                    db.setLocationRelativeTo(null);
+                    
+                    //close the current form (loginForm)
+                    this.dispose();                              
+                }else{
+                    System.out.println(""+rs.getString("u_password"));
+                    System.out.println(""+hashedPass);
+                    JOptionPane.showMessageDialog(null, "Login Error!");
+                }   
+            }
+            else
+            {
                 // error message
                 JOptionPane.showMessageDialog(null, "Invalid Username / Password","Login Error",2);
             }
             
         } catch (SQLException ex) {
+            Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex){
             Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
             

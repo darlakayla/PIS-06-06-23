@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 public class dbconfiguration {
     private Connection connection;
     
+   
+    
     public dbconfiguration(){
         try{
             connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/purokinformationsystem", "root", "");

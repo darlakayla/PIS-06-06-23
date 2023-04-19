@@ -6,11 +6,15 @@
 package myapp;
 
 
+import config.dbconfiguration;
 import config.login_db;
 import java.awt.Color;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -333,6 +337,11 @@ public class registerForm extends javax.swing.JFrame {
                  
                  try {
                      
+                     MessageDigest md = MessageDigest.getInstance("SHA-256");
+                     md.update(pass.getBytes());
+                     byte [] hash = md.digest();
+                     String hashedPass = Base64.getEncoder().encodeToString(hash); 
+                     
                      ps = login_db.getConnection().prepareStatement(registerUserQuery);
                      ps.setString(1, fname);
                      ps.setString(2, lname);
@@ -340,12 +349,15 @@ public class registerForm extends javax.swing.JFrame {
                      ps.setString(4, cont);
                      ps.setString(5, ema);
                      ps.setString(6, pass);
-                           if(ps.executeUpdate() != 0){
+                     
+                          if(ps.executeUpdate() != 0){
                              JOptionPane.showMessageDialog(null, "Your Account Has Been Created");
                          }else{
                              JOptionPane.showMessageDialog(null, "Error: Check Your Information");
                          }
                  } catch (SQLException ex) {
+                     Logger.getLogger(registerForm.class.getName()).log(Level.SEVERE, null, ex);
+                 } catch (NoSuchAlgorithmException ex){
                      Logger.getLogger(registerForm.class.getName()).log(Level.SEVERE, null, ex);
                  }
                  

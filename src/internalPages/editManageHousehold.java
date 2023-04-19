@@ -414,7 +414,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         }else if(action.equals("Update")){
             dbconfiguration dbc = new dbconfiguration();
             dbc.updateData("UPDATE tbl_householdrecords "
-                + "SET hh_purokname = '"+purokname.getText()+"', hh_fullname='"+fullname.getText()+"',, hh_spouse='"+spouse.getText()+"', "
+                + "SET hh_purokname = '"+purokname.getText()+"', hh_fullname='"+fullname.getText()+"', hh_spouse='"+spouse.getText()+"', "
                 + "hh_gender ='"+gender+"', hh_status='"+status.getSelectedItem()+"',hh_birthdate='"+birthdate.getText()+ "',hh_address='"+address.getText()+ "',hh_occupation='"+occupation.getText()+ "',hh_contact='"+contact.getText()+ "',hh_children='"+numbers.getText()+ "',hh_ages='"+ages.getText()+ "'"
                 + "WHERE hh_id = '"+id.getText()+"'");
             close();
