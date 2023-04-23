@@ -93,10 +93,10 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("HOUSEHOLD FORM");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 50));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
 
         exit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -122,7 +122,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel2.setBounds(-10, 0, 1090, 50);
 
         female.setBackground(new java.awt.Color(255, 153, 153));
-        female.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        female.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         female.setText("Female");
         female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +130,7 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(female);
-        female.setBounds(300, 250, 190, 30);
+        female.setBounds(320, 250, 170, 30);
 
         add.setBackground(new java.awt.Color(255, 153, 153));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,17 +148,17 @@ public class editManageHousehold extends javax.swing.JFrame {
 
         st_label1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         st_label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        st_label1.setText("Label");
+        st_label1.setText("LABEL");
         add.add(st_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
         jPanel1.add(add);
-        add.setBounds(900, 400, 100, 30);
+        add.setBounds(930, 400, 100, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1) (1).png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(960, 60, 90, 90);
+        jLabel1.setBounds(950, 70, 90, 90);
 
-        jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel13.setText("Gender");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(20, 250, 130, 30);
@@ -173,12 +173,12 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(fullname);
         fullname.setBounds(150, 170, 340, 30);
 
-        jLabel15.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel15.setText("Fullname: (HEAD)");
         jPanel1.add(jLabel15);
         jLabel15.setBounds(20, 170, 130, 30);
 
-        jLabel16.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel16.setText("Spouse Name:");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(20, 210, 130, 30);
@@ -193,7 +193,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(spouse);
         spouse.setBounds(150, 210, 340, 30);
 
-        jLabel17.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel17.setText("Household ID:");
         jPanel1.add(jLabel17);
         jLabel17.setBounds(20, 90, 130, 30);
@@ -210,7 +210,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         id.setBounds(150, 90, 340, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
-        male.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        male.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         male.setText("Male");
         male.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,20 +218,20 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(male);
-        male.setBounds(150, 250, 190, 30);
+        male.setBounds(150, 250, 160, 30);
 
         status.setBackground(new java.awt.Color(255, 153, 153));
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced", "Separated", "Widowed" }));
         jPanel1.add(status);
         status.setBounds(150, 290, 340, 30);
 
-        jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Status:");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(20, 290, 130, 30);
 
-        jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Birthdate:");
         jPanel1.add(jLabel7);
@@ -245,27 +245,27 @@ public class editManageHousehold extends javax.swing.JFrame {
         occupation.setBackground(new java.awt.Color(255, 153, 153));
         occupation.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(occupation);
-        occupation.setBounds(680, 210, 310, 30);
+        occupation.setBounds(720, 210, 320, 30);
 
         numbers.setBackground(new java.awt.Color(255, 153, 153));
         numbers.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(numbers);
-        numbers.setBounds(680, 290, 310, 30);
+        numbers.setBounds(720, 290, 320, 30);
 
-        jLabel14.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel14.setText("No. of Children (ALL)");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(540, 290, 140, 30);
+        jLabel14.setBounds(520, 290, 200, 30);
 
-        jLabel18.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel18.setText("Contact:");
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(540, 250, 140, 30);
+        jLabel18.setBounds(520, 250, 140, 30);
 
-        jLabel19.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel19.setText("Occupation:");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(540, 210, 140, 30);
+        jLabel19.setBounds(520, 210, 140, 30);
 
         address.setBackground(new java.awt.Color(255, 153, 153));
         address.setColumns(20);
@@ -276,7 +276,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(150, 370, 340, 100);
 
-        jLabel10.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel10.setText("Address:");
         jPanel1.add(jLabel10);
         jLabel10.setBounds(20, 370, 130, 30);
@@ -284,19 +284,19 @@ public class editManageHousehold extends javax.swing.JFrame {
         ages.setBackground(new java.awt.Color(255, 153, 153));
         ages.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(ages);
-        ages.setBounds(680, 330, 310, 30);
+        ages.setBounds(720, 330, 320, 30);
 
-        jLabel20.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel20.setText("Their ages:");
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(540, 330, 140, 30);
+        jLabel20.setBounds(520, 330, 140, 30);
 
         contact.setBackground(new java.awt.Color(255, 153, 153));
         contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(contact);
-        contact.setBounds(680, 250, 310, 30);
+        contact.setBounds(720, 250, 320, 30);
 
-        jLabel21.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel21.setText("Purok Name:");
         jPanel1.add(jLabel21);
         jLabel21.setBounds(20, 130, 130, 30);

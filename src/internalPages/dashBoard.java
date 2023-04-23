@@ -262,7 +262,7 @@ public class dashBoard extends javax.swing.JFrame {
         });
         header.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 30, 40));
 
-        jLabel13.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
         header.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -1, 870, 50));

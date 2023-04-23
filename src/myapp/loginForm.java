@@ -38,11 +38,16 @@ public class loginForm extends javax.swing.JFrame {
     
     
     public loginForm() {
-        initComponents();
-        
-        
+        initComponents();   
+        this.icon2.setVisible(false);
         
     }
+        public String hashPassword(String password) throws NoSuchAlgorithmException {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            return String.format("%064x", new java.math.BigInteger(1, digest));
+}
     
     
         Color hover = new Color(255,102,102);
@@ -81,12 +86,15 @@ public class loginForm extends javax.swing.JFrame {
         minimize = new javax.swing.JLabel();
         cancel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
         login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        icon1 = new javax.swing.JLabel();
+        icon2 = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
         exit = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        forgotpassword = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -97,8 +105,8 @@ public class loginForm extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         username.setBackground(new java.awt.Color(255, 204, 204));
-        username.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
-        username.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Rockwell", 0, 14))); // NOI18N
+        username.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Courier New", 0, 14))); // NOI18N
         username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 usernameFocusGained(evt);
@@ -112,19 +120,19 @@ public class loginForm extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 330, 60));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 340, 70));
 
-        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("New user? Click here to register!");
+        jLabel4.setText("Click here to register!");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 230, 20));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 290, 20));
 
-        close.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        close.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         close.setText("X");
         close.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,7 +142,7 @@ public class loginForm extends javax.swing.JFrame {
         });
         jPanel3.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 30, 50));
 
-        minimize.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        minimize.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize.setText("—");
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,21 +173,6 @@ public class loginForm extends javax.swing.JFrame {
 
         jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 150, 50));
 
-        password.setBackground(new java.awt.Color(255, 204, 204));
-        password.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Rockwell", 0, 14))); // NOI18N
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordMouseClicked(evt);
-            }
-        });
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 330, 60));
-
         login.setBackground(new java.awt.Color(255, 153, 153));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -201,6 +194,39 @@ public class loginForm extends javax.swing.JFrame {
 
         jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 150, 50));
 
+        icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/show (1).png"))); // NOI18N
+        icon1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                icon1MousePressed(evt);
+            }
+        });
+        jPanel3.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 50, 60));
+
+        icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/hide (1).png"))); // NOI18N
+        icon2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                icon2MousePressed(evt);
+            }
+        });
+        jPanel3.add(icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 50, 60));
+
+        password.setBackground(new java.awt.Color(255, 204, 204));
+        password.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Courier New", 0, 14))); // NOI18N
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordMouseClicked(evt);
+            }
+        });
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 340, 70));
+
         exit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exit.setText("X");
@@ -214,11 +240,20 @@ public class loginForm extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 153, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jLabel2.setText("LOGIN");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 200, 40));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 210, 50));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, -1));
+
+        forgotpassword.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        forgotpassword.setText("Forgot Password? Click here!");
+        forgotpassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotpasswordMouseClicked(evt);
+            }
+        });
+        jPanel3.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 210, 20));
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 480, 490);
@@ -280,71 +315,45 @@ public class loginForm extends javax.swing.JFrame {
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
         
-        
-        PreparedStatement st;      
+        PreparedStatement ps;      
         ResultSet rs;
-        
+
         // get the username & password
         String user = username.getText();
         String pass = String.valueOf(password.getPassword());
-        
-        //create a select query to check if the username and the password exist in the database
-        String query = "SELECT * FROM `user_db` WHERE `u_username` = ? ";
-        
-        // show a message if the username or the password fields are empty     
-        if(user.trim().equals(""))
-        {
-            JOptionPane.showMessageDialog(null, "Enter Your Username", "Empty Username", 2);
-        }
-        else if(pass.trim().equals(""))
-        {
-            JOptionPane.showMessageDialog(null, "Enter Your Password", "Empty Password", 2);
-        }
-        else         
-        {
-            
+
+        String query = "SELECT * FROM `user_db` WHERE `u_username`= ? AND `u_password` = ?";
+
             try {
-                MessageDigest md = MessageDigest.getInstance("SHA-256");
-                md.update(pass.getBytes());
-                    byte [] hash = md.digest();
-                    String hashedPass = Base64.getEncoder().encodeToString(hash); 
-            
-                
-                st = login_db.getConnection().prepareStatement(query);          
-                st.setString(1, user);           
-                rs = st.executeQuery();
-            
-            if(rs.next())
-            {
-                int user_id = rs.getInt(1);
-                
-                
-                if (rs.getString("u_password").equals(hashedPass)){
+                ps = login_db.getConnection().prepareStatement(query);
+
+                ps.setString(1, user);
+                ps.setString(2, hashPassword(pass)); // hash the password before querying the database
+
+                rs = ps.executeQuery();
+
+                if(rs.next())
+                {
                     dashBoard db = new dashBoard();
                     db.setVisible(true);
+                    db.pack();
                     db.setLocationRelativeTo(null);
-                    
-                    //close the current form (loginForm)
-                    this.dispose();                              
-                }else{
-                    System.out.println(""+rs.getString("u_password"));
-                    System.out.println(""+hashedPass);
-                    JOptionPane.showMessageDialog(null, "Login Error!");
-                }   
-            }
-            else
-            {
-                // error message
-                JOptionPane.showMessageDialog(null, "Invalid Username / Password","Login Error",2);
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex){
-            Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-        }
+
+                    db.firstname.setText("Welcome "+user+ "!");
+       
+                    this.dispose();
+
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
+                }
+
+                }catch (SQLException ex) {
+                    Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+                }catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
  
     }//GEN-LAST:event_loginMouseClicked
 
@@ -382,6 +391,25 @@ public class loginForm extends javax.swing.JFrame {
        username.setText("username");      
        }
     }//GEN-LAST:event_usernameFocusLost
+
+    private void icon1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MousePressed
+        icon2.setVisible(true);
+        icon1.setVisible(false);
+        password.setEchoChar((char)0);
+    }//GEN-LAST:event_icon1MousePressed
+
+    private void icon2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MousePressed
+        icon1.setVisible(true);
+        icon2.setVisible(false);
+        password.setEchoChar('*');
+    }//GEN-LAST:event_icon2MousePressed
+
+    private void forgotpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordMouseClicked
+        changePassword cp = new changePassword();
+        cp.setVisible(true);
+        this.dispose();
+                
+    }//GEN-LAST:event_forgotpasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -422,6 +450,9 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JPanel cancel;
     private javax.swing.JLabel close;
     private javax.swing.JLabel exit;
+    private javax.swing.JLabel forgotpassword;
+    private javax.swing.JLabel icon1;
+    private javax.swing.JLabel icon2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

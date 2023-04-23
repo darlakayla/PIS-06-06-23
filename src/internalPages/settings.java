@@ -72,7 +72,7 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Courier New", 1, 20)); // NOI18N
         jLabel2.setText("ACCOUNT SETTINGS");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 20, 210, 40);
@@ -80,7 +80,7 @@ public class settings extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setText("First Name");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 90, 30));
 
@@ -108,43 +108,43 @@ public class settings extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 150, 140));
 
-        jLabel6.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("PERSONAL INFORMATION");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 270, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 280, 30));
 
         firstname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 220, 30));
 
-        jLabel9.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("PROFILE");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 30));
 
-        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel11.setText("Lastname");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 80, 30));
 
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 220, 30));
 
-        jLabel13.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel13.setText("Username");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 80, 30));
 
         user_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(user_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 220, 30));
 
-        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel15.setText("Contact No.");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 90, 30));
 
         contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 220, 30));
 
-        jLabel17.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel17.setText("Email");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 90, 30));
 
@@ -191,22 +191,22 @@ public class settings extends javax.swing.JInternalFrame {
         jLabel20.setText("LOGOUT");
         logout.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
 
-        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 130, 30));
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 130, 30));
 
-        jLabel14.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel14.setText("Address");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 80, 30));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 80, 30));
 
         address.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 220, 30));
+        jPanel2.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 220, 30));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 90, 820, 360);
 
-        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel3.setText("Change your profile and account settings ");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 50, 290, 20);
+        jLabel3.setBounds(40, 50, 340, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -81,7 +81,7 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("MANAGE RESIDENT FORM");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 280, 40));
@@ -109,10 +109,10 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(-10, 0, 1090, 60);
 
-        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel3.setText("Resident ID:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 140, 70, 30);
+        jLabel3.setBounds(20, 140, 120, 30);
 
         id.setEditable(false);
         id.setBackground(new java.awt.Color(255, 153, 153));
@@ -126,10 +126,10 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel1.add(id);
         id.setBounds(140, 140, 350, 30);
 
-        jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setText("Lastname:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 240, 90, 30);
+        jLabel4.setBounds(20, 240, 120, 30);
 
         lastname.setBackground(new java.awt.Color(255, 153, 153));
         lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -141,10 +141,10 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel1.add(lastname);
         lastname.setBounds(140, 240, 350, 30);
 
-        jLabel5.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel5.setText("Firstname:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(40, 290, 90, 30);
+        jLabel5.setBounds(20, 290, 120, 30);
 
         firstname.setBackground(new java.awt.Color(255, 153, 153));
         firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -156,10 +156,10 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel1.add(firstname);
         firstname.setBounds(140, 290, 350, 30);
 
-        jLabel6.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel6.setText("Address:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(40, 340, 90, 30);
+        jLabel6.setBounds(20, 340, 120, 30);
 
         address.setBackground(new java.awt.Color(255, 153, 153));
         address.setColumns(20);
@@ -170,20 +170,20 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(140, 340, 350, 110);
 
-        jLabel7.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel7.setText("Status:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(560, 190, 110, 30);
+        jLabel7.setBounds(540, 190, 110, 30);
 
-        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel2.setText("Gender:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(560, 240, 110, 30);
+        jLabel2.setBounds(540, 240, 110, 30);
 
-        jLabel8.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel8.setText("Contact No:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(560, 290, 110, 30);
+        jLabel8.setBounds(540, 290, 110, 30);
 
         contact.setBackground(new java.awt.Color(255, 153, 153));
         contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -201,7 +201,7 @@ public class editManageResident extends javax.swing.JFrame {
         status.setBounds(650, 190, 320, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
-        male.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        male.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         male.setText("Male");
         male.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +212,7 @@ public class editManageResident extends javax.swing.JFrame {
         male.setBounds(650, 240, 120, 30);
 
         female.setBackground(new java.awt.Color(255, 153, 153));
-        female.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        female.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         female.setText("Female");
         female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,12 +224,12 @@ public class editManageResident extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1) (1).png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(970, 70, 90, 90);
+        jLabel1.setBounds(960, 70, 90, 90);
 
-        jLabel10.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel10.setText("Email:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(560, 330, 110, 30);
+        jLabel10.setBounds(540, 330, 110, 30);
 
         email.setBackground(new java.awt.Color(255, 153, 153));
         email.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -241,10 +241,10 @@ public class editManageResident extends javax.swing.JFrame {
         jPanel1.add(email);
         email.setBounds(650, 330, 320, 30);
 
-        jLabel11.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel11.setText("Occupation:");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(560, 370, 110, 30);
+        jLabel11.setBounds(540, 370, 110, 30);
 
         occupation.setBackground(new java.awt.Color(255, 153, 153));
         occupation.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -272,16 +272,16 @@ public class editManageResident extends javax.swing.JFrame {
 
         st_label.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         st_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        st_label.setText("Label");
+        st_label.setText("LABEL");
         add1.add(st_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
         jPanel1.add(add1);
         add1.setBounds(860, 420, 100, 30);
 
-        jLabel12.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel12.setText("Resident Name:");
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(40, 190, 90, 30);
+        jLabel12.setBounds(20, 190, 120, 30);
 
         resname.setBackground(new java.awt.Color(255, 153, 153));
         resname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N

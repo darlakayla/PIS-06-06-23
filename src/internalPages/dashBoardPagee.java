@@ -109,7 +109,7 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1).png"))); // NOI18N
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(500, 130, 210, 200);
+        jLabel23.setBounds(500, 120, 210, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
