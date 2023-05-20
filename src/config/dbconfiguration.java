@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import static javax.management.remote.JMXConnectorFactory.connect;
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +22,17 @@ public class dbconfiguration {
             }catch(SQLException e){
                 System.err.println("Cannot connect to database: " + e.getMessage());
             }      
+        
+        
 }
+    public Connection connect_db(){
+              try{
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/purokinformationsystem", "root", "");
+            }catch(SQLException ex){
+                    System.out.println("Can't connect to database: "+ex.getMessage());
+            }
+              return connection;
+        }
 
     public ResultSet getData(String sql) throws SQLException {
         Statement stmt = (Statement) connection.createStatement();

@@ -7,6 +7,20 @@ package internalPages;
 import javax.swing.JOptionPane;
 import config.dbconfiguration;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -21,6 +35,30 @@ public class editManageHousehold extends javax.swing.JFrame {
           initComponents();
         
     }
+    
+    public byte[] imageBytes;
+    String path;
+    String filename=null;
+    String imgPath = null;
+    public byte[] person_image = null;    
+    
+    
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(image_display.getWidth(), image_display.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
+
+   
+    
+    
     public void close(){
         this.dispose();
         dashBoard db = new dashBoard();
@@ -57,9 +95,8 @@ public class editManageHousehold extends javax.swing.JFrame {
         female = new javax.swing.JRadioButton();
         add = new javax.swing.JPanel();
         st_label1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        fullname = new javax.swing.JTextField();
+        lastname = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         spouse = new javax.swing.JTextField();
@@ -83,6 +120,13 @@ public class editManageHousehold extends javax.swing.JFrame {
         contact = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         purokname = new javax.swing.JTextField();
+        photo1 = new javax.swing.JPanel();
+        image_display = new javax.swing.JLabel();
+        select_image = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        firstname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -130,7 +174,7 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(female);
-        female.setBounds(320, 250, 170, 30);
+        female.setBounds(320, 280, 170, 30);
 
         add.setBackground(new java.awt.Color(255, 153, 153));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,36 +196,32 @@ public class editManageHousehold extends javax.swing.JFrame {
         add.add(st_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
         jPanel1.add(add);
-        add.setBounds(930, 400, 100, 30);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1) (1).png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(950, 70, 90, 90);
+        add.setBounds(930, 480, 100, 30);
 
         jLabel13.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel13.setText("Gender");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(20, 250, 130, 30);
+        jLabel13.setBounds(20, 280, 130, 30);
 
-        fullname.setBackground(new java.awt.Color(255, 153, 153));
-        fullname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        fullname.addActionListener(new java.awt.event.ActionListener() {
+        lastname.setBackground(new java.awt.Color(255, 153, 153));
+        lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullnameActionPerformed(evt);
+                lastnameActionPerformed(evt);
             }
         });
-        jPanel1.add(fullname);
-        fullname.setBounds(150, 170, 340, 30);
+        jPanel1.add(lastname);
+        lastname.setBounds(150, 160, 340, 30);
 
         jLabel15.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel15.setText("Fullname: (HEAD)");
+        jLabel15.setText("Last Name:");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(20, 170, 130, 30);
+        jLabel15.setBounds(20, 160, 130, 30);
 
         jLabel16.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel16.setText("Spouse Name:");
         jPanel1.add(jLabel16);
-        jLabel16.setBounds(20, 210, 130, 30);
+        jLabel16.setBounds(20, 240, 130, 30);
 
         spouse.setBackground(new java.awt.Color(255, 153, 153));
         spouse.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -191,12 +231,12 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(spouse);
-        spouse.setBounds(150, 210, 340, 30);
+        spouse.setBounds(150, 240, 340, 30);
 
         jLabel17.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel17.setText("Household ID:");
         jPanel1.add(jLabel17);
-        jLabel17.setBounds(20, 90, 130, 30);
+        jLabel17.setBounds(20, 80, 130, 30);
 
         id.setEditable(false);
         id.setBackground(new java.awt.Color(255, 153, 153));
@@ -207,7 +247,7 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(id);
-        id.setBounds(150, 90, 340, 30);
+        id.setBounds(150, 80, 340, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
         male.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -218,54 +258,54 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(male);
-        male.setBounds(150, 250, 160, 30);
+        male.setBounds(150, 280, 160, 30);
 
         status.setBackground(new java.awt.Color(255, 153, 153));
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced", "Separated", "Widowed" }));
         jPanel1.add(status);
-        status.setBounds(150, 290, 340, 30);
+        status.setBounds(150, 320, 340, 30);
 
         jLabel6.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Status:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 290, 130, 30);
+        jLabel6.setBounds(20, 320, 130, 30);
 
         jLabel7.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Birthdate:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 330, 130, 30);
+        jLabel7.setBounds(20, 360, 130, 30);
 
         birthdate.setBackground(new java.awt.Color(255, 153, 153));
         birthdate.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(birthdate);
-        birthdate.setBounds(150, 330, 340, 30);
+        birthdate.setBounds(150, 360, 340, 30);
 
         occupation.setBackground(new java.awt.Color(255, 153, 153));
         occupation.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(occupation);
-        occupation.setBounds(720, 210, 320, 30);
+        occupation.setBounds(710, 320, 320, 30);
 
         numbers.setBackground(new java.awt.Color(255, 153, 153));
         numbers.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(numbers);
-        numbers.setBounds(720, 290, 320, 30);
+        numbers.setBounds(710, 400, 320, 30);
 
         jLabel14.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel14.setText("No. of Children (ALL)");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(520, 290, 200, 30);
+        jLabel14.setBounds(510, 400, 200, 30);
 
         jLabel18.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel18.setText("Contact:");
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(520, 250, 140, 30);
+        jLabel18.setBounds(510, 360, 140, 30);
 
         jLabel19.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
-        jLabel19.setText("Occupation:");
+        jLabel19.setText("Image:");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(520, 210, 140, 30);
+        jLabel19.setBounds(700, 70, 70, 30);
 
         address.setBackground(new java.awt.Color(255, 153, 153));
         address.setColumns(20);
@@ -274,32 +314,32 @@ public class editManageHousehold extends javax.swing.JFrame {
         jScrollPane1.setViewportView(address);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(150, 370, 340, 100);
+        jScrollPane1.setBounds(150, 400, 340, 100);
 
         jLabel10.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel10.setText("Address:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(20, 370, 130, 30);
+        jLabel10.setBounds(20, 400, 130, 30);
 
         ages.setBackground(new java.awt.Color(255, 153, 153));
         ages.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(ages);
-        ages.setBounds(720, 330, 320, 30);
+        ages.setBounds(710, 440, 320, 30);
 
         jLabel20.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel20.setText("Their ages:");
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(520, 330, 140, 30);
+        jLabel20.setBounds(510, 440, 140, 30);
 
         contact.setBackground(new java.awt.Color(255, 153, 153));
         contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(contact);
-        contact.setBounds(720, 250, 320, 30);
+        contact.setBounds(710, 360, 320, 30);
 
         jLabel21.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel21.setText("Purok Name:");
         jPanel1.add(jLabel21);
-        jLabel21.setBounds(20, 130, 130, 30);
+        jLabel21.setBounds(20, 120, 130, 30);
 
         purokname.setBackground(new java.awt.Color(255, 153, 153));
         purokname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -309,7 +349,56 @@ public class editManageHousehold extends javax.swing.JFrame {
             }
         });
         jPanel1.add(purokname);
-        purokname.setBounds(150, 130, 340, 30);
+        purokname.setBounds(150, 120, 340, 30);
+
+        photo1.setBackground(new java.awt.Color(255, 153, 153));
+        photo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        photo1.add(image_display, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 184, 200));
+
+        jPanel1.add(photo1);
+        photo1.setBounds(770, 70, 240, 200);
+
+        select_image.setBackground(new java.awt.Color(255, 153, 153));
+        select_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                select_imageMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                select_imageMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                select_imageMouseExited(evt);
+            }
+        });
+        select_image.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("BROWSE");
+        select_image.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 30));
+
+        jPanel1.add(select_image);
+        select_image.setBounds(810, 280, 170, 30);
+
+        jLabel22.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
+        jLabel22.setText("Occupation:");
+        jPanel1.add(jLabel22);
+        jLabel22.setBounds(510, 320, 140, 30);
+
+        jLabel23.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel23.setText("First Name:");
+        jPanel1.add(jLabel23);
+        jLabel23.setBounds(20, 200, 130, 30);
+
+        firstname.setBackground(new java.awt.Color(255, 153, 153));
+        firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        firstname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstnameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(firstname);
+        firstname.setBounds(150, 200, 340, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,7 +443,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         if (purokname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Purok Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else if(fullname.getText().trim().isEmpty()) {
+        }else if(lastname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Fullname!", "Error", JOptionPane.ERROR_MESSAGE);
             return;            
         }else if(spouse.getText().trim().isEmpty()) {
@@ -390,31 +479,48 @@ public class editManageHousehold extends javax.swing.JFrame {
         if (status.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(this, "Please select your Status!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else{
-            JOptionPane.showMessageDialog(this, "Succesfully Save!");     
-        } 
-
+        }
+             
         
         if(action.equals("Add")){
+           try{
             dbconfiguration dbc = new dbconfiguration();
-            int result = dbc.insertData("INSERT INTO tbl_householdrecords (hh_purokname,hh_fullname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages) "
-                + "VALUES ('"+purokname.getText()+"','"+fullname.getText()+"', '"+spouse.getText()+"','"+gender+"','"+status.getSelectedItem()+"','"+birthdate.getText()+"','"+address.getText()+"','"+occupation.getText()+"','"+contact.getText()+"','"+numbers.getText()+"','"+ages.getText()+"')");
-            if(result == 1){  
-                
+            Connection con = dbc.connect_db();
+            String sql = "INSERT INTO tbl_householdrecords (hh_purokname, hh_fullname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages, hh_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, purokname.getText());
+            pst.setString(2, lastname.getText());
+            pst.setString(3, spouse.getText());
+            pst.setString(4, gender);
+            pst.setString(5, status.getSelectedItem().toString());
+            pst.setString(6, birthdate.getText());        
+            pst.setString(7, address.getText());
+            pst.setString(8, occupation.getText());
+            pst.setString(9, contact.getText());
+            pst.setString(10, numbers.getText());
+            pst.setString(11, ages.getText());           
+            pst.setBytes(12, person_image);
+
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Successfully Updated!");
+                                        
                 close(); 
                 
                 dashBoard db = new dashBoard();               
                 manageHousehold mh = new manageHousehold();
                 db.maindesktop.add(mh).setVisible(true);
-                this.dispose();       
                 
-            }else{
-                System.out.println("Saving Data Failed!");
-            }
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+           
+           
         }else if(action.equals("Update")){
             dbconfiguration dbc = new dbconfiguration();
             dbc.updateData("UPDATE tbl_householdrecords "
-                + "SET hh_purokname = '"+purokname.getText()+"', hh_fullname='"+fullname.getText()+"', hh_spouse='"+spouse.getText()+"', "
+                + "SET hh_purokname = '"+purokname.getText()+"', hh_fullname='"+lastname.getText()+"', hh_spouse='"+spouse.getText()+"', "
                 + "hh_gender ='"+gender+"', hh_status='"+status.getSelectedItem()+"',hh_birthdate='"+birthdate.getText()+ "',hh_address='"+address.getText()+ "',hh_occupation='"+occupation.getText()+ "',hh_contact='"+contact.getText()+ "',hh_children='"+numbers.getText()+ "',hh_ages='"+ages.getText()+ "'"
                 + "WHERE hh_id = '"+id.getText()+"'");
             close();
@@ -425,7 +531,6 @@ public class editManageHousehold extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No Action Selected!");
             close();
         }
-
     }//GEN-LAST:event_addMouseClicked
 
     private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
@@ -436,9 +541,9 @@ public class editManageHousehold extends javax.swing.JFrame {
         add.setBackground(headcolor);
     }//GEN-LAST:event_addMouseExited
 
-    private void fullnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnameActionPerformed
+    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fullnameActionPerformed
+    }//GEN-LAST:event_lastnameActionPerformed
 
     private void spouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spouseActionPerformed
         // TODO add your handling code here:
@@ -460,6 +565,52 @@ public class editManageHousehold extends javax.swing.JFrame {
     private void puroknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puroknameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_puroknameActionPerformed
+
+    private void select_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseClicked
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "gif", "png");
+        chooser.addChoosableFileFilter(filter);
+        int result = chooser.showSaveDialog(null);
+        
+        if (result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = chooser.getSelectedFile();
+            path = selectedFile.getAbsolutePath();
+            image_display.setIcon(ResizeImage(path,null));
+            imgPath = path;
+            File f = chooser.getSelectedFile();
+            filename = selectedFile.getAbsolutePath();
+        }else{
+        JOptionPane.showMessageDialog(null, "Canceled!");
+        }
+          
+        try {
+                File image = new File(filename);
+                FileInputStream fis = new FileInputStream(image);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] buf = new byte[1024];
+                
+                for (int readNum; (readNum=fis.read(buf)) !=-1;){
+                 bos.write(buf,0,readNum);
+                }
+                person_image=bos.toByteArray();
+                
+        }catch(Exception e){
+            System.out.println(e);
+        }    
+    }//GEN-LAST:event_select_imageMouseClicked
+
+    private void select_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseEntered
+        select_image.setBackground(navcolor);
+    }//GEN-LAST:event_select_imageMouseEntered
+
+    private void select_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseExited
+        select_image.setBackground(headcolor);
+    }//GEN-LAST:event_select_imageMouseExited
+
+    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstnameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,8 +670,9 @@ public class editManageHousehold extends javax.swing.JFrame {
     public javax.swing.JTextField contact;
     private javax.swing.JLabel exit;
     public javax.swing.JRadioButton female;
-    public javax.swing.JTextField fullname;
+    public javax.swing.JTextField firstname;
     public javax.swing.JTextField id;
+    public javax.swing.JLabel image_display;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -532,17 +684,22 @@ public class editManageHousehold extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextField lastname;
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
     public javax.swing.JTextField numbers;
     public javax.swing.JTextField occupation;
+    public javax.swing.JPanel photo1;
     public javax.swing.JTextField purokname;
+    private javax.swing.JPanel select_image;
     public javax.swing.JTextField spouse;
     public javax.swing.JLabel st_label1;
     public javax.swing.JComboBox<String> status;

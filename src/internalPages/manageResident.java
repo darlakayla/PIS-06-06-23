@@ -38,18 +38,20 @@ public class manageResident extends javax.swing.JInternalFrame {
         bi.setNorthPane(null);
     }
     public void displayData(){
-       
         try{
-       
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_residentrecords");
+            ResultSet rs = dbc.getData("SELECT rr_id, rr_residentname, rr_lastname, rr_firstname, rr_contact, rr_occupation FROM tbl_residentrecords");
             tbl_priority.setModel(DbUtils.resultSetToTableModel(rs));
-       
+            DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
+            String[] columnIdentifiers = {"ID", "Resident Name", "Lastname", "Firstname", "Contact", "Occuaption"};
+            model.setColumnIdentifiers(columnIdentifiers);
+            
+             rs.close();
         }catch(SQLException ex){
-            System.out.println("Error Message: "+ex);    
-        }            
+            System.out.println("Errors: "+ex.getMessage());
         
-    }
+        }
+        }
     
     
         
@@ -312,38 +314,55 @@ public class manageResident extends javax.swing.JInternalFrame {
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
         int rowIndex = tbl_priority.getSelectedRow();
-        if(rowIndex < 0){
-            JOptionPane.showMessageDialog(null, "Please select an Item!");           
-        }else{ 
-            TableModel model = tbl_priority.getModel();
-             editManageResident ef = new editManageResident();
-             ef.id.setText(""+model.getValueAt(rowIndex,0));
-             ef.lastname.setText(""+model.getValueAt(rowIndex,1));
-             ef.firstname.setText(""+model.getValueAt(rowIndex,2));
-             ef.address.setText(model.getValueAt(rowIndex,3).toString());
-             ef.status.setSelectedItem(model.getValueAt(rowIndex,4));
-             
-             ef.gender = model.getValueAt(rowIndex,5).toString();
-             String gend = model .getValueAt(rowIndex,5).toString();
-             if(gend.equals("Male")){
-                 ef.male.setSelected(true);
-             }
-             if(gend.equals("Female")){
-               ef.female.setSelected(true);
-             }
-             
-             
-             
-             ef.contact.setText(model.getValueAt(rowIndex,6).toString());
-             ef.email.setText(""+model.getValueAt(rowIndex,7));
-             ef.occupation.setText(""+model.getValueAt(rowIndex,8));
-             ef.setVisible(true);
-             ef.action = "Update";             
-             ef.st_label.setText("UPDATE");
-             JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-             editManageResident mr = new editManageResident();
-             mainFrame.dispose();
+        if (rowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please Select an Item!");
+        } else {
+    TableModel model = tbl_priority.getModel();
+
+    editManageResident er = new editManageResident();
+    er.id.setText("" + model.getValueAt(rowIndex, 0));
+    String rid = model.getValueAt(rowIndex, 0).toString();
+    try {
+        dbconfiguration dbc = new dbconfiguration();
+        ResultSet rs = dbc.getData("SELECT * FROM tbl_residentrecords WHERE rr_id = '" + rid + "'");
+
+        if (rs.next()) {
+            er.resname.setText(rs.getString("rr_residentname"));
+            er.lastname.setText(rs.getString("rr_lastname"));
+            er.firstname.setText(rs.getString("rr_firstname"));
+            er.address.setText(rs.getString("rr_address"));
+            er.status.setSelectedItem(rs.getString("rr_status"));
+            er.gender = rs.getString("rr_gender");
+
+            String gend = rs.getString("rr_gender");
+
+            if (gend.equals("Male")) {
+                er.male.setSelected(true);
+            } else if (gend.equals("Female")) {
+                er.female.setSelected(true);
+            }
+                
+            er.contact.setText(rs.getString("rr_contact"));
+            er.email.setText(rs.getString("rr_email"));
+            er.occupation.setText(rs.getString("rr_occupation"));
+            
+            er.imageBytes = rs.getBytes("rr_image");
+            er.person_image = rs.getBytes("rr_image");
+            er.image_display.setIcon(er.ResizeImage(null, rs.getBytes("rr_image")));
+
+            er.setVisible(true);
+            er.action = "Update";
+            er.st_label.setText("UPDATE");
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            mainFrame.dispose();
+        } else {
+            System.out.println("No Data Found");
+            JOptionPane.showMessageDialog(null, "No Data Found!");
         }
+    } catch (SQLException e) {
+        System.out.println("" + e);
+    }
+}
     }//GEN-LAST:event_editMouseClicked
 
     private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered

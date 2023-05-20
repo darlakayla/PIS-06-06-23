@@ -2,7 +2,16 @@ package internalPages;
 
 import config.dbconfiguration;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class editManageResident extends javax.swing.JFrame {
@@ -11,10 +20,32 @@ public class editManageResident extends javax.swing.JFrame {
     
     
     public editManageResident() {
-        initComponents();
-            
-        
+        initComponents();                 
     }
+    
+    public byte[] imageBytes;
+    String path;
+    String filename=null;
+    String imgPath = null;
+    public byte[] person_image = null;    
+    
+    
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(image_display.getWidth(), image_display.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
+
+    
+    
+    
     
     public void close(){
         this.dispose();
@@ -62,7 +93,6 @@ public class editManageResident extends javax.swing.JFrame {
         status = new javax.swing.JComboBox<>();
         male = new javax.swing.JRadioButton();
         female = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -71,6 +101,10 @@ public class editManageResident extends javax.swing.JFrame {
         st_label = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         resname = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        image_display = new javax.swing.JLabel();
+        select_image = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -112,7 +146,7 @@ public class editManageResident extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel3.setText("Resident ID:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 140, 120, 30);
+        jLabel3.setBounds(30, 100, 120, 30);
 
         id.setEditable(false);
         id.setBackground(new java.awt.Color(255, 153, 153));
@@ -124,12 +158,12 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(id);
-        id.setBounds(140, 140, 350, 30);
+        id.setBounds(150, 100, 350, 30);
 
         jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setText("Lastname:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 240, 120, 30);
+        jLabel4.setBounds(30, 200, 120, 30);
 
         lastname.setBackground(new java.awt.Color(255, 153, 153));
         lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -139,12 +173,12 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lastname);
-        lastname.setBounds(140, 240, 350, 30);
+        lastname.setBounds(150, 200, 350, 30);
 
         jLabel5.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel5.setText("Firstname:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 290, 120, 30);
+        jLabel5.setBounds(30, 250, 120, 30);
 
         firstname.setBackground(new java.awt.Color(255, 153, 153));
         firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -154,12 +188,12 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(firstname);
-        firstname.setBounds(140, 290, 350, 30);
+        firstname.setBounds(150, 250, 350, 30);
 
         jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel6.setText("Address:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 340, 120, 30);
+        jLabel6.setBounds(30, 300, 120, 30);
 
         address.setBackground(new java.awt.Color(255, 153, 153));
         address.setColumns(20);
@@ -168,22 +202,22 @@ public class editManageResident extends javax.swing.JFrame {
         jScrollPane1.setViewportView(address);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(140, 340, 350, 110);
+        jScrollPane1.setBounds(150, 300, 350, 110);
 
         jLabel7.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel7.setText("Status:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(540, 190, 110, 30);
+        jLabel7.setBounds(30, 420, 110, 30);
 
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel2.setText("Gender:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(540, 240, 110, 30);
+        jLabel2.setBounds(30, 460, 110, 30);
 
         jLabel8.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel8.setText("Contact No:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(540, 290, 110, 30);
+        jLabel8.setBounds(560, 340, 110, 30);
 
         contact.setBackground(new java.awt.Color(255, 153, 153));
         contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -193,12 +227,12 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(contact);
-        contact.setBounds(650, 290, 320, 30);
+        contact.setBounds(670, 340, 320, 30);
 
         status.setBackground(new java.awt.Color(255, 153, 153));
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Widowed", "Divorced", "Separated" }));
         jPanel1.add(status);
-        status.setBounds(650, 190, 320, 30);
+        status.setBounds(150, 420, 350, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
         male.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -209,7 +243,7 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(male);
-        male.setBounds(650, 240, 120, 30);
+        male.setBounds(150, 460, 150, 30);
 
         female.setBackground(new java.awt.Color(255, 153, 153));
         female.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -220,16 +254,12 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(female);
-        female.setBounds(790, 240, 110, 30);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/pis-logo-modified (1) (1).png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(960, 70, 90, 90);
+        female.setBounds(340, 460, 160, 30);
 
         jLabel10.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel10.setText("Email:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(540, 330, 110, 30);
+        jLabel10.setBounds(560, 380, 110, 30);
 
         email.setBackground(new java.awt.Color(255, 153, 153));
         email.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -239,12 +269,12 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(email);
-        email.setBounds(650, 330, 320, 30);
+        email.setBounds(670, 380, 320, 30);
 
         jLabel11.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel11.setText("Occupation:");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(540, 370, 110, 30);
+        jLabel11.setBounds(560, 420, 110, 30);
 
         occupation.setBackground(new java.awt.Color(255, 153, 153));
         occupation.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -254,7 +284,7 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(occupation);
-        occupation.setBounds(650, 370, 320, 30);
+        occupation.setBounds(670, 420, 320, 30);
 
         add1.setBackground(new java.awt.Color(255, 153, 153));
         add1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -276,12 +306,12 @@ public class editManageResident extends javax.swing.JFrame {
         add1.add(st_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
         jPanel1.add(add1);
-        add1.setBounds(860, 420, 100, 30);
+        add1.setBounds(930, 470, 100, 30);
 
         jLabel12.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel12.setText("Resident Name:");
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(20, 190, 120, 30);
+        jLabel12.setBounds(30, 150, 120, 30);
 
         resname.setBackground(new java.awt.Color(255, 153, 153));
         resname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -291,7 +321,36 @@ public class editManageResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(resname);
-        resname.setBounds(140, 190, 350, 30);
+        resname.setBounds(150, 150, 350, 30);
+
+        jPanel3.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(image_display, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 184, 200));
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(740, 80, 240, 200);
+
+        select_image.setBackground(new java.awt.Color(255, 153, 153));
+        select_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                select_imageMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                select_imageMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                select_imageMouseExited(evt);
+            }
+        });
+        select_image.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("BROWSE");
+        select_image.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 30));
+
+        jPanel1.add(select_image);
+        select_image.setBounds(770, 290, 170, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -374,7 +433,7 @@ public class editManageResident extends javax.swing.JFrame {
 
     private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
 
-        if (resname.getText().trim().isEmpty()) {
+       if (resname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Resident Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }else if(lastname.getText().trim().isEmpty()) {
@@ -407,29 +466,42 @@ public class editManageResident extends javax.swing.JFrame {
         }else if(occupation.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Occupation!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else{
-            JOptionPane.showMessageDialog(this, "Succesfully Save!");
-        } 
-  
-        if(action.equals("Add")){
-       
-            dbconfiguration dbc = new dbconfiguration();
-             int result = dbc.insertData("INSERT INTO tbl_residentrecords (rr_residentname, rr_lastname, rr_firstname, rr_address, rr_status, rr_gender, rr_contact, rr_email, rr_occupation) "
-                + "VALUES ('"+resname.getText()+"','"+lastname.getText()+"', '"+firstname.getText()+"','"+address.getText()+"','"+status.getSelectedItem()+"','"+gender+"','"+contact.getText()+"','"+email.getText()+"','"+occupation.getText()+"')");        
+        }
         
-        if(result == 1){
+        
+        if(action.equals("Add")){
+           try{
+            dbconfiguration dbc = new dbconfiguration();
+            Connection con = dbc.connect_db();
+            String sql = "INSERT INTO tbl_residentrecords (rr_residentname, rr_lastname, rr_firstname, rr_address, rr_status, rr_gender, rr_contact, rr_email, rr_occupation, rr_image) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, resname.getText());
+            pst.setString(2, lastname.getText());
+            pst.setString(3, firstname.getText());
+            pst.setString(4, address.getText());
+            pst.setString(5, status.getSelectedItem().toString());
+            pst.setString(6, gender);
+            pst.setString(7, contact.getText());          
+            pst.setString(8, email.getText());
+            pst.setString(9, occupation.getText());                 
+            pst.setBytes(10, person_image);
+
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Successfully Updated!");
             
-             close();        
-             
-                dashBoard db = new dashBoard();              
+            close(); 
+                
+                dashBoard db = new dashBoard();               
                 manageResident mr = new manageResident();
                 db.maindesktop.add(mr).setVisible(true);
-                this.dispose();
-             
-         }else{ 
-             System.out.println("Saving Data Failed!");
-         }    
-        }else if(action.equals("Update")){
+            
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+           
+          }else if(action.equals("Update")){
             dbconfiguration dbc = new dbconfiguration();
             dbc.updateData("UPDATE tbl_residentrecords "
                 + "SET rr_residentname = '"+resname.getText()+"', rr_lastname='"+lastname.getText()+"', rr_firstname='"+firstname.getText()+"', "
@@ -442,12 +514,55 @@ public class editManageResident extends javax.swing.JFrame {
         }else{
            JOptionPane.showMessageDialog(null, "No Action Selected!");
            close();
-        }
+        }  
+         
     }//GEN-LAST:event_add1MouseClicked
 
     private void resnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resnameActionPerformed
+
+    private void select_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseClicked
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "gif", "png");
+        chooser.addChoosableFileFilter(filter);
+        int result = chooser.showSaveDialog(null);
+        
+        if (result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = chooser.getSelectedFile();
+            path = selectedFile.getAbsolutePath();
+            image_display.setIcon(ResizeImage(path,null));
+            imgPath = path;
+            File f = chooser.getSelectedFile();
+            filename = selectedFile.getAbsolutePath();
+        }else{
+        JOptionPane.showMessageDialog(null, "Canceled!");
+        }
+          
+        try {
+                File image = new File(filename);
+                FileInputStream fis = new FileInputStream(image);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] buf = new byte[1024];
+                
+                for (int readNum; (readNum=fis.read(buf)) !=-1;){
+                 bos.write(buf,0,readNum);
+                }
+                person_image=bos.toByteArray();
+                
+        }catch(Exception e){
+            System.out.println(e);
+        }    
+    }//GEN-LAST:event_select_imageMouseClicked
+
+    private void select_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseEntered
+        select_image.setBackground(navcolor);
+    }//GEN-LAST:event_select_imageMouseEntered
+
+    private void select_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseExited
+       select_image.setBackground(headcolor);
+    }//GEN-LAST:event_select_imageMouseExited
 
     /**
      * @param args the command line arguments
@@ -496,6 +611,7 @@ public class editManageResident extends javax.swing.JFrame {
     public javax.swing.JRadioButton female;
     public javax.swing.JTextField firstname;
     public javax.swing.JTextField id;
+    public javax.swing.JLabel image_display;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -510,12 +626,14 @@ public class editManageResident extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField lastname;
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
     public javax.swing.JTextField occupation;
     public javax.swing.JTextField resname;
+    private javax.swing.JPanel select_image;
     public javax.swing.JLabel st_label;
     public javax.swing.JComboBox<String> status;
     // End of variables declaration//GEN-END:variables

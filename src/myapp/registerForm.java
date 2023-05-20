@@ -237,6 +237,9 @@ public class registerForm extends javax.swing.JFrame {
         icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/show (1).png"))); // NOI18N
         icon1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon1MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 icon1MousePressed(evt);
             }
@@ -387,6 +390,10 @@ public class registerForm extends javax.swing.JFrame {
         icon2.setVisible(false);
         password.setEchoChar('*');
     }//GEN-LAST:event_icon2MousePressed
+
+    private void icon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon1MouseClicked
 
         public boolean  checkUsername(String username)
     {

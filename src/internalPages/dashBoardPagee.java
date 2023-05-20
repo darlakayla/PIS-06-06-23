@@ -7,7 +7,12 @@ package internalPages;
 
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import myapp.loginForm;
@@ -21,9 +26,8 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
 
     private Object maindesktop;
 
-    /**
-     * Creates new form dashBoardPagee
-     */
+
+   
     public dashBoardPagee() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
@@ -49,10 +53,12 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        th = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        tr = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
 
@@ -77,6 +83,9 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/hh (1).png"))); // NOI18N
         jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 50, 50));
 
+        th.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(th, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 70, 30));
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(80, 120, 210, 110);
 
@@ -95,6 +104,9 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/RES (1).png"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        tr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(tr, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 70, 30));
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(80, 280, 210, 110);
@@ -140,5 +152,7 @@ public class dashBoardPagee extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel th;
+    private javax.swing.JLabel tr;
     // End of variables declaration//GEN-END:variables
 }

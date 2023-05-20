@@ -52,9 +52,6 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         db = new javax.swing.JLabel();
-        dashboard = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        db1 = new javax.swing.JLabel();
         settings = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         db3 = new javax.swing.JLabel();
@@ -63,6 +60,12 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         db4 = new javax.swing.JLabel();
+        puroklist = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        db5 = new javax.swing.JLabel();
+        dashboard = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        db1 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
@@ -86,7 +89,7 @@ public class dashBoard extends javax.swing.JFrame {
         navbar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 50));
 
         firstname.setBackground(new java.awt.Color(255, 102, 102));
-        firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        firstname.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         firstname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         firstname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         navbar.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 180, 30));
@@ -123,7 +126,7 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel12.setText("HOUSEHOLD");
         managehousehold.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, 30));
 
-        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, 50));
+        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, 50));
 
         residentrecords.setBackground(new java.awt.Color(255, 102, 102));
         residentrecords.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,31 +155,7 @@ public class dashBoard extends javax.swing.JFrame {
         db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
         residentrecords.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 60, 50));
 
-        navbar.add(residentrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, 50));
-
-        dashboard.setBackground(new java.awt.Color(255, 102, 102));
-        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dashboardMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dashboardMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dashboardMouseExited(evt);
-            }
-        });
-        dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("DASHBOARD");
-        dashboard.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 30));
-
-        db1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/db (1).png"))); // NOI18N
-        dashboard.add(db1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
-
-        navbar.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 200, 50));
+        navbar.add(residentrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, 50));
 
         settings.setBackground(new java.awt.Color(255, 102, 102));
         settings.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,7 +213,55 @@ public class dashBoard extends javax.swing.JFrame {
         db4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (2).png"))); // NOI18N
         blotterreports.add(db4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 50));
 
-        navbar.add(blotterreports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, 50));
+        navbar.add(blotterreports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, -1, 50));
+
+        puroklist.setBackground(new java.awt.Color(255, 102, 102));
+        puroklist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                puroklistMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                puroklistMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                puroklistMouseExited(evt);
+            }
+        });
+        puroklist.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("PUROK LIST");
+        puroklist.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
+
+        db5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/houses (1).png"))); // NOI18N
+        puroklist.add(db5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
+
+        navbar.add(puroklist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 200, 50));
+
+        dashboard.setBackground(new java.awt.Color(255, 102, 102));
+        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardMouseExited(evt);
+            }
+        });
+        dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("DASHBOARD");
+        dashboard.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
+
+        db1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/db (1).png"))); // NOI18N
+        dashboard.add(db1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
+
+        navbar.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 50));
 
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 200, 560);
@@ -264,7 +291,6 @@ public class dashBoard extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
         header.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -1, 870, 50));
 
         jPanel1.add(header);
@@ -389,6 +415,18 @@ public class dashBoard extends javax.swing.JFrame {
         blotterreports.setBackground(navcolor);
     }//GEN-LAST:event_blotterreportsMouseExited
 
+    private void puroklistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_puroklistMouseClicked
+        
+    }//GEN-LAST:event_puroklistMouseClicked
+
+    private void puroklistMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_puroklistMouseEntered
+       puroklist.setBackground(bodycolor);
+    }//GEN-LAST:event_puroklistMouseEntered
+
+    private void puroklistMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_puroklistMouseExited
+       puroklist.setBackground(navcolor);
+    }//GEN-LAST:event_puroklistMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -432,6 +470,7 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel db2;
     private javax.swing.JLabel db3;
     private javax.swing.JLabel db4;
+    private javax.swing.JLabel db5;
     private javax.swing.JLabel exit;
     public static javax.swing.JLabel firstname;
     private javax.swing.JPanel header;
@@ -442,6 +481,7 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -455,6 +495,7 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JPanel managehousehold;
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
+    private javax.swing.JPanel puroklist;
     private javax.swing.JPanel residentrecords;
     private javax.swing.JPanel settings;
     // End of variables declaration//GEN-END:variables

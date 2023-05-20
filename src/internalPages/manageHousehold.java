@@ -44,18 +44,20 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     }
     
         public void displayData(){
-       
         try{
-       
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords");
+            ResultSet rs = dbc.getData("SELECT hh_id, hh_purokname, hh_fullname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
             tbl_household.setModel(DbUtils.resultSetToTableModel(rs));
-       
+            DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
+            String[] columnIdentifiers = {"ID", "Purok Name", "Fullname", "Status", "Occupation", "Contact"};
+            model.setColumnIdentifiers(columnIdentifiers);
+            
+             rs.close();
         }catch(SQLException ex){
-            System.out.println("Error Message: "+ex);    
-        }            
+            System.out.println("Errors: "+ex.getMessage());
         
-    }
+        }
+        }
     
     
   
@@ -306,37 +308,58 @@ public class manageHousehold extends javax.swing.JInternalFrame {
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
         int rowIndex = tbl_household.getSelectedRow();
-        if(rowIndex < 0){
-            JOptionPane.showMessageDialog(null, "Please select an Item!");           
-        }else{ 
+        if (rowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please Select an Item!");
+        } else {
             TableModel model = tbl_household.getModel();
-             editManageHousehold nh = new editManageHousehold();
-             nh.id.setText(""+model.getValueAt(rowIndex,0));
-             nh.fullname.setText(""+model.getValueAt(rowIndex,1));
-             nh.spouse.setText(""+model.getValueAt(rowIndex,2));       
-             nh.gender = model.getValueAt(rowIndex,3).toString();
-             String gend = model .getValueAt(rowIndex,3).toString();
-             if(gend.equals("Male")){
-                 nh.male.setSelected(true);
-             }
-             if(gend.equals("Female")){
-               nh.female.setSelected(true);
-             }
-             nh.status.setSelectedItem(model.getValueAt(rowIndex,4));
-             nh.birthdate.setText(""+model.getValueAt(rowIndex,5));
-             nh.address.setText(model.getValueAt(rowIndex,6).toString());
-             nh.occupation.setText(""+model.getValueAt(rowIndex,7));
-             nh.contact.setText(""+model.getValueAt(rowIndex,8));
-             nh.numbers.setText(""+model.getValueAt(rowIndex,9));
-             nh.ages.setText(""+model.getValueAt(rowIndex,10));
-             
-             nh.setVisible(true);
-             nh.action = "Update";             
-             nh.st_label1.setText("UPDATE");
-             JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-             editManageHousehold en = new editManageHousehold();
-             mainFrame.dispose();
+            editManageHousehold em = new editManageHousehold();
+            em.id.setText("" + model.getValueAt(rowIndex, 0));
+            String hid = model.getValueAt(rowIndex, 0).toString();
+        try {
+           
+        dbconfiguration dbc = new dbconfiguration();
+        ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id = '" + hid + "'");
+
+        if (rs.next()) {
+            em.purokname.setText(rs.getString("hh_purokname"));
+            em.lastname.setText(rs.getString("hh_fullname"));
+            em.spouse.setText(rs.getString("hh_spouse"));
+            em.gender = rs.getString("hh_gender");
+
+            String gend = rs.getString("hh_gender");
+
+            if (gend.equals("Male")) {
+                em.male.setSelected(true);
+            } else if (gend.equals("Female")) {
+                em.female.setSelected(true);
+            }
+
+            em.status.setSelectedItem(rs.getString("hh_status"));
+            em.birthdate.setText(rs.getString("hh_birthdate"));
+            em.address.setText(rs.getString("hh_address"));
+            em.occupation.setText(rs.getString("hh_occupation"));
+            em.contact.setText(rs.getString("hh_contact"));
+            em.numbers.setText(rs.getString("hh_children"));
+            em.ages.setText(rs.getString("hh_ages"));
+
+            em.imageBytes = rs.getBytes("hh_image");
+            em.person_image = rs.getBytes("hh_image");
+            em.image_display.setIcon(em.ResizeImage(null, rs.getBytes("hh_image")));
+
+            em.setVisible(true);
+            em.action = "Update";
+            em.st_label1.setText("UPDATE");
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            mainFrame.dispose();
+        } else {
+            System.out.println("No Data Found");
+            JOptionPane.showMessageDialog(null, "No Data Found!");
         }
+    } catch (SQLException e) {
+        System.out.println("" + e);
+    }
+}
+
     }//GEN-LAST:event_editMouseClicked
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
@@ -361,8 +384,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
                             dbconfiguration dbc = new dbconfiguration();
                             int hh_id=Integer.parseInt(id);
                             dbc.deletedata(hh_id,"tbl_householdrecords");
-                            displayData();
-                            
+                            displayData();                           
                     }    
        }
 
