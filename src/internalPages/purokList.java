@@ -5,6 +5,8 @@
  */
 package internalPages;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author HP
@@ -16,6 +18,10 @@ public class purokList extends javax.swing.JInternalFrame {
      */
     public purokList() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+        bi.setNorthPane(null);
+        
     }
 
     /**
@@ -31,6 +37,8 @@ public class purokList extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         db2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -48,6 +56,11 @@ public class purokList extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(10, 20, 240, 50);
+
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(40, 100, 810, 360);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,5 +82,7 @@ public class purokList extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

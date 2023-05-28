@@ -10,9 +10,14 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.print.PrinterException;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.MessageFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -26,30 +31,37 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import net.proteanit.sql.DbUtils;
+import sun.util.logging.PlatformLogger;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
-/**
- *
- * @author HP
- */
+
+
 public class manageHousehold extends javax.swing.JInternalFrame {
+    
+   
 
     /**
      * Creates new form newResident
      */
     public manageHousehold() {
         initComponents();
+        
+        displayData();
+         
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-    
+        
+
         public void displayData(){
         try{
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT hh_id, hh_purokname, hh_fullname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
+            ResultSet rs = dbc.getData("SELECT hh_id, hh_purokname, hh_lastname, hh_firstname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
             tbl_household.setModel(DbUtils.resultSetToTableModel(rs));
             DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
-            String[] columnIdentifiers = {"ID", "Purok Name", "Fullname", "Status", "Occupation", "Contact"};
+            String[] columnIdentifiers = {"ID", "Purok Name", "Lastname", "Firstname", "Status", "Occupation", "Contact"};
             model.setColumnIdentifiers(columnIdentifiers);
             
              rs.close();
@@ -59,8 +71,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         }
         }
     
-    
-  
+        
     
         Color navcolor= new Color(255,102,102);
         Color headcolor= new Color(255,153,153);
@@ -322,7 +333,8 @@ public class manageHousehold extends javax.swing.JInternalFrame {
 
         if (rs.next()) {
             em.purokname.setText(rs.getString("hh_purokname"));
-            em.lastname.setText(rs.getString("hh_fullname"));
+            em.lastname.setText(rs.getString("hh_lastname"));
+            em.firstname.setText(rs.getString("hh_firstname"));          
             em.spouse.setText(rs.getString("hh_spouse"));
             em.gender = rs.getString("hh_gender");
 
@@ -342,19 +354,23 @@ public class manageHousehold extends javax.swing.JInternalFrame {
             em.numbers.setText(rs.getString("hh_children"));
             em.ages.setText(rs.getString("hh_ages"));
 
-            em.imageBytes = rs.getBytes("hh_image");
-            em.person_image = rs.getBytes("hh_image");
-            em.image_display.setIcon(em.ResizeImage(null, rs.getBytes("hh_image")));
-
-            em.setVisible(true);
-            em.action = "Update";
-            em.st_label1.setText("UPDATE");
-            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-            mainFrame.dispose();
-        } else {
-            System.out.println("No Data Found");
-            JOptionPane.showMessageDialog(null, "No Data Found!");
-        }
+            em.image.setIcon(em.ResizeImage(rs.getString("hh_image"), null, em.image));
+            em.oldpath = rs.getString("hh_image");
+            
+                em.setVisible(true);
+                em.action = "Update";
+                em.st_label1.setText("UPDATE");
+                em.remove.setText("REMOVE");
+                JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+                mainFrame.dispose();
+        
+            if(rs.getString("hh_image").isEmpty()){
+                    em.remove.setVisible(false);
+                }else{
+                    em.remove.setVisible(true);
+                }
+            }
+        
     } catch (SQLException e) {
         System.out.println("" + e);
     }
@@ -365,29 +381,46 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         mainFrame.dispose();
-        editManageHousehold nh = new editManageHousehold();
-        nh.setVisible(true);
-        nh.action = "Add";
-        nh.st_label1.setText("SAVE");
+        editManageHousehold mh = new editManageHousehold();
+        mh.setVisible(true);
+        mh.action = "Add";
+        mh.st_label1.setText("SAVE");
+        mh.remove.setVisible(false);
     }//GEN-LAST:event_addMouseClicked
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         int rowIndex = tbl_household.getSelectedRow();
-       if(rowIndex < 0){
-           JOptionPane.showMessageDialog(null, "Please select data first from the table!");
-       }else{
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null, "Please select data first from the table!");
+        }else{
             TableModel model = tbl_household.getModel();
             Object value = model.getValueAt(rowIndex, 0);
             String id = value.toString();
-             int a=JOptionPane.showConfirmDialog(null,"Are you sure to delete ID "+id);  
-                    if(a==JOptionPane.YES_OPTION){  
-                            dbconfiguration dbc = new dbconfiguration();
-                            int hh_id=Integer.parseInt(id);
-                            dbc.deletedata(hh_id,"tbl_householdrecords");
-                            displayData();                           
-                    }    
-       }
-
+            int a = JOptionPane.showConfirmDialog(null, "Are you sure to delete ID: "+id);
+            if(a == JOptionPane.YES_OPTION){
+                dbconfiguration dbc = new dbconfiguration();
+                int hh_id = Integer.parseInt(id);
+                
+                
+                try{
+               ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id ="+id);
+                
+                    if(rs.next()){
+                       editManageHousehold mh = new editManageHousehold();
+                       String oldpath = rs.getString("hh_image");
+                       File existingFile = new File(oldpath);
+                        if (existingFile.exists()) {
+                            existingFile.delete();
+                        }         
+                   }
+                }catch(SQLException e){
+                    System.out.println("Error !");
+                }
+                
+                dbc.deleteData(hh_id, "tbl_householdrecords", "hh_id");
+                displayData();
+            }
+        }
     }//GEN-LAST:event_deleteMouseClicked
 
     private void displayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayMouseClicked

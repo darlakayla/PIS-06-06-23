@@ -13,13 +13,23 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -27,36 +37,91 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author HP
  */
 public class editManageHousehold extends javax.swing.JFrame {
-
-    /**
-     * Creates new form editNewResidentForm
-     */
-    public editManageHousehold() {              
-          initComponents();
-        
+ 
+    public editManageHousehold() {     
+       initComponents();
+       remove.setVisible(false);
     }
     
-    public byte[] imageBytes;
-    String path;
-    String filename=null;
-    String imgPath = null;
-    public byte[] person_image = null;    
+        public String destination = "";
+        File selectedFile;
+        public String oldpath;
+        String path;
     
-    
-    public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
-    ImageIcon MyImage = null;
-        if(ImagePath !=null){
-            MyImage = new ImageIcon(ImagePath);
-        }else{
-            MyImage = new ImageIcon(pic);
-        }
-    Image img = MyImage.getImage();
-    Image newImg = img.getScaledInstance(image_display.getWidth(), image_display.getHeight(), Image.SCALE_SMOOTH);
-    ImageIcon image = new ImageIcon(newImg);
-    return image;
-}
-
    
+        public void imageUpdater(String existingFilePath, String newFilePath){
+        File existingFile = new File(existingFilePath);
+        if (existingFile.exists()) {
+            String parentDirectory = existingFile.getParent();
+            File newFile = new File(newFilePath);
+            String newFileName = newFile.getName();
+            File updatedFile = new File(parentDirectory, newFileName);
+            existingFile.delete();
+            try {
+                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image updated successfully.");
+            } catch (IOException e) {
+                System.out.println("Error occurred while updating the image: ");
+            }
+        } else {
+            try{
+                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }catch(IOException e){
+                System.out.println("Error on update!");
+            }
+        }
+   }
+        
+        public static int getHeightFromWidth(String imagePath, int desiredWidth) {
+        try {
+            // Read the image file
+            File imageFile = new File(imagePath);
+            BufferedImage image = ImageIO.read(imageFile);
+            
+            // Get the original width and height of the image
+            int originalWidth = image.getWidth();
+            int originalHeight = image.getHeight();
+            
+            // Calculate the new height based on the desired width and the aspect ratio
+            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
+            
+            return newHeight;
+        } catch (IOException ex) {
+            System.out.println("No image found!");
+        }
+        
+        return -1;
+    }
+        
+    
+        public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+        ImageIcon MyImage = null;
+            if(ImagePath !=null){
+                MyImage = new ImageIcon(ImagePath);
+            }else{
+                MyImage = new ImageIcon(pic);
+            }
+        
+        int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+}
+        public int FileExistenceChecker(String path){
+        File file = new File(path);
+        String fileName = file.getName();
+        
+        Path filePath = Paths.get("src/images", fileName);
+        boolean fileExists = Files.exists(filePath);
+        
+            if (fileExists) {
+                return 1;
+            }else {
+                return 0;
+            }   
+    }
     
     
     public void close(){
@@ -108,6 +173,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         birthdate = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
+        remove = new javax.swing.JLabel();
         numbers = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -120,10 +186,9 @@ public class editManageHousehold extends javax.swing.JFrame {
         contact = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         purokname = new javax.swing.JTextField();
-        photo1 = new javax.swing.JPanel();
-        image_display = new javax.swing.JLabel();
-        select_image = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        JPanel3 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
+        image1 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         firstname = new javax.swing.JTextField();
@@ -287,6 +352,18 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(occupation);
         occupation.setBounds(710, 320, 320, 30);
 
+        remove.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        remove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove.setText("REMOVE");
+        remove.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        remove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(remove);
+        remove.setBounds(800, 280, 170, 30);
+
         numbers.setBackground(new java.awt.Color(255, 153, 153));
         numbers.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(numbers);
@@ -351,34 +428,23 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(purokname);
         purokname.setBounds(150, 120, 340, 30);
 
-        photo1.setBackground(new java.awt.Color(255, 153, 153));
-        photo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        photo1.add(image_display, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 184, 200));
-
-        jPanel1.add(photo1);
-        photo1.setBounds(770, 70, 240, 200);
-
-        select_image.setBackground(new java.awt.Color(255, 153, 153));
-        select_image.addMouseListener(new java.awt.event.MouseAdapter() {
+        JPanel3.setBackground(new java.awt.Color(255, 153, 153));
+        JPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                select_imageMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                select_imageMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                select_imageMouseExited(evt);
+                JPanel3MouseClicked(evt);
             }
         });
-        select_image.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPanel3.setLayout(null);
+        JPanel3.add(image);
+        image.setBounds(20, 0, 200, 200);
 
-        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("BROWSE");
-        select_image.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 30));
+        image1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/added (2).png"))); // NOI18N
+        JPanel3.add(image1);
+        image1.setBounds(20, 0, 200, 200);
 
-        jPanel1.add(select_image);
-        select_image.setBounds(810, 280, 170, 30);
+        jPanel1.add(JPanel3);
+        JPanel3.setBounds(770, 70, 240, 200);
 
         jLabel22.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel22.setText("Occupation:");
@@ -444,7 +510,10 @@ public class editManageHousehold extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please type your Purok Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }else if(lastname.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please type your Fullname!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;            
+        }else if(firstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname!", "Error", JOptionPane.ERROR_MESSAGE);
             return;            
         }else if(spouse.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Spouse Name!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -481,56 +550,77 @@ public class editManageHousehold extends javax.swing.JFrame {
             return;
         }
              
-        
-        if(action.equals("Add")){
+       if(action.equals("Add")){
+           dbconfiguration dbc = new dbconfiguration();
+           int result=0;
            try{
-            dbconfiguration dbc = new dbconfiguration();
-            Connection con = dbc.connect_db();
-            String sql = "INSERT INTO tbl_householdrecords (hh_purokname, hh_fullname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages, hh_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement pst = con.prepareStatement(sql);
-
+            
+            String sql = "INSERT INTO tbl_householdrecords (hh_purokname, hh_lastname, hh_firstname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages, hh_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = dbc.connection.prepareStatement(sql);
             pst.setString(1, purokname.getText());
             pst.setString(2, lastname.getText());
-            pst.setString(3, spouse.getText());
-            pst.setString(4, gender);
-            pst.setString(5, status.getSelectedItem().toString());
-            pst.setString(6, birthdate.getText());        
-            pst.setString(7, address.getText());
-            pst.setString(8, occupation.getText());
-            pst.setString(9, contact.getText());
-            pst.setString(10, numbers.getText());
-            pst.setString(11, ages.getText());           
-            pst.setBytes(12, person_image);
-
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Successfully Updated!");
-                                        
-                close(); 
-                
-                dashBoard db = new dashBoard();               
-                manageHousehold mh = new manageHousehold();
-                db.maindesktop.add(mh).setVisible(true);
-                
+            pst.setString(3, firstname.getText());
+            pst.setString(4, spouse.getText());
+            pst.setString(5, gender);          
+            pst.setString(6, status.getSelectedItem().toString());
+            pst.setString(7, birthdate.getText());
+            pst.setString(8, address.getText());
+            pst.setString(9, occupation.getText());
+            pst.setString(10, contact.getText());
+            pst.setString(11, numbers.getText());
+            pst.setString(12, ages.getText());      
+            pst.setString(13, destination);
             
+            pst.execute();
+            result = 1;
+            Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);        
         }catch(Exception e){
-            System.out.println(e);
+               System.out.println("Insert Image Error");
         }
+
+           if(result == 1){
+               JOptionPane.showMessageDialog(null, "Successfully Save!");
+               close();
+           }else{
+                System.out.println("Saving Data Failed!");
+           }
+       }else if(action.equals("Update")){
+           dbconfiguration dbc = new dbconfiguration();
+           try{
+           String sql = "UPDATE tbl_householdrecords SET hh_purokname = ?, hh_lastname = ?, hh_firstname = ?, hh_spouse = ?, hh_gender = ?, hh_status = ?, hh_birthdate = ?, hh_address = ?, hh_occupation = ?, hh_contact = ?, hh_children = ?, hh_ages = ?, hh_image = ?  WHERE hh_id = '"+id.getText()+"'";
+           PreparedStatement pst = dbc.connection.prepareStatement(sql);
+            pst.setString(1, purokname.getText());
+            pst.setString(2, lastname.getText());
+            pst.setString(3, firstname.getText());
+            pst.setString(4, spouse.getText());
+            pst.setString(5, gender);
+            pst.setString(6, status.getSelectedItem().toString());
+            pst.setString(7, birthdate.getText());
+            pst.setString(8, address.getText());
+            pst.setString(9, occupation.getText());
+            pst.setString(10, contact.getText());
+            pst.setString(11, numbers.getText());
+            pst.setString(12, ages.getText());     
+            pst.setString(13, destination);
+            pst.execute();
+           close();
+
+           imageUpdater(oldpath, path);
            
+           File existingFile = new File(oldpath);
+            if (existingFile.exists()) {
+                existingFile.delete();
+            }
            
-        }else if(action.equals("Update")){
-            dbconfiguration dbc = new dbconfiguration();
-            dbc.updateData("UPDATE tbl_householdrecords "
-                + "SET hh_purokname = '"+purokname.getText()+"', hh_fullname='"+lastname.getText()+"', hh_spouse='"+spouse.getText()+"', "
-                + "hh_gender ='"+gender+"', hh_status='"+status.getSelectedItem()+"',hh_birthdate='"+birthdate.getText()+ "',hh_address='"+address.getText()+ "',hh_occupation='"+occupation.getText()+ "',hh_contact='"+contact.getText()+ "',hh_children='"+numbers.getText()+ "',hh_ages='"+ages.getText()+ "'"
-                + "WHERE hh_id = '"+id.getText()+"'");
-            close();
-                dashBoard db = new dashBoard();              
-                manageHousehold mh = new manageHousehold();
-                db.maindesktop.add(mh).setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "No Action Selected!");
-            close();
-        }
+           JOptionPane.showMessageDialog(null, "Successfully Updated!");
+           }catch(SQLException e){
+               System.out.println("Database Connection Error!");
+           }
+       }else{
+           JOptionPane.showMessageDialog(null, "No action selected!");
+           close();
+       }
+       
     }//GEN-LAST:event_addMouseClicked
 
     private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
@@ -566,51 +656,44 @@ public class editManageHousehold extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_puroknameActionPerformed
 
-    private void select_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseClicked
-        JFileChooser chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "gif", "png");
-        chooser.addChoosableFileFilter(filter);
-        int result = chooser.showSaveDialog(null);
-        
-        if (result == JFileChooser.APPROVE_OPTION){
-            File selectedFile = chooser.getSelectedFile();
-            path = selectedFile.getAbsolutePath();
-            image_display.setIcon(ResizeImage(path,null));
-            imgPath = path;
-            File f = chooser.getSelectedFile();
-            filename = selectedFile.getAbsolutePath();
-        }else{
-        JOptionPane.showMessageDialog(null, "Canceled!");
-        }
-          
-        try {
-                File image = new File(filename);
-                FileInputStream fis = new FileInputStream(image);
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                byte[] buf = new byte[1024];
-                
-                for (int readNum; (readNum=fis.read(buf)) !=-1;){
-                 bos.write(buf,0,readNum);
-                }
-                person_image=bos.toByteArray();
-                
-        }catch(Exception e){
-            System.out.println(e);
-        }    
-    }//GEN-LAST:event_select_imageMouseClicked
-
-    private void select_imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseEntered
-        select_image.setBackground(navcolor);
-    }//GEN-LAST:event_select_imageMouseEntered
-
-    private void select_imageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_select_imageMouseExited
-        select_image.setBackground(headcolor);
-    }//GEN-LAST:event_select_imageMouseExited
-
     private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnameActionPerformed
+
+    private void JPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanel3MouseClicked
+       JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                        
+                
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        selectedFile = fileChooser.getSelectedFile();
+                        destination = "src/images/" + selectedFile.getName();
+                        path  = selectedFile.getAbsolutePath();
+                        
+                        
+                        if(FileExistenceChecker(path) == 1){
+                          JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
+                            destination = "";
+                            path="";
+                        }else{
+                            image.setIcon(ResizeImage(path, null, image));
+                            System.out.println(""+destination);
+                            remove.setVisible(true);
+                            remove.setText("REMOVE");
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("File Error!");
+                    }
+                }
+    }//GEN-LAST:event_JPanel3MouseClicked
+
+    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
+        remove.setVisible(false);
+        image.setIcon(null);
+        destination = "";
+        path="";
+    }//GEN-LAST:event_removeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -663,6 +746,7 @@ public class editManageHousehold extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel JPanel3;
     private javax.swing.JPanel add;
     public javax.swing.JTextArea address;
     public javax.swing.JTextField ages;
@@ -672,8 +756,8 @@ public class editManageHousehold extends javax.swing.JFrame {
     public javax.swing.JRadioButton female;
     public javax.swing.JTextField firstname;
     public javax.swing.JTextField id;
-    public javax.swing.JLabel image_display;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel image;
+    public javax.swing.JLabel image1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -697,9 +781,8 @@ public class editManageHousehold extends javax.swing.JFrame {
     private javax.swing.JLabel minimize;
     public javax.swing.JTextField numbers;
     public javax.swing.JTextField occupation;
-    public javax.swing.JPanel photo1;
     public javax.swing.JTextField purokname;
-    private javax.swing.JPanel select_image;
+    public javax.swing.JLabel remove;
     public javax.swing.JTextField spouse;
     public javax.swing.JLabel st_label1;
     public javax.swing.JComboBox<String> status;

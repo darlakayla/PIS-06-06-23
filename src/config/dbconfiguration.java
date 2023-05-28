@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 
 public class dbconfiguration {
-    private Connection connection;
+    public Connection connection;
     
    
     
@@ -90,22 +90,22 @@ public class dbconfiguration {
      
         }
         
-     public void deletedata(int id, String table){
-        try{
-            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_householdrecords  WHERE hh_id=?");
-            stmt.setInt(1,id);
-            int rowsDeleted = stmt.executeUpdate();
-            if (rowsDeleted > 0){
-               JOptionPane.showMessageDialog(null, "Deleted Succesfully!");               
-            }else{
-                System.out.println("Deletion Failed!");
+    public void deleteData(int id, String table, String table_id){
+            try{
+                PreparedStatement pst = connection.prepareStatement("DELETE FROM "+table+" WHERE "+table_id+" = ?");
+                pst.setInt(1, id);
+                int rowsDeleted = pst.executeUpdate();
+                    if(rowsDeleted > 0){
+                        JOptionPane.showMessageDialog(null, "Deleted Successfully!");
+                    }else{
+                        System.out.println("Deletion Failed!");
+                    }
+                    pst.close();
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Data cannot be deleted\nContact the administrator.");
             }
-            stmt.close();                 
-        }catch(SQLException ex){
-            System.out.println("Connection Error:" +ex);
         }
         
-    }
      
      public void deLeteData(int id, String table){
         try{

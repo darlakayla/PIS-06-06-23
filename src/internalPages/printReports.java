@@ -43,7 +43,7 @@ public class printReports extends javax.swing.JInternalFrame {
         try{
        
            dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT tbl_householdrecords.hh_id, tbl_householdrecords.hh_purokname,tbl_householdrecords.hh_fullname,tbl_householdrecords.hh_status,tbl_residentrecords.rr_id, tbl_residentrecords.rr_residentname,tbl_residentrecords.rr_lastname, tbl_residentrecords.rr_firstname, tbl_residentrecords.rr_gender, tbl_residentrecords.rr_contact, tbl_residentrecords.rr_occupation FROM printreports LEFT JOIN tbl_householdrecords ON printreports.hh_id = tbl_householdrecords.hh_id LEFT JOIN tbl_residentrecords ON printreports.rr_id = tbl_residentrecords.rr_id");
+            ResultSet rs = dbc.getData("SELECT tbl_householdrecords.hh_id, tbl_householdrecords.hh_purokname,tbl_householdrecords.hh_lastname,tbl_householdrecords.hh_firstname,tbl_householdrecords.hh_status,tbl_residentrecords.rr_id, tbl_residentrecords.rr_residentname,tbl_residentrecords.rr_lastname, tbl_residentrecords.rr_firstname, tbl_residentrecords.rr_gender, tbl_residentrecords.rr_contact, tbl_residentrecords.rr_occupation FROM printreports LEFT JOIN tbl_householdrecords ON printreports.hh_id = tbl_householdrecords.hh_id LEFT JOIN tbl_residentrecords ON printreports.rr_id = tbl_residentrecords.rr_id");
             printreport.setModel(DbUtils.resultSetToTableModel(rs));
        
         }catch(SQLException ex){
