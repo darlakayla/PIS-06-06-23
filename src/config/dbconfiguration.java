@@ -124,6 +124,21 @@ public class dbconfiguration {
         
     }
      
-     
+     public void deleteddData(int id, String table){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM blotter WHERE b_id=?");
+            stmt.setInt(1,id);
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0){
+               JOptionPane.showMessageDialog(null, "Deleted Succesfully!");               
+            }else{
+                System.out.println("Deletion Failed!");
+            }
+            stmt.close();                 
+        }catch(SQLException ex){
+            System.out.println("Connection Error:" +ex);
+        }
+        
+    }
 }
         

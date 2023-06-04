@@ -50,10 +50,10 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
     public void displayData(){
         try{
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT rr_id, rr_residentname, rr_lastname, rr_firstname, rr_contact, rr_occupation FROM tbl_residentrecords");
+            ResultSet rs = dbc.getData("SELECT rr_id, rr_purokname, rr_lastname, rr_firstname, rr_contact, rr_occupation FROM tbl_residentrecords");
             tbl_priority.setModel(DbUtils.resultSetToTableModel(rs));
             DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
-            String[] columnIdentifiers = {"ID", "Resident Name", "Lastname", "Firstname", "Contact", "Occupation"};
+            String[] columnIdentifiers = {"ID", "Purok", "Lastname", "Firstname", "Contact", "Occupation"};
             model.setColumnIdentifiers(columnIdentifiers);
             
              rs.close();
@@ -83,8 +83,8 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_priority = new javax.swing.JTable();
         search = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         display = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -104,7 +104,6 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
         print = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -137,14 +136,14 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
         });
         search.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/search1 (1).png"))); // NOI18N
+        search.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
         jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("SEARCH");
         search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 80, 40));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/search1 (1).png"))); // NOI18N
-        search.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(search);
         search.setBounds(730, 50, 130, 40);
@@ -297,12 +296,6 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
 
         jPanel1.add(print);
         print.setBounds(530, 120, 120, 40);
-
-        jLabel16.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("TOTAL RESIDENT:");
-        jPanel1.add(jLabel16);
-        jLabel16.setBounds(10, 80, 140, 30);
         jPanel1.add(total);
         total.setBounds(150, 80, 70, 30);
 
@@ -376,7 +369,7 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
         ResultSet rs = dbc.getData("SELECT * FROM tbl_residentrecords WHERE rr_id = '" + hid + "'");
 
         if (rs.next()) {
-            mr.resname.setText(rs.getString("rr_residentname"));
+            mr.purokname.setText(rs.getString("rr_purokname"));
             mr.lastname.setText(rs.getString("rr_lastname"));
             mr.firstname.setText(rs.getString("rr_firstname"));          
             mr.address.setText(rs.getString("rr_address"));
@@ -447,7 +440,7 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_deleteMouseExited
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        int rowIndex = tbl_priority.getSelectedRow();
+       int rowIndex = tbl_priority.getSelectedRow();
        if(rowIndex < 0){
            JOptionPane.showMessageDialog(null, "Please select data first from the table!");
        }else{
@@ -457,8 +450,8 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
              int a=JOptionPane.showConfirmDialog(null,"Are you sure to delete ID "+id);  
                     if(a==JOptionPane.YES_OPTION){  
                             dbconfiguration dbc = new dbconfiguration();
-                            int rr_id=Integer.parseInt(id);
-                            dbc.deleteData(rr_id,"tbl_residentrecords");
+                            int b_id=Integer.parseInt(id);
+                            dbc.deleteData(b_id,"tbl_residentrecords");
                             displayData();
                             
                     }    
@@ -466,7 +459,16 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_deleteMouseClicked
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        // TODO add your handling code here:
+       MessageFormat head = new MessageFormat("VIOLATORS");
+        MessageFormat FOOT = new MessageFormat("Page{0, number , integer}");
+
+        try {
+            tbl_priority.print(JTable.PrintMode.NORMAL, head, FOOT);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "cannot print");
+        }
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
@@ -487,7 +489,6 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;

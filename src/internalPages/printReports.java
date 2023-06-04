@@ -33,6 +33,7 @@ public class printReports extends javax.swing.JInternalFrame {
      */
     public printReports() {
         initComponents();
+        displayData();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
@@ -179,13 +180,16 @@ public class printReports extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_displayMouseClicked
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        MessageFormat header = new MessageFormat("PUROK INFORMATION SYSTEM");
-        MessageFormat footer = new MessageFormat("Tagbuag-tubig, Tagjaguimit City of Naga, Cebu");
-        try{
-            printreport.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        }catch(PrinterException e){
-            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
-        }
+        MessageFormat head = new MessageFormat("VIOLATORS");
+        MessageFormat FOOT = new MessageFormat("Page{0, number , integer}");
+
+        try {
+            printreport.print(JTable.PrintMode.NORMAL, head, FOOT);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "cannot print");
+        } 
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered

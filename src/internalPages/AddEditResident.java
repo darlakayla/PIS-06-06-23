@@ -167,7 +167,7 @@ public class AddEditResident extends javax.swing.JFrame {
         add1 = new javax.swing.JPanel();
         st_label = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        resname = new javax.swing.JTextField();
+        purokname = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         image1 = new javax.swing.JLabel();
@@ -375,19 +375,19 @@ public class AddEditResident extends javax.swing.JFrame {
         add1.setBounds(930, 470, 100, 30);
 
         jLabel12.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel12.setText("Resident Name:");
+        jLabel12.setText("Purok Name:");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(30, 150, 120, 30);
 
-        resname.setBackground(new java.awt.Color(255, 153, 153));
-        resname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        resname.addActionListener(new java.awt.event.ActionListener() {
+        purokname.setBackground(new java.awt.Color(255, 153, 153));
+        purokname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        purokname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resnameActionPerformed(evt);
+                puroknameActionPerformed(evt);
             }
         });
-        jPanel1.add(resname);
-        resname.setBounds(150, 150, 350, 30);
+        jPanel1.add(purokname);
+        purokname.setBounds(150, 150, 350, 30);
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -498,7 +498,7 @@ public class AddEditResident extends javax.swing.JFrame {
 
     private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
 
-       if (resname.getText().trim().isEmpty()) {
+       if (purokname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Resident Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }else if(lastname.getText().trim().isEmpty()) {
@@ -539,9 +539,9 @@ public class AddEditResident extends javax.swing.JFrame {
            int result=0;
            try{
             
-            String sql = "INSERT INTO tbl_residentrecords (rr_residentname, rr_lastname, rr_firstname, rr_address, rr_status, rr_gender, rr_contact, rr_email, rr_occupation, rr_image) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO tbl_residentrecords (rr_purokname, rr_lastname, rr_firstname, rr_address, rr_status, rr_gender, rr_contact, rr_email, rr_occupation, rr_image) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, resname.getText());
+            pst.setString(1, purokname.getText());
             pst.setString(2, lastname.getText());
             pst.setString(3, firstname.getText());
             pst.setString(4, address.getText());
@@ -568,9 +568,9 @@ public class AddEditResident extends javax.swing.JFrame {
        }else if(action.equals("Update")){
            dbconfiguration dbc = new dbconfiguration();
            try{
-           String sql = "UPDATE tbl_residentrecords SET rr_residentname = ?, rr_lastname = ?, rr_firstname = ?, rr_address = ?, rr_status = ?, rr_gender = ?, rr_contact = ?, rr_email = ?, rr_occupation = ?, rr_image = ?  WHERE rr_id = '"+id.getText()+"'";
+           String sql = "UPDATE tbl_residentrecords SET rr_purokname = ?, rr_lastname = ?, rr_firstname = ?, rr_address = ?, rr_status = ?, rr_gender = ?, rr_contact = ?, rr_email = ?, rr_occupation = ?, rr_image = ?  WHERE rr_id = '"+id.getText()+"'";
            PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, resname.getText());
+            pst.setString(1, purokname.getText());
             pst.setString(2, lastname.getText());
             pst.setString(3, firstname.getText());
             pst.setString(4, address.getText());
@@ -582,7 +582,7 @@ public class AddEditResident extends javax.swing.JFrame {
             pst.setString(10, destination);
             
             pst.execute();
-           close();
+            close();
 
            imageUpdater(oldpath, path);
            
@@ -602,9 +602,9 @@ public class AddEditResident extends javax.swing.JFrame {
          
     }//GEN-LAST:event_add1MouseClicked
 
-    private void resnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resnameActionPerformed
+    private void puroknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puroknameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_resnameActionPerformed
+    }//GEN-LAST:event_puroknameActionPerformed
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         remove.setVisible(false);
@@ -713,8 +713,8 @@ public class AddEditResident extends javax.swing.JFrame {
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
     public javax.swing.JTextField occupation;
+    public javax.swing.JTextField purokname;
     public javax.swing.JLabel remove;
-    public javax.swing.JTextField resname;
     public javax.swing.JLabel st_label;
     public javax.swing.JComboBox<String> status;
     // End of variables declaration//GEN-END:variables

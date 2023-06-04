@@ -38,7 +38,7 @@ import javax.swing.JButton;
 
 
 public class manageHousehold extends javax.swing.JInternalFrame {
-    
+    DefaultTableModel model;
    
 
     /**
@@ -53,6 +53,19 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
+    
+    public void filter(String qry ){
+             model = (DefaultTableModel) tbl_household.getModel();
+             TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+             tbl_household.setRowSorter(trs);
+       
+             if(qry =="ALL"){
+                tbl_household.setRowSorter(trs);
+             }else{
+                trs.setRowFilter(RowFilter.regexFilter(qry));
+             }
+       
+        }
         
 
         public void displayData(){
@@ -108,6 +121,10 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         search1 = new javax.swing.JTextField();
+        print = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        filter = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -271,11 +288,54 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jPanel1.add(search1);
         search1.setBounds(520, 50, 210, 40);
 
+        print.setBackground(new java.awt.Color(255, 153, 153));
+        print.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                printMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                printMouseExited(evt);
+            }
+        });
+        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
+        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
+        jLabel20.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("PRINT");
+        print.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+
+        jPanel1.add(print);
+        print.setBounds(540, 120, 120, 40);
+
+        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"All", "Tagbuag-tubig", "Centro", "Ilaya","Argonex","Cambaje","Upper","Kapolinar"}));
+        filter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                filterItemStateChanged(evt);
+            }
+        });
+        filter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(filter);
+        filter.setBounds(10, 80, 240, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,6 +506,36 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         search.setBackground(headcolor);
     }//GEN-LAST:event_searchMouseExited
 
+    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
+       MessageFormat head = new MessageFormat("VIOLATORS");
+        MessageFormat FOOT = new MessageFormat("Page{0, number , integer}");
+
+        try {
+            tbl_household.print(JTable.PrintMode.NORMAL, head, FOOT);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "cannot print");
+        }
+    }//GEN-LAST:event_printMouseClicked
+
+    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
+        print.setBackground(navcolor);
+    }//GEN-LAST:event_printMouseEntered
+
+    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
+        print.setBackground(headcolor);
+    }//GEN-LAST:event_printMouseExited
+
+    private void filterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterItemStateChanged
+        String qry = filter.getSelectedItem().toString();
+        filter(qry);
+    }//GEN-LAST:event_filterItemStateChanged
+
+    private void filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filterActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
@@ -453,9 +543,12 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private javax.swing.JPanel delete;
     private javax.swing.JPanel display;
     private javax.swing.JPanel edit;
+    private javax.swing.JComboBox<String> filter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -467,6 +560,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel print;
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
     private javax.swing.JTable tbl_household;
