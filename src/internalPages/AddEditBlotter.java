@@ -62,23 +62,23 @@ public class AddEditBlotter extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        status = new javax.swing.JComboBox<>();
-        rmiddle = new javax.swing.JTextField();
-        cmiddle = new javax.swing.JTextField();
+        stat = new javax.swing.JComboBox<>();
+        rmid = new javax.swing.JTextField();
+        cmid = new javax.swing.JTextField();
         sched = new com.toedter.calendar.JDateChooser();
-        accusation = new javax.swing.JTextField();
-        caseno = new javax.swing.JTextField();
+        accus = new javax.swing.JTextField();
+        cano = new javax.swing.JTextField();
         id = new javax.swing.JTextField();
         add1 = new javax.swing.JPanel();
         st_label = new javax.swing.JLabel();
-        clastname = new javax.swing.JTextField();
-        cfirstname = new javax.swing.JTextField();
+        clastn = new javax.swing.JTextField();
+        cfname = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        rlastname = new javax.swing.JTextField();
-        rfirstname = new javax.swing.JTextField();
+        rlastn = new javax.swing.JTextField();
+        rfname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,27 +156,27 @@ public class AddEditBlotter extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(600, 270, 120, 40);
 
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Settled", "On-going Settled", "Settled" }));
-        jPanel1.add(status);
-        status.setBounds(720, 270, 280, 40);
+        stat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Settled", "On-going Settled", "Settled" }));
+        jPanel1.add(stat);
+        stat.setBounds(720, 270, 280, 40);
 
-        rmiddle.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(rmiddle);
-        rmiddle.setBounds(720, 220, 280, 40);
+        rmid.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(rmid);
+        rmid.setBounds(720, 220, 280, 40);
 
-        cmiddle.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(cmiddle);
-        cmiddle.setBounds(190, 420, 280, 40);
+        cmid.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(cmid);
+        cmid.setBounds(190, 420, 280, 40);
         jPanel1.add(sched);
         sched.setBounds(190, 270, 280, 40);
 
-        accusation.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(accusation);
-        accusation.setBounds(190, 220, 280, 40);
+        accus.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(accus);
+        accus.setBounds(190, 220, 280, 40);
 
-        caseno.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(caseno);
-        caseno.setBounds(190, 170, 280, 40);
+        cano.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(cano);
+        cano.setBounds(190, 170, 280, 40);
 
         id.setEditable(false);
         id.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -205,13 +205,13 @@ public class AddEditBlotter extends javax.swing.JFrame {
         jPanel1.add(add1);
         add1.setBounds(910, 350, 100, 30);
 
-        clastname.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(clastname);
-        clastname.setBounds(190, 320, 280, 40);
+        clastn.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(clastn);
+        clastn.setBounds(190, 320, 280, 40);
 
-        cfirstname.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(cfirstname);
-        cfirstname.setBounds(190, 370, 280, 40);
+        cfname.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(cfname);
+        cfname.setBounds(190, 370, 280, 40);
 
         jLabel16.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel16.setText("Complainant:(LASTNAME)");
@@ -236,13 +236,13 @@ public class AddEditBlotter extends javax.swing.JFrame {
         jPanel1.add(jLabel19);
         jLabel19.setBounds(600, 220, 120, 40);
 
-        rlastname.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(rlastname);
-        rlastname.setBounds(720, 120, 280, 40);
+        rlastn.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(rlastn);
+        rlastn.setBounds(720, 120, 280, 40);
 
-        rfirstname.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jPanel1.add(rfirstname);
-        rfirstname.setBounds(720, 170, 280, 40);
+        rfname.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(rfname);
+        rfname.setBounds(720, 170, 280, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,23 +272,22 @@ public class AddEditBlotter extends javax.swing.JFrame {
 
     private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
          if(action.equals("Add")){
-           dbconfiguration dbc = new dbconfiguration();
-           String date = ((JTextField)sched.getDateEditor().getUiComponent()).getText();
+           dbconfiguration dbc = new dbconfiguration();        
            int result=0;
            try{
             
             String sql = "INSERT INTO blotter (b_caseno, b_accusation, b_schedule, complainantlastname, cfirstname, cmiddle, respondentlastname, rfirstname, rmiddle, b_status) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, caseno.getText());          
-            pst.setString(2, accusation.getText());
-            pst.setString(3, date);
-            pst.setString(4, clastname.getText());
-            pst.setString(5, cfirstname.getText());
-            pst.setString(6, cmiddle.getText());
-            pst.setString(7, rlastname.getText());
-            pst.setString(8, rfirstname.getText());
-            pst.setString(9, rmiddle.getText());
-            pst.setString(10, status.getSelectedItem().toString());
+            pst.setString(1, cano.getText());          
+            pst.setString(2, accus.getText());
+            pst.setString(3,((JTextField)sched.getDateEditor().getUiComponent()).getText());
+            pst.setString(4, clastn.getText());
+            pst.setString(5, cfname.getText());
+            pst.setString(6, cmid.getText());
+            pst.setString(7, rlastn.getText());
+            pst.setString(8, rfname.getText());
+            pst.setString(9, rmid.getText());
+            pst.setString(10, stat.getSelectedItem().toString());
             
             pst.execute();
             close();
@@ -303,20 +302,20 @@ public class AddEditBlotter extends javax.swing.JFrame {
        }else if(action.equals("Update")){
            
            dbconfiguration dbc = new dbconfiguration();
-           String date = ((JTextField)sched.getDateEditor().getUiComponent()).getText();
+           
            try{
            String sql = "UPDATE blotter SET b_caseno = ?, b_accusation = ?, b_schedule = ?, complainantlastname = ?, cfirstname = ?, cmiddle = ?,  respondentlastname = ?, rfirstname = ?, rmiddle = ?, b_status = ?  WHERE b_id = '"+id.getText()+"'";
            PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, caseno.getText());          
-            pst.setString(2, accusation.getText());
-            pst.setString(3, date);
-            pst.setString(4, clastname.getText());
-            pst.setString(5, cfirstname.getText());
-            pst.setString(6, cmiddle.getText());
-            pst.setString(7, rlastname.getText());
-            pst.setString(8, rfirstname.getText());
-            pst.setString(9, rmiddle.getText());
-            pst.setString(10, status.getSelectedItem().toString());
+            pst.setString(1, cano.getText());          
+            pst.setString(2, accus.getText());
+            pst.setString(3,((JTextField)sched.getDateEditor().getUiComponent()).getText());
+            pst.setString(4, clastn.getText());
+            pst.setString(5, cfname.getText());
+            pst.setString(6, cmid.getText());
+            pst.setString(7, rlastn.getText());
+            pst.setString(8, rfname.getText());
+            pst.setString(9, rmid.getText());
+            pst.setString(10, stat.getSelectedItem().toString());
             
             pst.execute();
             close();
@@ -377,12 +376,12 @@ public class AddEditBlotter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField accusation;
+    public javax.swing.JTextField accus;
     private javax.swing.JPanel add1;
-    public javax.swing.JTextField caseno;
-    public javax.swing.JTextField cfirstname;
-    public javax.swing.JTextField clastname;
-    public javax.swing.JTextField cmiddle;
+    public javax.swing.JTextField cano;
+    public javax.swing.JTextField cfname;
+    public javax.swing.JTextField clastn;
+    public javax.swing.JTextField cmid;
     private javax.swing.JLabel exit;
     public javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
@@ -400,11 +399,11 @@ public class AddEditBlotter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel minimize;
-    public javax.swing.JTextField rfirstname;
-    public javax.swing.JTextField rlastname;
-    public javax.swing.JTextField rmiddle;
+    public javax.swing.JTextField rfname;
+    public javax.swing.JTextField rlastn;
+    public javax.swing.JTextField rmid;
     public static com.toedter.calendar.JDateChooser sched;
     public javax.swing.JLabel st_label;
-    public javax.swing.JComboBox<String> status;
+    public javax.swing.JComboBox<String> stat;
     // End of variables declaration//GEN-END:variables
 }

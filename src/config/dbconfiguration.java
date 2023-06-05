@@ -124,7 +124,7 @@ public class dbconfiguration {
         
     }
      
-     public void deleteddData(int id, String table){
+     public void deleteeData(int id, String table){
         try{
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM blotter WHERE b_id=?");
             stmt.setInt(1,id);
@@ -140,5 +140,28 @@ public class dbconfiguration {
         }
         
     }
+     
+     
+     public int updatedData(String sql){
+        int num = 0;
+        try {
+       
+            String query = sql;
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            int rowsUpdated = pstmt.executeUpdate();
+            if(rowsUpdated > 0) {
+                System.out.println("Data updated successfully!");
+                num = 1;
+            } else {
+                System.out.println("Data update failed!");
+                num = 0;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+       
+        return num;
+    }
+    
 }
         

@@ -6,7 +6,7 @@
 package myapp;
 
 import config.login_db;
-import internalPages.editManageHousehold;
+import internalPages.AddEditHousehold;
 import internalPages.settings;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

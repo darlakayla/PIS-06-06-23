@@ -71,10 +71,10 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         public void displayData(){
         try{
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT hh_id, hh_purokname, hh_lastname, hh_firstname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
+            ResultSet rs = dbc.getData("SELECT hh_id, hh_houseno, hh_lastname, hh_firstname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
             tbl_household.setModel(DbUtils.resultSetToTableModel(rs));
             DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
-            String[] columnIdentifiers = {"ID", "Purok Name", "Lastname", "Firstname", "Status", "Occupation", "Contact"};
+            String[] columnIdentifiers = {"ID", "House No.", "Lastname", "Firstname", "Status", "Occupation", "Contact"};
             model.setColumnIdentifiers(columnIdentifiers);
             
              rs.close();
@@ -124,7 +124,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         print = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        filter = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -314,32 +313,15 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jPanel1.add(print);
         print.setBounds(540, 120, 120, 40);
 
-        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"All", "Tagbuag-tubig", "Centro", "Ilaya","Argonex","Cambaje","Upper","Kapolinar"}));
-        filter.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                filterItemStateChanged(evt);
-            }
-        });
-        filter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                filterActionPerformed(evt);
-            }
-        });
-        jPanel1.add(filter);
-        filter.setBounds(10, 80, 240, 30);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -383,7 +365,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Please Select an Item!");
         } else {
             TableModel model = tbl_household.getModel();
-            editManageHousehold em = new editManageHousehold();
+            AddEditHousehold em = new AddEditHousehold();
             em.id.setText("" + model.getValueAt(rowIndex, 0));
             String hid = model.getValueAt(rowIndex, 0).toString();
         try {
@@ -392,7 +374,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id = '" + hid + "'");
 
         if (rs.next()) {
-            em.purokname.setText(rs.getString("hh_purokname"));
+            em.houseno.setText(rs.getString("hh_houseno"));
             em.lastname.setText(rs.getString("hh_lastname"));
             em.firstname.setText(rs.getString("hh_firstname"));          
             em.spouse.setText(rs.getString("hh_spouse"));
@@ -411,8 +393,8 @@ public class manageHousehold extends javax.swing.JInternalFrame {
             em.address.setText(rs.getString("hh_address"));
             em.occupation.setText(rs.getString("hh_occupation"));
             em.contact.setText(rs.getString("hh_contact"));
-            em.numbers.setText(rs.getString("hh_children"));
-            em.ages.setText(rs.getString("hh_ages"));
+            em.numbers.setSelectedItem(rs.getString("hh_children"));
+            
 
             em.image.setIcon(em.ResizeImage(rs.getString("hh_image"), null, em.image));
             em.oldpath = rs.getString("hh_image");
@@ -441,7 +423,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         mainFrame.dispose();
-        editManageHousehold mh = new editManageHousehold();
+        AddEditHousehold mh = new AddEditHousehold();
         mh.setVisible(true);
         mh.action = "Add";
         mh.st_label1.setText("SAVE");
@@ -466,7 +448,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
                ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id ="+id);
                 
                     if(rs.next()){
-                       editManageHousehold mh = new editManageHousehold();
+                       AddEditHousehold mh = new AddEditHousehold();
                        String oldpath = rs.getString("hh_image");
                        File existingFile = new File(oldpath);
                         if (existingFile.exists()) {
@@ -507,16 +489,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchMouseExited
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-       MessageFormat head = new MessageFormat("VIOLATORS");
-        MessageFormat FOOT = new MessageFormat("Page{0, number , integer}");
-
-        try {
-            tbl_household.print(JTable.PrintMode.NORMAL, head, FOOT);
-
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(this, "cannot print");
-        }
+       
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
@@ -527,15 +500,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         print.setBackground(headcolor);
     }//GEN-LAST:event_printMouseExited
 
-    private void filterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterItemStateChanged
-        String qry = filter.getSelectedItem().toString();
-        filter(qry);
-    }//GEN-LAST:event_filterItemStateChanged
-
-    private void filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_filterActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
@@ -543,7 +507,6 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private javax.swing.JPanel delete;
     private javax.swing.JPanel display;
     private javax.swing.JPanel edit;
-    private javax.swing.JComboBox<String> filter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;

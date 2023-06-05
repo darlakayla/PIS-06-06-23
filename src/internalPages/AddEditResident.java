@@ -1,7 +1,7 @@
 package internalPages;
 
 import config.dbconfiguration;
-import static internalPages.editManageHousehold.getHeightFromWidth;
+import static internalPages.AddEditHousehold.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;

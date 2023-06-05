@@ -36,9 +36,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author HP
  */
-public class editManageHousehold extends javax.swing.JFrame {
+public class AddEditHousehold extends javax.swing.JFrame {
  
-    public editManageHousehold() {     
+    public AddEditHousehold() {     
        initComponents();
        remove.setVisible(false);
     }
@@ -174,24 +174,22 @@ public class editManageHousehold extends javax.swing.JFrame {
         birthdate = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
         remove = new javax.swing.JLabel();
-        numbers = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         address = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
-        ages = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
         contact = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        purokname = new javax.swing.JTextField();
+        houseno = new javax.swing.JTextField();
         JPanel3 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         image1 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         firstname = new javax.swing.JTextField();
+        numbers = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -364,11 +362,6 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(remove);
         remove.setBounds(800, 280, 170, 30);
 
-        numbers.setBackground(new java.awt.Color(255, 153, 153));
-        numbers.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
-        jPanel1.add(numbers);
-        numbers.setBounds(710, 400, 320, 30);
-
         jLabel14.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
         jLabel14.setText("No. of Children (ALL)");
         jPanel1.add(jLabel14);
@@ -398,35 +391,25 @@ public class editManageHousehold extends javax.swing.JFrame {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(20, 400, 130, 30);
 
-        ages.setBackground(new java.awt.Color(255, 153, 153));
-        ages.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
-        jPanel1.add(ages);
-        ages.setBounds(710, 440, 320, 30);
-
-        jLabel20.setFont(new java.awt.Font("Courier New", 0, 15)); // NOI18N
-        jLabel20.setText("Their ages:");
-        jPanel1.add(jLabel20);
-        jLabel20.setBounds(510, 440, 140, 30);
-
         contact.setBackground(new java.awt.Color(255, 153, 153));
         contact.setFont(new java.awt.Font("Baskerville Old Face", 0, 15)); // NOI18N
         jPanel1.add(contact);
         contact.setBounds(710, 360, 320, 30);
 
         jLabel21.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel21.setText("Purok Name:");
+        jLabel21.setText("House No:");
         jPanel1.add(jLabel21);
         jLabel21.setBounds(20, 120, 130, 30);
 
-        purokname.setBackground(new java.awt.Color(255, 153, 153));
-        purokname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        purokname.addActionListener(new java.awt.event.ActionListener() {
+        houseno.setBackground(new java.awt.Color(255, 153, 153));
+        houseno.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
+        houseno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                puroknameActionPerformed(evt);
+                housenoActionPerformed(evt);
             }
         });
-        jPanel1.add(purokname);
-        purokname.setBounds(150, 120, 340, 30);
+        jPanel1.add(houseno);
+        houseno.setBounds(150, 120, 340, 30);
 
         JPanel3.setBackground(new java.awt.Color(255, 153, 153));
         JPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -465,6 +448,10 @@ public class editManageHousehold extends javax.swing.JFrame {
         });
         jPanel1.add(firstname);
         firstname.setBounds(150, 200, 340, 30);
+
+        numbers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" ,"9" ,"10", "11", "12" }));
+        jPanel1.add(numbers);
+        numbers.setBounds(710, 400, 320, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -506,7 +493,7 @@ public class editManageHousehold extends javax.swing.JFrame {
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         
-        if (purokname.getText().trim().isEmpty()) {
+        if (houseno.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Purok Name!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }else if(lastname.getText().trim().isEmpty()) {
@@ -530,12 +517,6 @@ public class editManageHousehold extends javax.swing.JFrame {
         }else if(contact.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else if(numbers.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please type the No. of Children!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }else if(ages.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please type their ages!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
         }
         
         // Validate JRadioButtons
@@ -548,6 +529,9 @@ public class editManageHousehold extends javax.swing.JFrame {
         if (status.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(this, "Please select your Status!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
+        }else if(numbers.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this, "Please choose number of children you have!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
              
        if(action.equals("Add")){
@@ -555,9 +539,9 @@ public class editManageHousehold extends javax.swing.JFrame {
            int result=0;
            try{
             
-            String sql = "INSERT INTO tbl_householdrecords (hh_purokname, hh_lastname, hh_firstname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_ages, hh_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO tbl_householdrecords (hh_houseno, hh_lastname, hh_firstname, hh_spouse, hh_gender, hh_status, hh_birthdate, hh_address, hh_occupation, hh_contact, hh_children, hh_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, purokname.getText());
+            pst.setString(1, houseno.getText());
             pst.setString(2, lastname.getText());
             pst.setString(3, firstname.getText());
             pst.setString(4, spouse.getText());
@@ -567,9 +551,8 @@ public class editManageHousehold extends javax.swing.JFrame {
             pst.setString(8, address.getText());
             pst.setString(9, occupation.getText());
             pst.setString(10, contact.getText());
-            pst.setString(11, numbers.getText());
-            pst.setString(12, ages.getText());      
-            pst.setString(13, destination);
+            pst.setString(11, numbers.getSelectedItem().toString());               
+            pst.setString(12, destination);
             
             pst.execute();
             result = 1;
@@ -587,9 +570,9 @@ public class editManageHousehold extends javax.swing.JFrame {
        }else if(action.equals("Update")){
            dbconfiguration dbc = new dbconfiguration();
            try{
-           String sql = "UPDATE tbl_householdrecords SET hh_purokname = ?, hh_lastname = ?, hh_firstname = ?, hh_spouse = ?, hh_gender = ?, hh_status = ?, hh_birthdate = ?, hh_address = ?, hh_occupation = ?, hh_contact = ?, hh_children = ?, hh_ages = ?, hh_image = ?  WHERE hh_id = '"+id.getText()+"'";
+           String sql = "UPDATE tbl_householdrecords SET hh_houseno = ?, hh_lastname = ?, hh_firstname = ?, hh_spouse = ?, hh_gender = ?, hh_status = ?, hh_birthdate = ?, hh_address = ?, hh_occupation = ?, hh_contact = ?, hh_children = ?, hh_image = ?  WHERE hh_id = '"+id.getText()+"'";
            PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, purokname.getText());
+            pst.setString(1, houseno.getText());
             pst.setString(2, lastname.getText());
             pst.setString(3, firstname.getText());
             pst.setString(4, spouse.getText());
@@ -599,9 +582,8 @@ public class editManageHousehold extends javax.swing.JFrame {
             pst.setString(8, address.getText());
             pst.setString(9, occupation.getText());
             pst.setString(10, contact.getText());
-            pst.setString(11, numbers.getText());
-            pst.setString(12, ages.getText());     
-            pst.setString(13, destination);
+            pst.setString(11, numbers.getSelectedItem().toString());              
+            pst.setString(12, destination);
             pst.execute();
            close();
 
@@ -652,10 +634,6 @@ public class editManageHousehold extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_maleActionPerformed
 
-    private void puroknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puroknameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_puroknameActionPerformed
-
     private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnameActionPerformed
@@ -695,6 +673,10 @@ public class editManageHousehold extends javax.swing.JFrame {
         path="";
     }//GEN-LAST:event_removeMouseClicked
 
+    private void housenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_housenoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_housenoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -712,14 +694,30 @@ public class editManageHousehold extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEditHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEditHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEditHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(editManageHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEditHousehold.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -740,7 +738,7 @@ public class editManageHousehold extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new editManageHousehold().setVisible(true);
+                new AddEditHousehold().setVisible(true);
             }
         });
     }
@@ -749,12 +747,12 @@ public class editManageHousehold extends javax.swing.JFrame {
     public javax.swing.JPanel JPanel3;
     private javax.swing.JPanel add;
     public javax.swing.JTextArea address;
-    public javax.swing.JTextField ages;
     public javax.swing.JTextField birthdate;
     public javax.swing.JTextField contact;
     private javax.swing.JLabel exit;
     public javax.swing.JRadioButton female;
     public javax.swing.JTextField firstname;
+    public static javax.swing.JTextField houseno;
     public javax.swing.JTextField id;
     public javax.swing.JLabel image;
     public javax.swing.JLabel image1;
@@ -766,7 +764,6 @@ public class editManageHousehold extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -779,9 +776,8 @@ public class editManageHousehold extends javax.swing.JFrame {
     public javax.swing.JTextField lastname;
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
-    public javax.swing.JTextField numbers;
+    public javax.swing.JComboBox<String> numbers;
     public javax.swing.JTextField occupation;
-    public javax.swing.JTextField purokname;
     public javax.swing.JLabel remove;
     public javax.swing.JTextField spouse;
     public javax.swing.JLabel st_label1;

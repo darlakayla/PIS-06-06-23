@@ -84,12 +84,12 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         db4 = new javax.swing.JLabel();
-        blotter = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        db5 = new javax.swing.JLabel();
         dashboard = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         db1 = new javax.swing.JLabel();
+        blotter = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        db5 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
@@ -156,7 +156,7 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel12.setText("HOUSEHOLD");
         managehousehold.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, 30));
 
-        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, 50));
+        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, 50));
 
         residentrecords.setBackground(new java.awt.Color(255, 102, 102));
         residentrecords.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,7 +186,7 @@ public class dashBoard extends javax.swing.JFrame {
         db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
         residentrecords.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
-        navbar.add(residentrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, 50));
+        navbar.add(residentrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, 50));
 
         settings.setBackground(new java.awt.Color(255, 102, 102));
         settings.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,30 +246,6 @@ public class dashBoard extends javax.swing.JFrame {
 
         navbar.add(printreports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, -1, 50));
 
-        blotter.setBackground(new java.awt.Color(255, 102, 102));
-        blotter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                blotterMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                blotterMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                blotterMouseExited(evt);
-            }
-        });
-        blotter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("BLOTTER");
-        blotter.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
-
-        db5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/houses (1).png"))); // NOI18N
-        blotter.add(db5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
-
-        navbar.add(blotter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 200, 50));
-
         dashboard.setBackground(new java.awt.Color(255, 102, 102));
         dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -293,6 +269,30 @@ public class dashBoard extends javax.swing.JFrame {
         dashboard.add(db1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
 
         navbar.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 50));
+
+        blotter.setBackground(new java.awt.Color(255, 102, 102));
+        blotter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blotterMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                blotterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                blotterMouseExited(evt);
+            }
+        });
+        blotter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("BLOTTER");
+        blotter.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
+
+        db5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/houses (1).png"))); // NOI18N
+        blotter.add(db5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
+
+        navbar.add(blotter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, 50));
 
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 200, 560);
