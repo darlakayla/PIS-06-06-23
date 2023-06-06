@@ -8,7 +8,9 @@ package internalPages;
 import config.dbconfiguration;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -489,7 +491,28 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchMouseExited
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-       
+       MessageFormat header = new MessageFormat("HOUSEHOLD INFORMATION");
+       MessageFormat footer = new MessageFormat("Page {0, number, integer}");
+
+       PrinterJob printerJob = PrinterJob.getPrinterJob();
+
+       if (printerJob.printDialog()) {
+        PageFormat pageFormat = printerJob.defaultPage();
+        pageFormat.setOrientation(PageFormat.LANDSCAPE);
+
+        // Set the page margins to fit the entire table on one page
+        double margin = 36; // 1 inch margin
+        double width = pageFormat.getImageableWidth() - 2 * margin;
+        double height = pageFormat.getImageableHeight() - 2 * margin;
+
+        tbl_household.setSize((int) width, (int) height);
+
+        try {
+            tbl_household.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        } catch (PrinterException e) {
+            System.err.format("Printer error: %s%n", e.getMessage());
+        }
+    }
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered

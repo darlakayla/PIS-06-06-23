@@ -568,21 +568,20 @@ public class AddEditResident extends javax.swing.JFrame {
        }else if(action.equals("Update")){
            dbconfiguration dbc = new dbconfiguration();
            try{
-           String sql = "UPDATE tbl_residentrecords SET rr_purokname = ?, rr_lastname = ?, rr_firstname = ?, rr_address = ?, rr_status = ?, rr_gender = ?, rr_contact = ?, rr_email = ?, rr_occupation = ?, rr_image = ?  WHERE rr_id = '"+id.getText()+"'";
+           String sql = "UPDATE tbl_residentrecords SET rr_purokname = ?, rr_lastname = ?, rr_firstname = ?, rr_address = ?, rr_status = ?, rr_gender = ?, rr_contact = ?, rr_email = ?, rr_occupation = ?,  rr_image = ?  WHERE rr_id = '"+id.getText()+"'";
            PreparedStatement pst = dbc.connection.prepareStatement(sql);
             pst.setString(1, purokname.getText());
-            pst.setString(2, lastname.getText());
-            pst.setString(3, firstname.getText());
+            pst.setString(2, firstname.getText());
+            pst.setString(3, lastname.getText());
             pst.setString(4, address.getText());
-            pst.setString(6, status.getSelectedItem().toString());
-            pst.setString(5, gender);                   
-            pst.setString(7, contact.getText());
+            pst.setString(5, status.getSelectedItem().toString());
+            pst.setString(6, gender);
+            pst.setString(7, contact.getText());        
             pst.setString(8, email.getText());
-            pst.setString(9, occupation.getText());         
+            pst.setString(9, occupation.getText());
             pst.setString(10, destination);
-            
             pst.execute();
-            close();
+           close();
 
            imageUpdater(oldpath, path);
            

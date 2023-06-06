@@ -7,7 +7,9 @@ package internalPages;
 
 import config.dbconfiguration;
 import java.awt.Color;
+import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.MessageFormat;
@@ -27,7 +29,7 @@ import net.proteanit.sql.DbUtils;
  * @author HP
  */
 public class printReports extends javax.swing.JInternalFrame {
-
+DefaultTableModel model;
     /**
      * Creates new form blotterReports
      */
@@ -39,6 +41,19 @@ public class printReports extends javax.swing.JInternalFrame {
         bi.setNorthPane(null);
     }
     
+    
+    public void filter(String qry ){
+             model = (DefaultTableModel) printreport.getModel();
+             TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+             printreport.setRowSorter(trs);
+       
+             if(qry =="ALL"){
+                printreport.setRowSorter(trs);
+             }else{
+                trs.setRowFilter(RowFilter.regexFilter(qry));
+             }
+       
+        }
    
     
     
@@ -63,12 +78,13 @@ public class printReports extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         printreport = new javax.swing.JTable();
         print = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         search = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         search1 = new javax.swing.JTextField();
+        filter = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,9 +102,14 @@ public class printReports extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, 50));
 
+        printreport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printreportMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(printreport);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 860, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 850, 320));
 
         print.setBackground(new java.awt.Color(255, 153, 153));
         print.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,16 +125,21 @@ public class printReports extends javax.swing.JInternalFrame {
         });
         print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
         jLabel14.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("PRINT REPORT");
         print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 40));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
-        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 170, 40));
+        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 170, 40));
 
         search.setBackground(new java.awt.Color(255, 153, 153));
         search.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,20 +155,33 @@ public class printReports extends javax.swing.JInternalFrame {
         });
         search.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/search1 (1).png"))); // NOI18N
+        search.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
         jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("SEARCH");
         search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 70, 40));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/search1 (1).png"))); // NOI18N
-        search.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 120, 40));
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 120, 40));
 
         search1.setBackground(new java.awt.Color(255, 204, 204));
         search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
-        jPanel1.add(search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 240, 40));
+        jPanel1.add(search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 240, 40));
+
+        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"All", "Tagbuag-tubig", "Centro", "Ilaya","Argonex","Cambaje","Upper","Kapolinar"}));
+        filter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                filterItemStateChanged(evt);
+            }
+        });
+        filter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 250, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,7 +198,28 @@ public class printReports extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        
+       MessageFormat header = new MessageFormat("PUROK INFORMATION SYSTEM");
+       MessageFormat footer = new MessageFormat("Page {0, number, integer}");
+
+       PrinterJob printerJob = PrinterJob.getPrinterJob();
+
+       if (printerJob.printDialog()) {
+        PageFormat pageFormat = printerJob.defaultPage();
+        pageFormat.setOrientation(PageFormat.LANDSCAPE);
+
+        // Set the page margins to fit the entire table on one page
+        double margin = 36; // 1 inch margin
+        double width = pageFormat.getImageableWidth() - 2 * margin;
+        double height = pageFormat.getImageableHeight() - 2 * margin;
+
+        printreport.setSize((int) width, (int) height);
+
+        try {
+            printreport.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        } catch (PrinterException e) {
+            System.err.format("Printer error: %s%n", e.getMessage());
+        }
+    }
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
@@ -185,9 +245,27 @@ public class printReports extends javax.swing.JInternalFrame {
         search.setBackground(headcolor);
     }//GEN-LAST:event_searchMouseExited
 
+    private void printreportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printreportMouseClicked
+        
+    }//GEN-LAST:event_printreportMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void filterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterItemStateChanged
+        String qry = filter.getSelectedItem().toString();
+        filter(qry);
+    }//GEN-LAST:event_filterItemStateChanged
+
+    private void filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filterActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel db4;
+    private javax.swing.JComboBox<String> filter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
