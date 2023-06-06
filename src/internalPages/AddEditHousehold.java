@@ -128,7 +128,7 @@ public class AddEditHousehold extends javax.swing.JFrame {
         this.dispose();
         dashBoard db = new dashBoard();
         db.setVisible(true);
-        manageHousehold mh = new manageHousehold();
+        Household mh = new Household();
         db.maindesktop.add(mh).setVisible(true);
     }
     
@@ -613,10 +613,6 @@ public class AddEditHousehold extends javax.swing.JFrame {
         add.setBackground(headcolor);
     }//GEN-LAST:event_addMouseExited
 
-    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastnameActionPerformed
-
     private void spouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spouseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_spouseActionPerformed
@@ -633,10 +629,6 @@ public class AddEditHousehold extends javax.swing.JFrame {
             gender = null;
         }
     }//GEN-LAST:event_maleActionPerformed
-
-    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstnameActionPerformed
 
     private void JPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanel3MouseClicked
        JFileChooser fileChooser = new JFileChooser();
@@ -676,6 +668,14 @@ public class AddEditHousehold extends javax.swing.JFrame {
     private void housenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_housenoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_housenoActionPerformed
+
+    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstnameActionPerformed
+
+    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastnameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -748,10 +748,10 @@ public class AddEditHousehold extends javax.swing.JFrame {
     private javax.swing.JPanel add;
     public javax.swing.JTextArea address;
     public javax.swing.JTextField birthdate;
-    public javax.swing.JTextField contact;
+    private javax.swing.JTextField contact;
     private javax.swing.JLabel exit;
     public javax.swing.JRadioButton female;
-    public javax.swing.JTextField firstname;
+    private javax.swing.JTextField firstname;
     public static javax.swing.JTextField houseno;
     public javax.swing.JTextField id;
     public javax.swing.JLabel image;
@@ -773,11 +773,11 @@ public class AddEditHousehold extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextField lastname;
+    private javax.swing.JTextField lastname;
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
     public javax.swing.JComboBox<String> numbers;
-    public javax.swing.JTextField occupation;
+    private javax.swing.JTextField occupation;
     public javax.swing.JLabel remove;
     public javax.swing.JTextField spouse;
     public javax.swing.JLabel st_label1;

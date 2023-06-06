@@ -118,7 +118,7 @@ public class AddEditResident extends javax.swing.JFrame {
         this.dispose();
         dashBoard db = new dashBoard();
         db.setVisible(true);
-        ResidentInfo rr = new ResidentInfo();
+        Resident rr = new Resident();
         db.maindesktop.add(rr).setVisible(true);
     }
     

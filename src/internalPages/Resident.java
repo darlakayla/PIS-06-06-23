@@ -31,7 +31,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author HP
  */
-public class ResidentInfo extends javax.swing.JInternalFrame {
+public class Resident extends javax.swing.JInternalFrame {
      DefaultTableModel model;
      
      Connection conn = null;
@@ -42,7 +42,7 @@ public class ResidentInfo extends javax.swing.JInternalFrame {
     /**
      * Creates new form residentRecords
      */
-    public ResidentInfo() {
+    public Resident() {
         initComponents();
         displayData();
   

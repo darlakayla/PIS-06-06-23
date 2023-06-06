@@ -11,7 +11,7 @@ package myapp;
 import config.dbconfiguration;
 import config.login_db;
 import internalPages.dashBoard;
-import internalPages.ResidentInfo;
+import internalPages.Resident;
 import internalPages.settings;
 import static internalPages.settings.user_name;
 import java.awt.BasicStroke;

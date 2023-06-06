@@ -7,8 +7,8 @@ package internalPages;
  */
 
 
-import internalPages.manageHousehold;
-import internalPages.ResidentInfo;
+import internalPages.Household;
+import internalPages.Resident;
 import internalPages.settings;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -68,17 +68,16 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         firstname = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        managehousehold = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        db2 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        residentrecords = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        household = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        db3 = new javax.swing.JLabel();
+        resident = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         db = new javax.swing.JLabel();
-        logout = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        db3 = new javax.swing.JLabel();
+        managehousehold = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        db2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         printreports = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -87,6 +86,9 @@ public class dashBoard extends javax.swing.JFrame {
         dashboard = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         db1 = new javax.swing.JLabel();
+        logout = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        db5 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
@@ -126,6 +128,55 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel4.setText("ADMIN");
         navbar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 20));
 
+        household.setBackground(new java.awt.Color(255, 102, 102));
+        household.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                householdMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                householdMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                householdMouseExited(evt);
+            }
+        });
+        household.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("HOUSEHOLD");
+        household.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 120, 50));
+
+        db3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/newr (1).png"))); // NOI18N
+        household.add(db3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
+
+        navbar.add(household, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, 50));
+
+        resident.setBackground(new java.awt.Color(255, 102, 102));
+        resident.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                residentMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                residentMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                residentMouseExited(evt);
+            }
+        });
+        resident.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("RESIDENT");
+        resident.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 40));
+
+        db.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
+        resident.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        navbar.add(resident, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, 50));
+
         managehousehold.setBackground(new java.awt.Color(255, 102, 102));
         managehousehold.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -145,69 +196,15 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel3.setText("MANAGE");
         managehousehold.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 120, 30));
 
-        db2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/newr (1).png"))); // NOI18N
-        managehousehold.add(db2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
-
         jLabel12.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("HOUSEHOLD");
         managehousehold.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, 30));
 
-        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, 50));
+        db2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/home (1).png"))); // NOI18N
+        managehousehold.add(db2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
 
-        residentrecords.setBackground(new java.awt.Color(255, 102, 102));
-        residentrecords.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                residentrecordsMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                residentrecordsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                residentrecordsMouseExited(evt);
-            }
-        });
-        residentrecords.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("INFORMATION");
-        residentrecords.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 130, -1));
-
-        jLabel9.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("RESIDENT");
-        residentrecords.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, -1));
-
-        db.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
-        residentrecords.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
-
-        navbar.add(residentrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, 50));
-
-        logout.setBackground(new java.awt.Color(255, 102, 102));
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutMouseExited(evt);
-            }
-        });
-        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("LOGOUT");
-        logout.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
-
-        db3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/logout (1).png"))); // NOI18N
-        logout.add(db3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 60, 50));
-
-        navbar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 200, 50));
+        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 200, 50));
 
         jLabel10.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -241,7 +238,7 @@ public class dashBoard extends javax.swing.JFrame {
         db4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (2).png"))); // NOI18N
         printreports.add(db4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 50));
 
-        navbar.add(printreports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, 50));
+        navbar.add(printreports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, -1, 50));
 
         dashboard.setBackground(new java.awt.Color(255, 102, 102));
         dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -265,7 +262,31 @@ public class dashBoard extends javax.swing.JFrame {
         db1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/db (1).png"))); // NOI18N
         dashboard.add(db1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
 
-        navbar.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 50));
+        navbar.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 50));
+
+        logout.setBackground(new java.awt.Color(255, 102, 102));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutMouseExited(evt);
+            }
+        });
+        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("LOGOUT");
+        logout.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 120, 30));
+
+        db5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/logout (1).png"))); // NOI18N
+        logout.add(db5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 60, 50));
+
+        navbar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 200, 50));
 
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 200, 560);
@@ -371,9 +392,35 @@ public class dashBoard extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_exitMouseClicked
 
-    private void managehouseholdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managehouseholdMouseClicked
-       manageHousehold nr = new manageHousehold();
+    private void householdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_householdMouseClicked
+       Household nr = new Household();
        maindesktop.add(nr).setVisible(true);
+    }//GEN-LAST:event_householdMouseClicked
+
+    private void householdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_householdMouseEntered
+        household.setBackground(bodycolor);
+    }//GEN-LAST:event_householdMouseEntered
+
+    private void householdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_householdMouseExited
+        household.setBackground(navcolor);
+    }//GEN-LAST:event_householdMouseExited
+
+    private void residentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentMouseClicked
+        Resident hh = new Resident();
+        maindesktop.add(hh).setVisible(true);
+    }//GEN-LAST:event_residentMouseClicked
+
+    private void residentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentMouseEntered
+        resident.setBackground(bodycolor);
+    }//GEN-LAST:event_residentMouseEntered
+
+    private void residentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentMouseExited
+        resident.setBackground(navcolor);
+    }//GEN-LAST:event_residentMouseExited
+
+    private void managehouseholdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managehouseholdMouseClicked
+        manageHousehold mh = new manageHousehold();
+        maindesktop.add(mh).setVisible(true);
     }//GEN-LAST:event_managehouseholdMouseClicked
 
     private void managehouseholdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managehouseholdMouseEntered
@@ -383,33 +430,6 @@ public class dashBoard extends javax.swing.JFrame {
     private void managehouseholdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managehouseholdMouseExited
         managehousehold.setBackground(navcolor);
     }//GEN-LAST:event_managehouseholdMouseExited
-
-    private void residentrecordsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentrecordsMouseClicked
-        ResidentInfo hh = new ResidentInfo();
-        maindesktop.add(hh).setVisible(true);
-    }//GEN-LAST:event_residentrecordsMouseClicked
-
-    private void residentrecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentrecordsMouseEntered
-        residentrecords.setBackground(bodycolor);
-    }//GEN-LAST:event_residentrecordsMouseEntered
-
-    private void residentrecordsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_residentrecordsMouseExited
-        residentrecords.setBackground(navcolor);
-    }//GEN-LAST:event_residentrecordsMouseExited
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        loginForm lo = new loginForm();
-        lo.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(bodycolor);
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(navcolor);
-    }//GEN-LAST:event_logoutMouseExited
 
     private void printreportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printreportsMouseClicked
         printReports br = new printReports();
@@ -427,6 +447,20 @@ public class dashBoard extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         
     }//GEN-LAST:event_formMouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setBackground(bodycolor);
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+        logout.setBackground(navcolor);
+    }//GEN-LAST:event_logoutMouseExited
 
     /**
      * @param args the command line arguments
@@ -471,19 +505,21 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel db2;
     private javax.swing.JLabel db3;
     private javax.swing.JLabel db4;
+    private javax.swing.JLabel db5;
     private javax.swing.JLabel exit;
     public static javax.swing.JLabel firstname;
     private javax.swing.JPanel header;
+    private javax.swing.JPanel household;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -495,7 +531,7 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel printreports;
-    private javax.swing.JPanel residentrecords;
+    private javax.swing.JPanel resident;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 }

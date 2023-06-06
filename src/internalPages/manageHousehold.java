@@ -5,92 +5,24 @@
  */
 package internalPages;
 
-import config.dbconfiguration;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.print.PageFormat;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.MessageFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.RowFilter;
-import javax.swing.SwingUtilities;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import net.proteanit.sql.DbUtils;
-import sun.util.logging.PlatformLogger;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 
-
-
+/**
+ *
+ * @author HP
+ */
 public class manageHousehold extends javax.swing.JInternalFrame {
-    DefaultTableModel model;
-   
 
     /**
-     * Creates new form newResident
+     * Creates new form manageHousehold
      */
     public manageHousehold() {
         initComponents();
         
-        displayData();
-         
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
-    
-    public void filter(String qry ){
-             model = (DefaultTableModel) tbl_household.getModel();
-             TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-             tbl_household.setRowSorter(trs);
-       
-             if(qry =="ALL"){
-                tbl_household.setRowSorter(trs);
-             }else{
-                trs.setRowFilter(RowFilter.regexFilter(qry));
-             }
-       
-        }
-        
-
-        public void displayData(){
-        try{
-            dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT hh_id, hh_houseno, hh_lastname, hh_firstname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
-            tbl_household.setModel(DbUtils.resultSetToTableModel(rs));
-            DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
-            String[] columnIdentifiers = {"ID", "House No.", "Lastname", "Firstname", "Status", "Occupation", "Contact"};
-            model.setColumnIdentifiers(columnIdentifiers);
-            
-             rs.close();
-        }catch(SQLException ex){
-            System.out.println("Errors: "+ex.getMessage());
-        
-        }
-        }
-    
-        
-    
-        Color navcolor= new Color(255,102,102);
-        Color headcolor= new Color(255,153,153);
-        Color bodycolor = new Color(255,204,204);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,218 +34,111 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbl_household = new javax.swing.JTable();
-        add = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        edit = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        delete = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        display = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
-        db2 = new javax.swing.JLabel();
+        db = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        search = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        search1 = new javax.swing.JTextField();
-        print = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        tbl_household.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_householdMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tbl_household);
+        jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel3.setText("Household ID:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(20, 100, 120, 30);
 
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 170, 860, 300);
-
-        add.setBackground(new java.awt.Color(255, 153, 153));
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                addMouseExited(evt);
-            }
-        });
-        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel21.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("ADD");
-        add.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/add (1).png"))); // NOI18N
-        add.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(add);
-        add.setBounds(10, 120, 120, 40);
-
-        edit.setBackground(new java.awt.Color(255, 153, 153));
-        edit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                editMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                editMouseExited(evt);
-            }
-        });
-        edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("EDIT");
-        edit.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/edit (1).png"))); // NOI18N
-        edit.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(edit);
-        edit.setBounds(140, 120, 120, 40);
-
-        delete.setBackground(new java.awt.Color(255, 153, 153));
-        delete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                deleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                deleteMouseExited(evt);
-            }
-        });
-        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel23.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("DELETE");
-        delete.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/delete (1).png"))); // NOI18N
-        delete.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(delete);
-        delete.setBounds(270, 120, 120, 40);
-
-        display.setBackground(new java.awt.Color(255, 153, 153));
-        display.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                displayMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                displayMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                displayMouseExited(evt);
-            }
-        });
-        display.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel19.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("DISPLAY");
-        display.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 90, 40));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/display (1).png"))); // NOI18N
-        display.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
-        jPanel1.add(display);
-        display.setBounds(400, 120, 130, 40);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(140, 100, 240, 30);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        db2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/newr (1).png"))); // NOI18N
-        jPanel2.add(db2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 50));
+        db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
+        jPanel2.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
         jLabel24.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("MANAGE HOUSEHOLD");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 180, 50));
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 210, 50));
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 20, 240, 50);
+        jPanel2.setBounds(20, 20, 270, 50);
 
-        search.setBackground(new java.awt.Color(255, 153, 153));
-        search.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                searchMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                searchMouseExited(evt);
-            }
-        });
-        search.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel4.setText("Purok Name:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(20, 140, 120, 30);
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(140, 140, 240, 30);
 
-        jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("SEARCH");
-        search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+        jLabel5.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel5.setText("Resident ID:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(20, 180, 120, 30);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/search1 (1).png"))); // NOI18N
-        search.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox2);
+        jComboBox2.setBounds(140, 320, 240, 30);
 
-        jPanel1.add(search);
-        search.setBounds(740, 50, 120, 40);
+        jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel6.setText("Resident Names:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(20, 220, 120, 30);
+        jPanel1.add(jTextField2);
+        jTextField2.setBounds(140, 220, 240, 30);
 
-        search1.setBackground(new java.awt.Color(255, 204, 204));
-        search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
-        jPanel1.add(search1);
-        search1.setBounds(520, 50, 210, 40);
+        jLabel8.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel8.setText("Family Member:");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(20, 400, 120, 30);
+        jPanel1.add(jTextField4);
+        jTextField4.setBounds(140, 400, 240, 30);
 
-        print.setBackground(new java.awt.Color(255, 153, 153));
-        print.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                printMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                printMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                printMouseExited(evt);
-            }
-        });
-        print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel10.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel10.setText("Gender:");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(20, 280, 120, 30);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
-        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox3);
+        jComboBox3.setBounds(140, 180, 240, 30);
 
-        jLabel20.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("PRINT");
-        print.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
+        jRadioButton1.setText("FEMALE");
+        jPanel1.add(jRadioButton1);
+        jRadioButton1.setBounds(260, 280, 120, 30);
 
-        jPanel1.add(print);
-        print.setBounds(540, 120, 120, 40);
+        jRadioButton2.setText("MALE");
+        jPanel1.add(jRadioButton2);
+        jRadioButton2.setBounds(140, 280, 110, 30);
+
+        jLabel11.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel11.setText("Status:");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(20, 320, 120, 30);
+
+        jLabel12.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel12.setText("Occupation:");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(20, 360, 120, 30);
+        jPanel1.add(jTextField6);
+        jTextField6.setBounds(140, 360, 240, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,232 +148,34 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
-        add.setBackground(navcolor);
-    }//GEN-LAST:event_addMouseEntered
-
-    private void addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseExited
-        add.setBackground(headcolor);
-    }//GEN-LAST:event_addMouseExited
-
-    private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
-        edit.setBackground(navcolor);
-    }//GEN-LAST:event_editMouseEntered
-
-    private void editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseExited
-        edit.setBackground(headcolor);
-    }//GEN-LAST:event_editMouseExited
-
-    private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
-        delete.setBackground(navcolor);
-    }//GEN-LAST:event_deleteMouseEntered
-
-    private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
-        delete.setBackground(headcolor);
-    }//GEN-LAST:event_deleteMouseExited
-
-    private void displayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayMouseEntered
-        display.setBackground(navcolor);
-    }//GEN-LAST:event_displayMouseEntered
-
-    private void displayMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayMouseExited
-        display.setBackground(headcolor);
-    }//GEN-LAST:event_displayMouseExited
-
-    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
-        int rowIndex = tbl_household.getSelectedRow();
-        if (rowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please Select an Item!");
-        } else {
-            TableModel model = tbl_household.getModel();
-            AddEditHousehold em = new AddEditHousehold();
-            em.id.setText("" + model.getValueAt(rowIndex, 0));
-            String hid = model.getValueAt(rowIndex, 0).toString();
-        try {
-           
-        dbconfiguration dbc = new dbconfiguration();
-        ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id = '" + hid + "'");
-
-        if (rs.next()) {
-            em.houseno.setText(rs.getString("hh_houseno"));
-            em.lastname.setText(rs.getString("hh_lastname"));
-            em.firstname.setText(rs.getString("hh_firstname"));          
-            em.spouse.setText(rs.getString("hh_spouse"));
-            em.gender = rs.getString("hh_gender");
-
-            String gend = rs.getString("hh_gender");
-
-            if (gend.equals("Male")) {
-                em.male.setSelected(true);
-            } else if (gend.equals("Female")) {
-                em.female.setSelected(true);
-            }
-
-            em.status.setSelectedItem(rs.getString("hh_status"));
-            em.birthdate.setText(rs.getString("hh_birthdate"));
-            em.address.setText(rs.getString("hh_address"));
-            em.occupation.setText(rs.getString("hh_occupation"));
-            em.contact.setText(rs.getString("hh_contact"));
-            em.numbers.setSelectedItem(rs.getString("hh_children"));
-            
-
-            em.image.setIcon(em.ResizeImage(rs.getString("hh_image"), null, em.image));
-            em.oldpath = rs.getString("hh_image");
-            
-                em.setVisible(true);
-                em.action = "Update";
-                em.st_label1.setText("UPDATE");
-                em.remove.setText("REMOVE");
-                JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-                mainFrame.dispose();
-        
-            if(rs.getString("hh_image").isEmpty()){
-                    em.remove.setVisible(false);
-                }else{
-                    em.remove.setVisible(true);
-                }
-            }
-        
-    } catch (SQLException e) {
-        System.out.println("" + e);
-    }
-}
-
-    }//GEN-LAST:event_editMouseClicked
-
-    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        mainFrame.dispose();
-        AddEditHousehold mh = new AddEditHousehold();
-        mh.setVisible(true);
-        mh.action = "Add";
-        mh.st_label1.setText("SAVE");
-        mh.remove.setVisible(false);
-    }//GEN-LAST:event_addMouseClicked
-
-    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        int rowIndex = tbl_household.getSelectedRow();
-        if(rowIndex < 0){
-            JOptionPane.showMessageDialog(null, "Please select data first from the table!");
-        }else{
-            TableModel model = tbl_household.getModel();
-            Object value = model.getValueAt(rowIndex, 0);
-            String id = value.toString();
-            int a = JOptionPane.showConfirmDialog(null, "Are you sure to delete ID: "+id);
-            if(a == JOptionPane.YES_OPTION){
-                dbconfiguration dbc = new dbconfiguration();
-                int hh_id = Integer.parseInt(id);
-                
-                
-                try{
-               ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id ="+id);
-                
-                    if(rs.next()){
-                       AddEditHousehold mh = new AddEditHousehold();
-                       String oldpath = rs.getString("hh_image");
-                       File existingFile = new File(oldpath);
-                        if (existingFile.exists()) {
-                            existingFile.delete();
-                        }         
-                   }
-                }catch(SQLException e){
-                    System.out.println("Error !");
-                }
-                
-                dbc.deleteData(hh_id, "tbl_householdrecords", "hh_id");
-                displayData();
-            }
-        }
-    }//GEN-LAST:event_deleteMouseClicked
-
-    private void displayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayMouseClicked
-        displayData();
-    }//GEN-LAST:event_displayMouseClicked
-
-    private void tbl_householdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_householdMouseClicked
-        
-    }//GEN-LAST:event_tbl_householdMouseClicked
-
-    private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
-        DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
-        TableRowSorter<DefaultTableModel> obj  = new TableRowSorter<>(model);
-        tbl_household.setRowSorter(obj);
-        obj.setRowFilter(RowFilter.regexFilter(search1.getText()));
-    }//GEN-LAST:event_searchMouseClicked
-
-    private void searchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseEntered
-        search.setBackground(navcolor);
-    }//GEN-LAST:event_searchMouseEntered
-
-    private void searchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseExited
-        search.setBackground(headcolor);
-    }//GEN-LAST:event_searchMouseExited
-
-    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-       MessageFormat header = new MessageFormat("HOUSEHOLD INFORMATION");
-       MessageFormat footer = new MessageFormat("Page {0, number, integer}");
-
-       PrinterJob printerJob = PrinterJob.getPrinterJob();
-
-       if (printerJob.printDialog()) {
-        PageFormat pageFormat = printerJob.defaultPage();
-        pageFormat.setOrientation(PageFormat.LANDSCAPE);
-
-        // Set the page margins to fit the entire table on one page
-        double margin = 36; // 1 inch margin
-        double width = pageFormat.getImageableWidth() - 2 * margin;
-        double height = pageFormat.getImageableHeight() - 2 * margin;
-
-        tbl_household.setSize((int) width, (int) height);
-
-        try {
-            tbl_household.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        } catch (PrinterException e) {
-            System.err.format("Printer error: %s%n", e.getMessage());
-        }
-    }
-    }//GEN-LAST:event_printMouseClicked
-
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(navcolor);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        print.setBackground(headcolor);
-    }//GEN-LAST:event_printMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel add;
-    private javax.swing.JLabel db2;
-    private javax.swing.JPanel delete;
-    private javax.swing.JPanel display;
-    private javax.swing.JPanel edit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel db;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel print;
-    private javax.swing.JPanel search;
-    private javax.swing.JTextField search1;
-    private javax.swing.JTable tbl_household;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
