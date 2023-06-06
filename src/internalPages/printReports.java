@@ -35,7 +35,7 @@ DefaultTableModel model;
      */
     public printReports() {
         initComponents();
-        
+        displayData();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
@@ -43,12 +43,12 @@ DefaultTableModel model;
     
     
     public void filter(String qry ){
-             model = (DefaultTableModel) printreport.getModel();
+             model = (DefaultTableModel) p_table.getModel();
              TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-             printreport.setRowSorter(trs);
+             p_table.setRowSorter(trs);
        
              if(qry =="ALL"){
-                printreport.setRowSorter(trs);
+                p_table.setRowSorter(trs);
              }else{
                 trs.setRowFilter(RowFilter.regexFilter(qry));
              }
@@ -61,7 +61,25 @@ DefaultTableModel model;
         Color headcolor= new Color(255,153,153);
         Color bodycolor = new Color(255,204,204);
     
+    public void displayData() {
+    try {
+        dbconfiguration dbc = new dbconfiguration();
+        ResultSet rs = dbc.getData("SELECT printreports.pr_id as 'ID'\n" +
+", tbl_purokrecords.purok as 'Purok'\n" +
+",printreports.h_num as 'House Number'\n" +
+", tbl_residentrecords.rr_lastname as 'Last Name'\n" +
+", tbl_residentrecords.rr_firstname as 'First Name'\n" +
+", tbl_residentrecords.rr_address as 'Address'\n" +
+", tbl_residentrecords.rr_contact as 'Contact'\n" +
+", tbl_residentrecords.rr_occupation as 'Occupation'\n" +
+", printreports.fam_mem as' Family Member' FROM ((printreports INNER JOIN tbl_purokrecords ON printreports.purok_id = tbl_purokrecords.purok_id) INNER JOIN tbl_residentrecords ON printreports.rr_id = tbl_residentrecords.rr_id) ORDER BY printreports.pr_id ASC;");
 
+        p_table.setModel(DbUtils.resultSetToTableModel(rs));
+
+    } catch (SQLException ex) {
+        System.out.println("Error Message: " + ex);
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,7 +94,7 @@ DefaultTableModel model;
         jLabel24 = new javax.swing.JLabel();
         db4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        printreport = new javax.swing.JTable();
+        p_table = new javax.swing.JTable();
         print = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -102,12 +120,12 @@ DefaultTableModel model;
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, 50));
 
-        printreport.addMouseListener(new java.awt.event.MouseAdapter() {
+        p_table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                printreportMouseClicked(evt);
+                p_tableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(printreport);
+        jScrollPane1.setViewportView(p_table);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 850, 320));
 
@@ -212,10 +230,10 @@ DefaultTableModel model;
         double width = pageFormat.getImageableWidth() - 2 * margin;
         double height = pageFormat.getImageableHeight() - 2 * margin;
 
-        printreport.setSize((int) width, (int) height);
+        p_table.setSize((int) width, (int) height);
 
         try {
-            printreport.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+            p_table.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (PrinterException e) {
             System.err.format("Printer error: %s%n", e.getMessage());
         }
@@ -231,9 +249,9 @@ DefaultTableModel model;
     }//GEN-LAST:event_printMouseExited
 
     private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
-        DefaultTableModel model = (DefaultTableModel) printreport.getModel();
+        DefaultTableModel model = (DefaultTableModel) p_table.getModel();
         TableRowSorter<DefaultTableModel> obj  = new TableRowSorter<>(model);
-        printreport.setRowSorter(obj);
+        p_table.setRowSorter(obj);
         obj.setRowFilter(RowFilter.regexFilter(search1.getText()));
     }//GEN-LAST:event_searchMouseClicked
 
@@ -245,9 +263,9 @@ DefaultTableModel model;
         search.setBackground(headcolor);
     }//GEN-LAST:event_searchMouseExited
 
-    private void printreportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printreportMouseClicked
+    private void p_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_tableMouseClicked
         
-    }//GEN-LAST:event_printreportMouseClicked
+    }//GEN-LAST:event_p_tableMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
@@ -274,8 +292,8 @@ DefaultTableModel model;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable p_table;
     private javax.swing.JPanel print;
-    private javax.swing.JTable printreport;
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
     // End of variables declaration//GEN-END:variables

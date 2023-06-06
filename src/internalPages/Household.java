@@ -56,27 +56,16 @@ public class Household extends javax.swing.JInternalFrame {
         bi.setNorthPane(null);
     }
     
-    public void filter(String qry ){
-             model = (DefaultTableModel) tbl_household.getModel();
-             TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-             tbl_household.setRowSorter(trs);
-       
-             if(qry =="ALL"){
-                tbl_household.setRowSorter(trs);
-             }else{
-                trs.setRowFilter(RowFilter.regexFilter(qry));
-             }
-       
-        }
+    
         
 
         public void displayData(){
         try{
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT hh_id, hh_houseno, hh_lastname, hh_firstname, hh_status, hh_occupation, hh_contact FROM tbl_householdrecords");
+            ResultSet rs = dbc.getData("SELECT purok_id, purok FROM tbl_purokrecords");
             tbl_household.setModel(DbUtils.resultSetToTableModel(rs));
             DefaultTableModel model = (DefaultTableModel) tbl_household.getModel();
-            String[] columnIdentifiers = {"ID", "House No.", "Lastname", "Firstname", "Status", "Occupation", "Contact"};
+            String[] columnIdentifiers = {"ID", "Purok"};
             model.setColumnIdentifiers(columnIdentifiers);
             
              rs.close();
@@ -373,46 +362,20 @@ public class Household extends javax.swing.JInternalFrame {
         try {
            
         dbconfiguration dbc = new dbconfiguration();
-        ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id = '" + hid + "'");
+        ResultSet rs = dbc.getData("SELECT * FROM tbl_purokrecords WHERE purok_id = '" + hid + "'");
 
         if (rs.next()) {
-            em.houseno.setText(rs.getString("hh_houseno"));
-            em.lastname.setText(rs.getString("hh_lastname"));
-            em.firstname.setText(rs.getString("hh_firstname"));          
-            em.spouse.setText(rs.getString("hh_spouse"));
-            em.gender = rs.getString("hh_gender");
-
-            String gend = rs.getString("hh_gender");
-
-            if (gend.equals("Male")) {
-                em.male.setSelected(true);
-            } else if (gend.equals("Female")) {
-                em.female.setSelected(true);
-            }
-
-            em.status.setSelectedItem(rs.getString("hh_status"));
-            em.birthdate.setText(rs.getString("hh_birthdate"));
-            em.address.setText(rs.getString("hh_address"));
-            em.occupation.setText(rs.getString("hh_occupation"));
-            em.contact.setText(rs.getString("hh_contact"));
-            em.numbers.setSelectedItem(rs.getString("hh_children"));
+          
+            em.purok.setText(rs.getString("purok"));
             
-
-            em.image.setIcon(em.ResizeImage(rs.getString("hh_image"), null, em.image));
-            em.oldpath = rs.getString("hh_image");
-            
-                em.setVisible(true);
-                em.action = "Update";
-                em.st_label1.setText("UPDATE");
-                em.remove.setText("REMOVE");
+            em.setVisible(true);
+            em.action = "Update";
+            em.st_label1.setText("UPDATE");
+                
                 JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
                 mainFrame.dispose();
         
-            if(rs.getString("hh_image").isEmpty()){
-                    em.remove.setVisible(false);
-                }else{
-                    em.remove.setVisible(true);
-                }
+
             }
         
     } catch (SQLException e) {
@@ -429,7 +392,7 @@ public class Household extends javax.swing.JInternalFrame {
         mh.setVisible(true);
         mh.action = "Add";
         mh.st_label1.setText("SAVE");
-        mh.remove.setVisible(false);
+        
     }//GEN-LAST:event_addMouseClicked
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
@@ -445,23 +408,8 @@ public class Household extends javax.swing.JInternalFrame {
                 dbconfiguration dbc = new dbconfiguration();
                 int hh_id = Integer.parseInt(id);
                 
-                
-                try{
-               ResultSet rs = dbc.getData("SELECT * FROM tbl_householdrecords WHERE hh_id ="+id);
-                
-                    if(rs.next()){
-                       AddEditHousehold mh = new AddEditHousehold();
-                       String oldpath = rs.getString("hh_image");
-                       File existingFile = new File(oldpath);
-                        if (existingFile.exists()) {
-                            existingFile.delete();
-                        }         
-                   }
-                }catch(SQLException e){
-                    System.out.println("Error !");
-                }
-                
-                dbc.deleteData(hh_id, "tbl_householdrecords", "hh_id");
+                             
+                dbc.deleteData(hh_id, "tbl_purokrecords", "purok_id");
                 displayData();
             }
         }

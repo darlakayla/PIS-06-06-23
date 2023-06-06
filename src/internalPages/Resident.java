@@ -57,10 +57,10 @@ public class Resident extends javax.swing.JInternalFrame {
     public void displayData(){
         try{
             dbconfiguration dbc = new dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT rr_id, rr_purokname, rr_lastname, rr_firstname, rr_contact, rr_occupation FROM tbl_residentrecords");
+            ResultSet rs = dbc.getData("SELECT rr_id,  rr_lastname, rr_firstname, rr_contact, rr_occupation FROM tbl_residentrecords");
             tbl_priority.setModel(DbUtils.resultSetToTableModel(rs));
             DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
-            String[] columnIdentifiers = {"ID", "Purok", "Lastname", "Firstname", "Contact", "Occupation"};
+            String[] columnIdentifiers = {"ID", "Lastname", "Firstname", "Contact", "Occupation"};
             model.setColumnIdentifiers(columnIdentifiers);
             
              rs.close();
@@ -408,7 +408,7 @@ public class Resident extends javax.swing.JInternalFrame {
         ResultSet rs = dbc.getData("SELECT * FROM tbl_residentrecords WHERE rr_id = '" + hid + "'");
 
         if (rs.next()) {
-            mr.purokname.setText(rs.getString("rr_purokname"));
+            
             mr.lastname.setText(rs.getString("rr_lastname"));
             mr.firstname.setText(rs.getString("rr_firstname"));          
             mr.address.setText(rs.getString("rr_address"));

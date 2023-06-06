@@ -5,6 +5,16 @@
  */
 package internalPages;
 
+import config.dbconfiguration;
+import config.login_db;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -18,12 +28,135 @@ public class manageHousehold extends javax.swing.JInternalFrame {
      */
     public manageHousehold() {
         initComponents();
-        
+        initialize();
+        combo();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
+   public void initialize() {
+//        String name = "";
+//        try {
+//            PreparedStatement ps;
+//            String query = "SELECT * FROM customer_tbl";
+//            ps = login_db.getConnection().prepareStatement(query);
+//            ResultSet rs;
+//            rs = ps.executeQuery();
+//            while (rs.next()) {
+//
+//                name = rs.getString("c_name");
+//
+//            }
+//            jComboBox1.addItem(name);
+//        } catch (SQLException ex) {
+//        }
+        try {
+    String name = " ";
+    dbconfiguration dbc = new dbconfiguration();
+    ResultSet rs = dbc.getData("SELECT * FROM tbl_purokrecords");
 
+    while (rs.next()) {
+        name = rs.getString("purok_id");
+        combo1.addItem(name);
+    }
+
+    combo1.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            String selectedId = (String) combo1.getSelectedItem();
+            String purokName = lookupCustomerName(selectedId);
+
+            purokname.setText(purokName);
+        }
+
+        private String lookupCustomerName(String selectedId) {
+            // Implement the database lookup logic here
+            String lookupCustomerName = null;
+            try {
+                dbconfiguration db = new dbconfiguration();
+                ResultSet rs = dbc.getData("SELECT purok FROM tbl_purokrecords WHERE purok_id = '" + selectedId + "'");
+                if (rs.next()) {
+                    lookupCustomerName = rs.getString("purok");
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error Message: " + ex);
+            }
+            return lookupCustomerName;
+        }
+
+    });
+
+} catch (SQLException ex) {
+    System.out.println("Error Message: " + ex);
+}
+    }
+   
+   public void combo() {
+//        String name = "";
+//        try {
+//            PreparedStatement ps;
+//            String query = "SELECT * FROM customer_tbl";
+//            ps = login_db.getConnection().prepareStatement(query);
+//            ResultSet rs;
+//            rs = ps.executeQuery();
+//            while (rs.next()) {
+//
+//                name = rs.getString("c_name");
+//
+//            }
+//            jComboBox1.addItem(name);
+//        } catch (SQLException ex) {
+//        }
+        try {
+    String name = " ";
+    dbconfiguration dbc = new dbconfiguration();
+    ResultSet rs = dbc.getData("SELECT * FROM tbl_residentrecords");
+
+    while (rs.next()) {
+        name = rs.getString("rr_id");
+        combo2.addItem(name);
+    }
+
+    combo2.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            String selectedId = (String) combo2.getSelectedItem();
+            String purokName = lookupCustomerName(selectedId);
+
+            rn.setText(purokName);
+        }
+
+        private String lookupCustomerName(String selectedId) {
+            // Implement the database lookup logic here
+            String lookupCustomerName = null;
+            try {
+                dbconfiguration db = new dbconfiguration();
+                ResultSet rs = dbc.getData("SELECT rr_lastname FROM tbl_residentrecords WHERE rr_id = '" + selectedId + "'");
+                if (rs.next()) {
+                    lookupCustomerName = rs.getString("rr_lastname");
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error Message: " + ex);
+            }
+            return lookupCustomerName;
+        }
+
+    });
+
+} catch (SQLException ex) {
+    System.out.println("Error Message: " + ex);
+}
+    }
+   
+       public void reset() {
+
+        purokname.setText("");
+       rn.setText("");
+        hn.setText("");
+        fm.setText("");
+      
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,37 +168,29 @@ public class manageHousehold extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         db = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        purokname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        hn = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        fm = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        rn = new javax.swing.JTextField();
+        combo1 = new javax.swing.JComboBox<>();
+        combo2 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel3.setText("Household ID:");
+        jLabel3.setText("Purok ID:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(20, 100, 120, 30);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(140, 100, 240, 30);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,66 +210,56 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jLabel4.setText("Purok Name:");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(20, 140, 120, 30);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(140, 140, 240, 30);
+        jPanel1.add(purokname);
+        purokname.setBounds(140, 140, 240, 30);
 
         jLabel5.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel5.setText("Resident ID:");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(20, 180, 120, 30);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(140, 320, 240, 30);
-
         jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel6.setText("Resident Names:");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(20, 220, 120, 30);
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(140, 220, 240, 30);
+        jPanel1.add(hn);
+        hn.setBounds(140, 260, 240, 30);
 
         jLabel8.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel8.setText("Family Member:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(20, 400, 120, 30);
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(140, 400, 240, 30);
-
-        jLabel10.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel10.setText("Gender:");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(20, 280, 120, 30);
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox3);
-        jComboBox3.setBounds(140, 180, 240, 30);
-
-        jRadioButton1.setText("FEMALE");
-        jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(260, 280, 120, 30);
-
-        jRadioButton2.setText("MALE");
-        jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(140, 280, 110, 30);
+        jLabel8.setBounds(20, 300, 120, 30);
+        jPanel1.add(fm);
+        fm.setBounds(140, 300, 240, 30);
 
         jLabel11.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel11.setText("Status:");
+        jLabel11.setText("House Number:");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(20, 320, 120, 30);
+        jLabel11.setBounds(20, 260, 120, 30);
+        jPanel1.add(rn);
+        rn.setBounds(140, 220, 240, 30);
 
-        jLabel12.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel12.setText("Occupation:");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(20, 360, 120, 30);
-        jPanel1.add(jTextField6);
-        jTextField6.setBounds(140, 360, 240, 30);
+        jPanel1.add(combo1);
+        combo1.setBounds(140, 100, 200, 30);
+
+        jPanel1.add(combo2);
+        combo2.setBounds(140, 180, 200, 30);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("ADD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(190, 343, 90, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,15 +269,49 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          String pid = combo1.getSelectedItem().toString();
+          String rid = combo2.getSelectedItem().toString();
+          String house = hn.getText();
+          String fam = fm.getText();
+
+        if (house.equals("") ||fm.equals("")) {
+            JOptionPane.showMessageDialog(null, "All Fields Are Required!");
+        } else {
+            PreparedStatement ps;
+            ResultSet rs;
+            String registerUserQuery = "INSERT INTO printreports(purok_id, rr_id, h_num, fam_mem) VALUES (?,?,?,?)";
+
+            try {
+                ps = login_db.getConnection().prepareStatement(registerUserQuery);
+                ps.setString(1, pid);
+                ps.setString(2, rid);
+                ps.setString(3, house);
+                ps.setString(4, fam);
+              
+                if (ps.executeUpdate() > 0) {
+                    JOptionPane.showMessageDialog(null, "Add Successfully");
+                       
+                    reset();
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error: Check Your Information");
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> combo1;
+    private javax.swing.JComboBox<String> combo2;
     private javax.swing.JLabel db;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JTextField fm;
+    private javax.swing.JTextField hn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -171,11 +320,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField purokname;
+    private javax.swing.JTextField rn;
     // End of variables declaration//GEN-END:variables
 }

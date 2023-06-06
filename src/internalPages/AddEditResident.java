@@ -1,7 +1,6 @@
 package internalPages;
 
 import config.dbconfiguration;
-import static internalPages.AddEditHousehold.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -166,8 +165,6 @@ public class AddEditResident extends javax.swing.JFrame {
         occupation = new javax.swing.JTextField();
         add1 = new javax.swing.JPanel();
         st_label = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        purokname = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         image1 = new javax.swing.JLabel();
@@ -229,7 +226,7 @@ public class AddEditResident extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setText("Lastname:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 200, 120, 30);
+        jLabel4.setBounds(30, 150, 120, 30);
 
         lastname.setBackground(new java.awt.Color(255, 153, 153));
         lastname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -239,12 +236,12 @@ public class AddEditResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lastname);
-        lastname.setBounds(150, 200, 350, 30);
+        lastname.setBounds(150, 150, 350, 30);
 
         jLabel5.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel5.setText("Firstname:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 250, 120, 30);
+        jLabel5.setBounds(30, 200, 120, 30);
 
         firstname.setBackground(new java.awt.Color(255, 153, 153));
         firstname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
@@ -254,12 +251,12 @@ public class AddEditResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(firstname);
-        firstname.setBounds(150, 250, 350, 30);
+        firstname.setBounds(150, 200, 350, 30);
 
         jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel6.setText("Address:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(30, 300, 120, 30);
+        jLabel6.setBounds(30, 250, 120, 30);
 
         address.setBackground(new java.awt.Color(255, 153, 153));
         address.setColumns(20);
@@ -268,17 +265,17 @@ public class AddEditResident extends javax.swing.JFrame {
         jScrollPane1.setViewportView(address);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(150, 300, 350, 110);
+        jScrollPane1.setBounds(150, 250, 350, 110);
 
         jLabel7.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel7.setText("Status:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(30, 420, 110, 30);
+        jLabel7.setBounds(30, 370, 110, 30);
 
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel2.setText("Gender:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 460, 110, 30);
+        jLabel2.setBounds(30, 410, 110, 30);
 
         jLabel8.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel8.setText("Contact No:");
@@ -298,7 +295,7 @@ public class AddEditResident extends javax.swing.JFrame {
         status.setBackground(new java.awt.Color(255, 153, 153));
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Widowed", "Divorced", "Separated" }));
         jPanel1.add(status);
-        status.setBounds(150, 420, 350, 30);
+        status.setBounds(150, 370, 350, 30);
 
         male.setBackground(new java.awt.Color(255, 153, 153));
         male.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -309,7 +306,7 @@ public class AddEditResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(male);
-        male.setBounds(150, 460, 150, 30);
+        male.setBounds(150, 410, 150, 30);
 
         female.setBackground(new java.awt.Color(255, 153, 153));
         female.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -320,7 +317,7 @@ public class AddEditResident extends javax.swing.JFrame {
             }
         });
         jPanel1.add(female);
-        female.setBounds(340, 460, 160, 30);
+        female.setBounds(340, 410, 160, 30);
 
         jLabel10.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel10.setText("Email:");
@@ -373,21 +370,6 @@ public class AddEditResident extends javax.swing.JFrame {
 
         jPanel1.add(add1);
         add1.setBounds(930, 470, 100, 30);
-
-        jLabel12.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel12.setText("Purok Name:");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(30, 150, 120, 30);
-
-        purokname.setBackground(new java.awt.Color(255, 153, 153));
-        purokname.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
-        purokname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                puroknameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(purokname);
-        purokname.setBounds(150, 150, 350, 30);
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -498,10 +480,7 @@ public class AddEditResident extends javax.swing.JFrame {
 
     private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
 
-       if (purokname.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please type your Resident Name!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }else if(lastname.getText().trim().isEmpty()) {
+        if(lastname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }else if(firstname.getText().trim().isEmpty()) {
@@ -539,18 +518,18 @@ public class AddEditResident extends javax.swing.JFrame {
            int result=0;
            try{
             
-            String sql = "INSERT INTO tbl_residentrecords (rr_purokname, rr_lastname, rr_firstname, rr_address, rr_status, rr_gender, rr_contact, rr_email, rr_occupation, rr_image) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO tbl_residentrecords ( rr_lastname, rr_firstname, rr_address, rr_status, rr_gender, rr_contact, rr_email, rr_occupation, rr_image) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, purokname.getText());
-            pst.setString(2, lastname.getText());
-            pst.setString(3, firstname.getText());
-            pst.setString(4, address.getText());
-            pst.setString(6, status.getSelectedItem().toString());
+           
+            pst.setString(1, lastname.getText());
+            pst.setString(2, firstname.getText());
+            pst.setString(3, address.getText());
+            pst.setString(4, status.getSelectedItem().toString());
             pst.setString(5, gender);                   
-            pst.setString(7, contact.getText());
-            pst.setString(8, email.getText());
-            pst.setString(9, occupation.getText());         
-            pst.setString(10, destination);
+            pst.setString(6, contact.getText());
+            pst.setString(7, email.getText());
+            pst.setString(8, occupation.getText());         
+            pst.setString(9, destination);
             
             pst.execute();
             result = 1;
@@ -568,18 +547,17 @@ public class AddEditResident extends javax.swing.JFrame {
        }else if(action.equals("Update")){
            dbconfiguration dbc = new dbconfiguration();
            try{
-           String sql = "UPDATE tbl_residentrecords SET rr_purokname = ?, rr_lastname = ?, rr_firstname = ?, rr_address = ?, rr_status = ?, rr_gender = ?, rr_contact = ?, rr_email = ?, rr_occupation = ?,  rr_image = ?  WHERE rr_id = '"+id.getText()+"'";
-           PreparedStatement pst = dbc.connection.prepareStatement(sql);
-            pst.setString(1, purokname.getText());
-            pst.setString(2, firstname.getText());
-            pst.setString(3, lastname.getText());
-            pst.setString(4, address.getText());
-            pst.setString(5, status.getSelectedItem().toString());
-            pst.setString(6, gender);
-            pst.setString(7, contact.getText());        
-            pst.setString(8, email.getText());
-            pst.setString(9, occupation.getText());
-            pst.setString(10, destination);
+           String sql = "UPDATE tbl_residentrecords SET  rr_lastname = ?, rr_firstname = ?, rr_address = ?, rr_status = ?, rr_gender = ?, rr_contact = ?, rr_email = ?, rr_occupation = ?,  rr_image = ?  WHERE rr_id = '"+id.getText()+"'";
+           PreparedStatement pst = dbc.connection.prepareStatement(sql);        
+            pst.setString(1, firstname.getText());
+            pst.setString(2, lastname.getText());
+            pst.setString(3, address.getText());
+            pst.setString(4, status.getSelectedItem().toString());
+            pst.setString(5, gender);
+            pst.setString(6, contact.getText());        
+            pst.setString(7, email.getText());
+            pst.setString(8, occupation.getText());
+            pst.setString(9, destination);
             pst.execute();
            close();
 
@@ -600,10 +578,6 @@ public class AddEditResident extends javax.swing.JFrame {
        }
          
     }//GEN-LAST:event_add1MouseClicked
-
-    private void puroknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puroknameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_puroknameActionPerformed
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         remove.setVisible(false);
@@ -695,7 +669,6 @@ public class AddEditResident extends javax.swing.JFrame {
     public javax.swing.JLabel image1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -712,7 +685,6 @@ public class AddEditResident extends javax.swing.JFrame {
     public javax.swing.JRadioButton male;
     private javax.swing.JLabel minimize;
     public javax.swing.JTextField occupation;
-    public javax.swing.JTextField purokname;
     public javax.swing.JLabel remove;
     public javax.swing.JLabel st_label;
     public javax.swing.JComboBox<String> status;
