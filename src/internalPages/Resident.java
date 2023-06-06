@@ -123,8 +123,6 @@ public class Resident extends javax.swing.JInternalFrame {
         print = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        total = new javax.swing.JLabel();
-        filter = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -321,22 +319,6 @@ public class Resident extends javax.swing.JInternalFrame {
 
         jPanel1.add(print);
         print.setBounds(530, 120, 120, 40);
-        jPanel1.add(total);
-        total.setBounds(150, 80, 70, 30);
-
-        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"All", "Tagbuag-tubig", "Centro", "Ilaya","Argonex","Cambaje","Upper","Kapolinar"}));
-        filter.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                filterItemStateChanged(evt);
-            }
-        });
-        filter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                filterActionPerformed(evt);
-            }
-        });
-        jPanel1.add(filter);
-        filter.setBounds(10, 80, 240, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -530,15 +512,6 @@ public class Resident extends javax.swing.JInternalFrame {
         print.setBackground(headcolor);
     }//GEN-LAST:event_printMouseExited
 
-    private void filterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterItemStateChanged
-        String qry = filter.getSelectedItem().toString();
-        filter(qry);
-    }//GEN-LAST:event_filterItemStateChanged
-
-    private void filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_filterActionPerformed
-
     private void archiveAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_archiveAncestorAdded
         
     }//GEN-LAST:event_archiveAncestorAdded
@@ -550,7 +523,6 @@ public class Resident extends javax.swing.JInternalFrame {
     private javax.swing.JLabel db;
     private javax.swing.JPanel delete;
     private javax.swing.JPanel edit;
-    private javax.swing.JComboBox<String> filter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -570,6 +542,5 @@ public class Resident extends javax.swing.JInternalFrame {
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
     private javax.swing.JTable tbl_priority;
-    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }
