@@ -43,7 +43,7 @@ public class dbPage extends javax.swing.JInternalFrame {
               
           residentno.setText(String.valueOf(count));  
           }
-           st = con.prepareStatement("SELECT COUNT(*) FROM tbl_householdrecords");
+           st = con.prepareStatement("SELECT COUNT(*) FROM tbl_purokrecords");
            rs = st.executeQuery();
            while (rs.next()){
               int count = rs.getInt(1);

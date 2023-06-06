@@ -186,16 +186,14 @@ public class AddEditHousehold extends javax.swing.JFrame {
          if(purok.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Purok!", "Error", JOptionPane.ERROR_MESSAGE);
             return;            
-        }
-        
-        
+        }  
              
        if(action.equals("Add")){
            dbconfiguration dbc = new dbconfiguration();
            int result=0;
            try{
             
-            String sql = "INSERT INTO tbl_purokrecords (purok) VALUES (?,?)";
+            String sql = "INSERT INTO tbl_purokrecords (purok) VALUES (?)";
             PreparedStatement pst = dbc.connection.prepareStatement(sql);       
             pst.setString(1, purok.getText());
              

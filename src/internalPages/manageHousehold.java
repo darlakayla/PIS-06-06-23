@@ -190,7 +190,7 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel3.setText("Purok ID:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 100, 120, 30);
+        jLabel3.setBounds(10, 110, 130, 40);
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -209,43 +209,44 @@ public class manageHousehold extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setText("Purok Name:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 140, 120, 30);
+        jLabel4.setBounds(10, 170, 130, 40);
         jPanel1.add(purokname);
-        purokname.setBounds(140, 140, 240, 30);
+        purokname.setBounds(140, 170, 280, 40);
 
         jLabel5.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel5.setText("Resident ID:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 180, 120, 30);
+        jLabel5.setBounds(10, 230, 130, 40);
 
         jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel6.setText("Resident Names:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 220, 120, 30);
+        jLabel6.setBounds(10, 290, 120, 30);
         jPanel1.add(hn);
-        hn.setBounds(140, 260, 240, 30);
+        hn.setBounds(140, 350, 280, 40);
 
         jLabel8.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel8.setText("Family Member:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(20, 300, 120, 30);
+        jLabel8.setBounds(450, 110, 130, 40);
         jPanel1.add(fm);
-        fm.setBounds(140, 300, 240, 30);
+        fm.setBounds(580, 110, 280, 40);
 
         jLabel11.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel11.setText("House Number:");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(20, 260, 120, 30);
+        jLabel11.setBounds(10, 350, 130, 40);
         jPanel1.add(rn);
-        rn.setBounds(140, 220, 240, 30);
+        rn.setBounds(140, 290, 280, 40);
 
         jPanel1.add(combo1);
-        combo1.setBounds(140, 100, 200, 30);
+        combo1.setBounds(140, 110, 280, 40);
 
         jPanel1.add(combo2);
-        combo2.setBounds(140, 180, 200, 30);
+        combo2.setBounds(140, 230, 280, 40);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jButton1.setText("ADD");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,13 +254,13 @@ public class manageHousehold extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(190, 343, 90, 30);
+        jButton1.setBounds(740, 170, 110, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

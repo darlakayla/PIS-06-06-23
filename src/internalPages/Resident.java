@@ -105,8 +105,6 @@ public class Resident extends javax.swing.JInternalFrame {
         search = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        archive = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -121,8 +119,8 @@ public class Resident extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         print = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -165,37 +163,6 @@ public class Resident extends javax.swing.JInternalFrame {
 
         jPanel1.add(search);
         search.setBounds(730, 50, 130, 40);
-
-        archive.setBackground(new java.awt.Color(255, 153, 153));
-        archive.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                archiveAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        archive.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                archiveMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                archiveMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                archiveMouseExited(evt);
-            }
-        });
-        archive.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("ARCHIVE");
-        archive.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
-
-        jPanel1.add(archive);
-        archive.setBounds(400, 120, 120, 40);
 
         edit.setBackground(new java.awt.Color(255, 153, 153));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,17 +275,17 @@ public class Resident extends javax.swing.JInternalFrame {
         });
         print.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
-        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
-
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("PRINT");
         print.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 80, 40));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/print1 (1).png"))); // NOI18N
+        print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
         jPanel1.add(print);
-        print.setBounds(530, 120, 120, 40);
+        print.setBounds(740, 120, 120, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,18 +321,6 @@ public class Resident extends javax.swing.JInternalFrame {
         tbl_priority.setRowSorter(obj);
         obj.setRowFilter(RowFilter.regexFilter(search1.getText()));    
     }//GEN-LAST:event_searchMouseClicked
-
-    private void archiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseClicked
-        displayData(); 
-    }//GEN-LAST:event_archiveMouseClicked
-
-    private void archiveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseEntered
-        archive.setBackground(navcolor);
-    }//GEN-LAST:event_archiveMouseEntered
-
-    private void archiveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveMouseExited
-        archive.setBackground(headcolor);
-    }//GEN-LAST:event_archiveMouseExited
 
     private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
         edit.setBackground(navcolor);
@@ -512,14 +467,9 @@ public class Resident extends javax.swing.JInternalFrame {
         print.setBackground(headcolor);
     }//GEN-LAST:event_printMouseExited
 
-    private void archiveAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_archiveAncestorAdded
-        
-    }//GEN-LAST:event_archiveAncestorAdded
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
-    private javax.swing.JPanel archive;
     private javax.swing.JLabel db;
     private javax.swing.JPanel delete;
     private javax.swing.JPanel edit;
@@ -527,7 +477,6 @@ public class Resident extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;

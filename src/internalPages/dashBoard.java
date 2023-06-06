@@ -169,7 +169,7 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("RESIDENT");
-        resident.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 40));
+        resident.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 50));
 
         db.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         db.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/resrec (1).png"))); // NOI18N
@@ -204,7 +204,7 @@ public class dashBoard extends javax.swing.JFrame {
         db2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsFolder/home (1).png"))); // NOI18N
         managehousehold.add(db2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
 
-        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 200, 50));
+        navbar.add(managehousehold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 50));
 
         jLabel10.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

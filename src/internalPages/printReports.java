@@ -128,7 +128,7 @@ DefaultTableModel model;
         });
         jScrollPane1.setViewportView(p_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 850, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 850, 320));
 
         print.setBackground(new java.awt.Color(255, 153, 153));
         print.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,9 +156,9 @@ DefaultTableModel model;
         jLabel14.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("PRINT REPORT");
-        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 40));
+        print.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 120, 40));
 
-        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 170, 40));
+        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 170, 40));
 
         search.setBackground(new java.awt.Color(255, 153, 153));
         search.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,13 +181,13 @@ DefaultTableModel model;
         jLabel17.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("SEARCH");
-        search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 70, 40));
+        search.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 70, 40));
 
-        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 120, 40));
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 120, 40));
 
         search1.setBackground(new java.awt.Color(255, 204, 204));
         search1.setFont(new java.awt.Font("Baskerville Old Face", 0, 16)); // NOI18N
-        jPanel1.add(search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 240, 40));
+        jPanel1.add(search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 240, 40));
 
         filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"All", "Tagbuag-tubig", "Centro", "Ilaya","Argonex","Cambaje","Upper","Kapolinar"}));
         filter.addItemListener(new java.awt.event.ItemListener() {
@@ -200,7 +200,7 @@ DefaultTableModel model;
                 filterActionPerformed(evt);
             }
         });
-        jPanel1.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 250, 30));
+        jPanel1.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 250, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("FILTERED:");
