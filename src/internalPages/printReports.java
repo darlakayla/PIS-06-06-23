@@ -103,6 +103,7 @@ DefaultTableModel model;
         jLabel17 = new javax.swing.JLabel();
         search1 = new javax.swing.JTextField();
         filter = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -199,7 +200,11 @@ DefaultTableModel model;
                 filterActionPerformed(evt);
             }
         });
-        jPanel1.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 250, 30));
+        jPanel1.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 250, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("FILTERED:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -289,6 +294,7 @@ DefaultTableModel model;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
