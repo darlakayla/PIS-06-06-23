@@ -7,6 +7,8 @@ package internalPages;
 
 import config.dbconfiguration;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
 import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
@@ -14,7 +16,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -44,6 +51,8 @@ public class Resident extends javax.swing.JInternalFrame {
      */
     public Resident() {
         initComponents();
+       
+        
         displayData();
   
         
@@ -121,6 +130,8 @@ public class Resident extends javax.swing.JInternalFrame {
         print = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        area1 = new javax.swing.JTextArea();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
@@ -136,7 +147,7 @@ public class Resident extends javax.swing.JInternalFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 170, 860, 300);
+        jScrollPane1.setBounds(10, 170, 480, 300);
 
         search.setBackground(new java.awt.Color(255, 153, 153));
         search.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -285,7 +296,14 @@ public class Resident extends javax.swing.JInternalFrame {
         print.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(print);
-        print.setBounds(740, 120, 120, 40);
+        print.setBounds(720, 120, 120, 40);
+
+        area1.setColumns(20);
+        area1.setRows(5);
+        jScrollPane2.setViewportView(area1);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(510, 170, 340, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,7 +322,51 @@ public class Resident extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbl_priorityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_priorityMouseClicked
-        
+        int selectedRow = tbl_priority.getSelectedRow();
+
+    if (selectedRow != -1) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) tbl_priority.getModel();
+            int columnCount = model.getColumnCount();
+            StringBuilder rowData = new StringBuilder();
+
+            // Append data for selected row
+             String[] columnHeaders = {"ID", "Lastname", "Firstname", "Contact", "Occupation"};
+            String[] rowDataValues = new String[columnCount];
+
+            for (int column = 0; column < columnCount; column++) {
+                rowDataValues[column] = model.getValueAt(selectedRow, column).toString();
+            }
+
+            String header = "PUROK INFORMATION SYSTEM\n\n";
+            
+            String details = "Resident Details:\n\n\n";
+            rowData.append(header);
+            rowData.append(details);
+
+            for (int i = 0; i < columnHeaders.length; i++) {
+                rowData.append(columnHeaders[i]).append(": ").append(rowDataValues[i]).append("\n");
+                rowData.append("\n"); // Add spacing after each detail
+            }
+          
+            area1.setText(rowData.toString());
+
+            // Center align the text in the JTextArea
+            area1.setAlignmentX(Component.CENTER_ALIGNMENT);
+            area1.setAlignmentY(Component.CENTER_ALIGNMENT);
+
+            // Set the font style and size
+            Font font = new Font("Times New Roman", Font.PLAIN, 13);
+            area1.setFont(font);
+           
+            // Print the JTextArea content
+          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "No row selected.");
+    }
     }//GEN-LAST:event_tbl_priorityMouseClicked
 
     private void searchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseEntered
@@ -435,28 +497,11 @@ public class Resident extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_deleteMouseClicked
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-       MessageFormat header = new MessageFormat("RESIDENT INFORMATION");
-       MessageFormat footer = new MessageFormat("Page {0, number, integer}");
-
-       PrinterJob printerJob = PrinterJob.getPrinterJob();
-
-       if (printerJob.printDialog()) {
-        PageFormat pageFormat = printerJob.defaultPage();
-        pageFormat.setOrientation(PageFormat.LANDSCAPE);
-
-        // Set the page margins to fit the entire table on one page
-        double margin = 36; // 1 inch margin
-        double width = pageFormat.getImageableWidth() - 2 * margin;
-        double height = pageFormat.getImageableHeight() - 2 * margin;
-
-        tbl_priority.setSize((int) width, (int) height);
-
-        try {
-            tbl_priority.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        } catch (PrinterException e) {
-            System.err.format("Printer error: %s%n", e.getMessage());
-        }
-    }
+       try {
+            area1.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(Resident.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
@@ -470,6 +515,7 @@ public class Resident extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
+    private javax.swing.JTextArea area1;
     private javax.swing.JLabel db;
     private javax.swing.JPanel delete;
     private javax.swing.JPanel edit;
@@ -487,6 +533,7 @@ public class Resident extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel print;
     private javax.swing.JPanel search;
     private javax.swing.JTextField search1;
